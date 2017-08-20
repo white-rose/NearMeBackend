@@ -14,22 +14,27 @@
  * limitations under the License.
  */
 
-package com.example.java.gettingstarted;
+package com.example.java.Services;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.Table;
 import com.notnoop.apns.APNS;
 import com.notnoop.apns.ApnsService;
 import model.Greeting;
 import model.Suggestion;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.management.Notification;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 public class HelloworldApplication {
@@ -97,5 +102,6 @@ public class HelloworldApplication {
 
     return  myList;
   }
+
 
 }

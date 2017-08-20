@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.java.gettingstarted;
+package com.example.java.Services;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
