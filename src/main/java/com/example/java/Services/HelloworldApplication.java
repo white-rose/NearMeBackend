@@ -16,25 +16,27 @@
 
 package com.example.java.Services;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-import com.amazonaws.services.dynamodbv2.document.Item;
-import com.amazonaws.services.dynamodbv2.document.Table;
+import com.google.gson.Gson;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.notnoop.apns.APNS;
 import com.notnoop.apns.ApnsService;
+import model.GooglePlaceResult;
 import model.Greeting;
 import model.Suggestion;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 public class HelloworldApplication {
@@ -70,7 +72,7 @@ public class HelloworldApplication {
   //UserID as parameter?
   public Greeting notification(@RequestParam(value="token") String deviceToken) {
       ApnsService service = APNS.newService()
-              .withCert("/Users/mrrobot/Code/getting-started-java/helloworld-springboot/src/main/resources/Certificates.p12", "Cabinboy23")
+              .withCert("/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12", "Cabinboy23")
               .withSandboxDestination()
               .build();
 
@@ -91,6 +93,47 @@ public class HelloworldApplication {
   public String getAllSuggestions (Model model) {
     model.addAttribute("suggestions", getSuggestions());
     return "jsonTemplate";
+  }
+
+  //API Key = AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0
+  @RequestMapping("/pull")
+  public String pull () {
+
+    GooglePlaceResult checkinLocation = new GooglePlaceResult();
+
+    JSONArray jsonArray = new JSONArray();
+    JSONObject jsonObject = new JSONObject();
+
+    try {
+      RestTemplate restTemplate = new RestTemplate();
+
+      StringBuilder stringBuilder = new StringBuilder();
+      String latitude, longitude, radius;
+      String APIkey = "AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0";
+
+      HttpResponse<String> response = Unirest.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
+              "location=37.779758, -122.404139" +
+              "&radius=31" +
+              "&key=AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0")
+              .header("cache-control", "no-cache")
+              .header("postman-token", "187d7feb-72b8-3e90-5874-44255f0b1dd5")
+              .asString();
+
+      jsonObject = new JSONObject(response.getBody());
+      jsonArray = (JSONArray) jsonObject.get("results");
+      String firstPlace = jsonArray.get(0).toString();
+      System.out.println(firstPlace);
+      Gson gson = new Gson();
+      checkinLocation = gson.fromJson(firstPlace, GooglePlaceResult.class);
+
+//    GooglePlaceResult result = (GooglePlaceResult) jsonArray.get(0);
+
+      System.out.println(response);
+    } catch (UnirestException ex) {
+      System.out.print(ex);
+    }
+
+    return jsonArray.toString();
   }
 
   public List getSuggestions() {

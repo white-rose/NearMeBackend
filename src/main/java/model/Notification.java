@@ -9,7 +9,4 @@ public class Notification {
 
     private HashMap aps;
 
-
-
-
 }

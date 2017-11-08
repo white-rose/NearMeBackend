@@ -10,25 +10,30 @@ import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import model.DetailedResponse;
+import model.GooglePlaceResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.PagedList;
 import org.springframework.social.facebook.api.Post;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.HashMap;
 import java.util.Map;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 public class Account {
@@ -47,11 +52,9 @@ public class Account {
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
 
-    public Account () {
+    private Logger logger = LoggerFactory.getLogger(Account.class);
 
-    }
-
-
+    public Account () {}
 
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
     public void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) {
@@ -83,6 +86,43 @@ public class Account {
 
         return result.toString();
     }
+
+    @RequestMapping("/checkNearby")
+    public String checkIn() throws JsonProcessingException {
+
+        long latitude, longitude;
+
+        final String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.892260,-84.491042&radius=1000&key=AIzaSyCSLA7M3BdjNuDVRMtvAq2LLcrkLbkDhE8";
+        RestTemplate restTemplate = new RestTemplate();
+        DetailedResponse result = restTemplate.getForObject(url, DetailedResponse.class);
+        GooglePlaceResult[] places = result.getPlaces();
+        System.out.print(places[0].getIcon());
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        String jsonPlaceString = mapper.writeValueAsString(places[0]);
+        logger.info("Results came back as " + jsonPlaceString);
+
+        return jsonPlaceString;
+    }
+
+    public static String getParamsString(Map<String, String> params)
+                throws UnsupportedEncodingException {
+            StringBuilder result = new StringBuilder();
+
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                result.append("=");
+                result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+                result.append("&");
+            }
+
+            String resultString = result.toString();
+            return resultString.length() > 0
+                    ? resultString.substring(0, resultString.length() - 1)
+                    : resultString;
+    }
+
 
     public void getFacebookData (Model model) {
         model.addAttribute("facebookProfile", facebook.userOperations().getUserProfile());

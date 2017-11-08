@@ -16,13 +16,13 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example.flex.gettingstarted</groupId>
-  <artifactId>helloworld-springboot</artifactId>
+  <groupId>com.crystal</groupId>
+  <artifactId>NearMe</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>helloworld-springboot</name>
-  <description>Demo project for Spring Boot</description>
+  <name>NearMe</name>
+  <description>Backend for IOS application</description>
 
   <properties>
     <java.version>1.8</java.version>
@@ -78,6 +78,23 @@
       <version>2.0.3.RELEASE</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>1.5.8.RELEASE</version>
+    </dependency>
+
+    <dependency>
+    <groupId>com.mashape.unirest</groupId>
+    <artifactId>unirest-java</artifactId>
+    <version>1.4.9</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.0</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -91,14 +108,24 @@
             <goals>
               <goal>repackage</goal>
             </goals>
+            <configuration>
+              <mainClass>com.example.java.Services.GCloud</mainClass>
+            </configuration>
           </execution>
         </executions>
       </plugin>
 <!-- START plugin -->
       <plugin>
-        <groupId>com.google.cloud.tools</groupId>
-        <artifactId>appengine-maven-plugin</artifactId>
-        <version>${appengine.maven.plugin}</version>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>gcloud-maven-plugin</artifactId>
+        <version>2.0.9.121.v20160815</version>
+        <configuration>
+          <gcloud_directory>/Users/nathannguyen/Documents/Code/google-cloud-sdk</gcloud_directory>
+          <!--<verbosity>debug</verbosity>-->
+          <!--<version>specific_version</version>-->
+          <!--<log_level>info</log_level>-->
+          <!--<max_module_instances>2</max_module_instances>-->
+        </configuration>
       </plugin>
 <!-- END plugin -->
     </plugins>

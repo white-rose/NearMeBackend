@@ -1,8 +1,12 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by mrrobot on 7/5/17.
  */
+
+@JsonIgnoreProperties( ignoreUnknown = true )
 public class Greeting {
 
     private final long id;

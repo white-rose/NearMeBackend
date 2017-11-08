@@ -1,2 +1,12 @@
 model/Suggestion.class
+model/Greeting.class
+model/GooglePlaceResult.class
 config/RestConfiguration.class
+model/Geometry.class
+model/Location.class
+model/placePhoto.class
+com/example/java/Services/Account.class
+model/DetailedResponse.class
+com/example/java/Services/GCloud.class
+com/example/java/Services/HelloworldApplication.class
+model/Notification.class
