@@ -54,6 +54,8 @@ public class Account {
 
     private Logger logger = LoggerFactory.getLogger(Account.class);
 
+    private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
+
     public Account () {}
 
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
@@ -72,6 +74,12 @@ public class Account {
         }
     }
 
+    @RequestMapping("/login")
+    public void login() {
+        System.out.print("User logging in");
+        //Login to Account
+    }
+
     @RequestMapping("/retrieveAccounts")
     public String retrieveAccounts () {
 
@@ -87,14 +95,22 @@ public class Account {
         return result.toString();
     }
 
-    @RequestMapping("/checkNearby")
-    public String checkIn() throws JsonProcessingException {
+    @RequestMapping("/checkNearby/latitude/{latitude}/longitude/{longitude}")
+    public String checkIn(@PathVariable String latitude, @PathVariable String longitude) throws JsonProcessingException {
 
-        long latitude, longitude;
+        final StringBuilder locationUrl = new StringBuilder();
+        locationUrl.append("https://maps.googleapis.com/maps/api/place/nearbysearch/json?")
+                   .append(String.valueOf(latitude))
+                   .append(",")
+                   .append(longitude)
+                   .append("&radius=1000&")
+                   .append("key" + this.apiKey);
 
-        final String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.892260,-84.491042&radius=1000&key=AIzaSyCSLA7M3BdjNuDVRMtvAq2LLcrkLbkDhE8";
+        Logger logger = LoggerFactory.getLogger(Account.class);
+        logger.info(locationUrl.toString());
+
         RestTemplate restTemplate = new RestTemplate();
-        DetailedResponse result = restTemplate.getForObject(url, DetailedResponse.class);
+        DetailedResponse result = restTemplate.getForObject(locationUrl.toString(), DetailedResponse.class);
         GooglePlaceResult[] places = result.getPlaces();
         System.out.print(places[0].getIcon());
 
@@ -106,21 +122,36 @@ public class Account {
         return jsonPlaceString;
     }
 
+    public void printAccounts(String allAccounts) {
+        System.out.println(allAccounts);
+    }
+
+    public void checkOthersNeary() {
+        //Pull People arround in the same bld, then radius
+        // Scan or Query?
+        ScanRequest scanRequest = new ScanRequest().withTableName("accounts");
+
+        ScanResult result = client.scan(scanRequest);
+        for (Map<String, AttributeValue> item : result.getItems()) {
+            
+        }
+    }
+
     public static String getParamsString(Map<String, String> params)
                 throws UnsupportedEncodingException {
-            StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder();
 
-            for (Map.Entry<String, String> entry : params.entrySet()) {
-                result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                result.append("=");
-                result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-                result.append("&");
-            }
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+            result.append("&");
+        }
 
-            String resultString = result.toString();
-            return resultString.length() > 0
-                    ? resultString.substring(0, resultString.length() - 1)
-                    : resultString;
+        String resultString = result.toString();
+        return resultString.length() > 0
+                ? resultString.substring(0, resultString.length() - 1)
+                : resultString;
     }
 
 
@@ -142,8 +173,6 @@ public class Account {
         } catch ( NoSuchAlgorithmException | InvalidKeySpecException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
 }

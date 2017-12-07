@@ -24,22 +24,18 @@ import com.notnoop.apns.APNS;
 import com.notnoop.apns.ApnsService;
 import model.GooglePlaceResult;
 import model.Greeting;
-import model.Suggestion;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-public class HelloworldApplication {
+public class HelloWorldApplication {
 
   private static final String template = "The device token is , %s!";
   private final AtomicLong counter = new AtomicLong();
@@ -88,13 +84,6 @@ public class HelloworldApplication {
     return new Greeting(counter.incrementAndGet(), String.format(template, deviceToken));
   }
 
-
-  @RequestMapping("/suggestions")
-  public String getAllSuggestions (Model model) {
-    model.addAttribute("suggestions", getSuggestions());
-    return "jsonTemplate";
-  }
-
   //API Key = AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0
   @RequestMapping("/pull")
   public String pull () {
@@ -135,16 +124,5 @@ public class HelloworldApplication {
 
     return jsonArray.toString();
   }
-
-  public List getSuggestions() {
-    Suggestion suggestion1 = new Suggestion("test", "test");
-    Suggestion suggestion2 = new Suggestion("test2", "test2");
-    Suggestion suggestion3 = new Suggestion("test3", "test3");
-
-    List<Suggestion> myList = Arrays.asList(suggestion1, suggestion2, suggestion3);
-
-    return  myList;
-  }
-
 
 }
