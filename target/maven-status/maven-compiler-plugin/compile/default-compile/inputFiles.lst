@@ -1,12 +1,13 @@
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/Geometry.java
-/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/Notification.java
+/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/placePhoto.java
-/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/DetailedResponse.java
-/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/com/example/java/Services/HelloworldApplication.java
+/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/com/example/java/Services/HelloWorldApplication.java
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/com/example/java/Services/Account.java
+/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/Location.java
+/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/Notification.java
+/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/DetailedResponse.java
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/config/RestConfiguration.java
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/Greeting.java
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/GooglePlaceResult.java
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/com/example/java/Services/GCloud.java
 /Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/Suggestion.java
-/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/java/model/Location.java
