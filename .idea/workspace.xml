@@ -6,11 +6,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_6_7.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__software_amazon_ion_ion_java_1_0_2.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/java/Services/HelloworldApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/example/java/Services/HelloworldApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloWorldApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloWorldApplication.java" />
     </list>
     <ignored path="helloworld-springboot.iws" />
@@ -52,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1824">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="20" selection-end-column="101" />
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="21" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,11 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorldApplication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HelloWorldApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloWorldApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="291">
-              <caret line="153" column="5" lean-forward="false" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+              <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -209,6 +216,7 @@
         <option value="$PROJECT_DIR$/src/main/java/model/Account.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloWorldApplication.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -735,7 +743,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513961221101</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Run Local Dynamodb w/ Scan Queries">
+      <created>1514323138596</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1514323138596</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -841,7 +856,8 @@
     <MESSAGE value="Service connected to GCloud" />
     <MESSAGE value="Needed" />
     <MESSAGE value="Local embedded and over http dynamo db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Local embedded and over http dynamo db" />
+    <MESSAGE value="Run Local Dynamodb w/ Scan Queries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Run Local Dynamodb w/ Scan Queries" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -861,7 +877,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloWorldApplication.java</url>
-          <line>62</line>
+          <line>61</line>
           <properties />
           <option name="timeStamp" value="60" />
         </line-breakpoint>
@@ -1283,7 +1299,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1824">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="20" selection-end-column="101" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="21" selection-end-column="101" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1293,7 +1309,15 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloWorldApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
-          <caret line="153" column="5" lean-forward="false" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding />
         </state>
       </provider>
