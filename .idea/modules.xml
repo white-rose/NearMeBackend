@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/helloworld-springboot.iml" filepath="$PROJECT_DIR$/helloworld-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NearMe.iml" filepath="$PROJECT_DIR$/NearMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NearMe.iml" filepath="$PROJECT_DIR$/NearMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
     </modules>
   </component>
 </project>
