@@ -16,10 +16,6 @@
 
 package com.example.java.Services;
 
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.model.DescribeTableResult;
-import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
@@ -36,13 +32,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-public class HelloWorldApplication {
+public class NearMeApplication {
 
   private static final String template = "The device token is , %s!";
   private final AtomicLong counter = new AtomicLong();
@@ -132,26 +125,7 @@ public class HelloWorldApplication {
     return jsonArray.toString();
   }
 
-  @RequestMapping("/pullAccounts")
-  public List pullAccounts () {
-    System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
-//  AmazonDynamoDB ddb = DynamoDBEmbedded.create().amazonDynamoDB();
-    AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
-
-    DescribeTableResult describeTableResult = client.describeTable("Accounts");
-    System.out.println("Describing table is: " + describeTableResult.toString());
-
-    List firstNames = new ArrayList();
-
-    ScanResult allResults = client.scan("Accounts", Arrays.asList("Username", "FirstName"));
-    allResults.getItems().forEach(item -> {
-        firstNames.add(item.get("FirstName").getS());
-    });
-
-    return firstNames;
-
-  }
 
 
 }

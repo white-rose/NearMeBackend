@@ -7,7 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,22 +21,47 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
       AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
 
       String tableName = "Users";
-      String hashKeyName = "username";
+      String firstNameAttribute = "FirstName";
+      String lastNameAttribute = "LastName";
+      String localityAttribute = "Locality";
+      String usernameAttribute = "username";
 
-      List<KeySchemaElement> ks = new ArrayList<>();
-      ks.add(new KeySchemaElement(hashKeyName, KeyType.HASH));
 
       ProvisionedThroughput provisionedthroughput = new ProvisionedThroughput(1000L, 1000L);
 
-      ArrayList<KeySchemaElement> keySchema = new ArrayList<>();
-      keySchema.add(new KeySchemaElement()
-              .withAttributeName(hashKeyName)
-              .withKeyType(KeyType.HASH));
+      List<KeySchemaElement> keySchema = new ArrayList<KeySchemaElement>() {{
+//          add(new KeySchemaElement()
+//                  .withAttributeName(localityAttribute)
+//                  .withKeyType(KeyType.HASH));
+          add(new KeySchemaElement()
+                  .withAttributeName(usernameAttribute)
+                  .withKeyType(KeyType.HASH));
+      }};
 
-      ArrayList<AttributeDefinition> attributeDefinitions = new ArrayList<>();
-      attributeDefinitions.add(new AttributeDefinition()
-              .withAttributeName(hashKeyName)
-              .withAttributeType("S"));
+      List<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>() {
+          {
+//              add(new AttributeDefinition()
+//                      .withAttributeName(firstNameAttribute)
+//                      .withAttributeType("S"));
+//              add(new AttributeDefinition()
+//                      .withAttributeName(lastNameAttribute)
+//                      .withAttributeType("S"));
+//              add(new AttributeDefinition()
+//                      .withAttributeName(localityAttribute)
+//                      .withAttributeType("S"));
+              add(new AttributeDefinition()
+                      .withAttributeName(usernameAttribute)
+                      .withAttributeType("S"));
+          }};
+
+
+      CreateTableRequest createTableRequest = new CreateTableRequest()
+              .withTableName("Accounts")
+              .withKeySchema(keySchema)
+              .withAttributeDefinitions(attributeDefinitions)
+              .withProvisionedThroughput(new ProvisionedThroughput()
+                .withReadCapacityUnits(5L)
+                .withWriteCapacityUnits(6L));
 
       HashMap BillyAttributes = new HashMap() {{
             put("FirstName", new AttributeValue().withS("Billy"));
@@ -69,19 +93,39 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
           put("Password", new AttributeValue().withS("Test"));
       }};
 
+      HashMap GregAttributes = new HashMap() {{
+          put("FirstName", new AttributeValue().withS("Greg"));
+          put("Username", new AttributeValue().withS("tester5"));
+          put("Password", new AttributeValue().withS("Test"));
+      }};
+
+      HashMap MichaelAttributes = new HashMap() {{
+          put("FirstName", new AttributeValue().withS("Michael"));
+          put("Username", new AttributeValue().withS("tester5"));
+          put("Password", new AttributeValue().withS("Test"));
+      }};
+
+      HashMap EliseAttributes = new HashMap() {{
+          put("FirstName", new AttributeValue().withS("Elise"));
+          put("Username", new AttributeValue().withS("tester5"));
+          put("Password", new AttributeValue().withS("Test"));
+      }};
+
       PutRequest Billy = new PutRequest()
               .withItem(BillyAttributes);
-
       PutRequest James = new PutRequest()
               .withItem(JamesAttribute);
-
       PutRequest Sam = new PutRequest()
               .withItem(SamAttributes);
-
       PutRequest Sally = new PutRequest()
               .withItem(SallyAttributes);
-
       PutRequest Bob = new PutRequest()
+              .withItem(BobAttributes);
+      PutRequest Greg = new PutRequest()
+              .withItem(GregAttributes);
+      PutRequest Michael = new PutRequest()
+              .withItem(BobAttributes);
+      PutRequest Elise = new PutRequest()
               .withItem(BobAttributes);
 
       ListTablesResult listTablesResult = client.listTables();
@@ -93,6 +137,11 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
           add(new WriteRequest().withPutRequest(Sam));
           add(new WriteRequest().withPutRequest(Sally));
           add(new WriteRequest().withPutRequest(Bob));
+          add(new WriteRequest().withPutRequest(Billy));
+          add(new WriteRequest().withPutRequest(Greg));
+          add(new WriteRequest().withPutRequest(Michael));
+          add(new WriteRequest().withPutRequest(Elise));
+
       }};
 
       allWriteRequests.add(new WriteRequest());
@@ -101,96 +150,27 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
       }};
       BatchWriteItemRequest populateItems = new BatchWriteItemRequest()
               .withRequestItems(moreItems);
-
 //    client.batchWriteItem(populateItems);
-//      client.putItem(new PutItemRequest()
-//              .withTableName("Accounts")
-//              .withItem(new HashMap() {{
-//                  put("FirstName", new AttributeValue().withS("Bob"));
-//                  put("Username", new AttributeValue().withS("tester3"));
-//                  put("Password", new AttributeValue().withS("test"));
-//              }}));
+
+      client.putItem(new PutItemRequest()
+              .withTableName("Accounts")
+              .withItem(new HashMap() {{
+                  put("FirstName", new AttributeValue().withS("Greg"));
+                  put("Locality", new AttributeValue().withS("Nike"));
+                  put("username", new AttributeValue().withS("tester"));
+              }}));
 
       DescribeTableResult describeTableResult = client.describeTable("Accounts");
       System.out.println("Describing table is: " + describeTableResult.toString());
 
-      ScanResult allResults = client.scan("Accounts", Arrays.asList("Username", "FirstName"));
-      allResults.getItems().forEach(item -> System.out.println("This item has: " + item.get("FirstName") + "\n"));
-      allResults.getItems().forEach(item -> System.out.println("This item has: " + item.get("Username") + "\n"));
-      AttributeValue firstNameAttribute = allResults.getItems().get(0).get("FirstName");
-      System.out.println("The official first name is : " + firstNameAttribute.getS());
+//      allResults.getItems().forEach(item -> System.out.println("This item has username: " + item.get("username") + "\n"));
+//      allResults.getItems().forEach(item -> System.out.println("This item has locality: " + item.get("locality") + "\n"));
+//      allResults.getItems().forEach(item -> System.out.println("This item has firstname: " + item.get("FirstName") + "\n"));
+//      allResults.getItems().forEach(item -> System.out.println("This item has: " + item.get("Username") + "\n"));
+//      AttributeValue firstName = allResults.getItems().get(0).get("FirstName");
+//      System.out.println("The official first name is : " + firstName.getS());
 
   }
-
-    private static void createTable(
-            String tableName, long readCapacityUnits, long writeCapacityUnits,
-            String hashKeyName, String hashKeyType) {
-
-        createTable(tableName, readCapacityUnits, writeCapacityUnits,
-                hashKeyName, hashKeyType, null, null);
-    }
-
-    private static void createTable(String tableName, long readCapacityUnits,
-                                    long writeCapacityUnits, String hashKeyName, String hashKeyType,
-                                    String rangeKeyName, String rangeKeyType) {
-
-            ArrayList<KeySchemaElement> keySchema = new ArrayList<>();
-            keySchema.add(new KeySchemaElement()
-                .withAttributeName(hashKeyName)
-                .withKeyType(KeyType.HASH));
-
-            ArrayList<AttributeDefinition> attributeDefinitions = new ArrayList<>();
-            attributeDefinitions.add(new AttributeDefinition()
-                .withAttributeName(hashKeyName)
-                .withAttributeType(hashKeyType));
-
-            if (rangeKeyName != null) {
-                keySchema.add(new KeySchemaElement()
-                    .withAttributeName(rangeKeyName)
-                    .withKeyType(KeyType.RANGE));
-                attributeDefinitions.add(new AttributeDefinition()
-                    .withAttributeName(rangeKeyName)
-                    .withAttributeType(rangeKeyType));
-            }
-
-            CreateTableRequest request = new CreateTableRequest()
-                    .withTableName(tableName)
-                    .withKeySchema(keySchema)
-                    .withProvisionedThroughput( new ProvisionedThroughput()
-                        .withReadCapacityUnits(readCapacityUnits)
-                        .withWriteCapacityUnits(writeCapacityUnits));
-
-
-
-            request.setAttributeDefinitions(attributeDefinitions);
-
-            System.out.println("Issuing CreateTable requestfor " + tableName);
-            // CreateTableResult table = dynamoDB.createTable(request);
-            System.out.println("Waiting for " + tableName
-                    + " to be created...this may take a while...");
-            //table.waitForActive();
-
-
-    }
-
-    private static CreateTableResult createTable(AmazonDynamoDB ddb, String tableName, String hashKeyName) {
-        List<AttributeDefinition> attributeDefinitions = new ArrayList<>();
-        attributeDefinitions.add(new AttributeDefinition(hashKeyName, ScalarAttributeType.S));
-
-        List<KeySchemaElement> ks = new ArrayList<>();
-        ks.add(new KeySchemaElement(hashKeyName, KeyType.HASH));
-
-        ProvisionedThroughput provisionedthroughput = new ProvisionedThroughput(1000L, 1000L);
-
-        CreateTableRequest request =
-                new CreateTableRequest()
-                        .withTableName(tableName)
-                        .withAttributeDefinitions(attributeDefinitions)
-                        .withKeySchema(ks)
-                        .withProvisionedThroughput(provisionedthroughput);
-
-        return ddb.createTable(request);
-    }
 
     public static void listTables(ListTablesResult result, String method) {
         System.out.println("found " + Integer.toString(result.getTableNames().size()) + " tables with " + method);

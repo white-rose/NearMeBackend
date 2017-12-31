@@ -8,12 +8,14 @@ import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.DescribeTableResult;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.DetailedResponse;
 import model.GooglePlaceResult;
+import model.UserAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.social.connect.ConnectionRepository;
@@ -33,6 +35,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Arrays;
 import java.util.Map;
 
 @RestController
@@ -122,19 +125,28 @@ public class Account {
         return jsonPlaceString;
     }
 
-    public void printAccounts(String allAccounts) {
-        System.out.println(allAccounts);
-    }
+    //Local DynamoDB
+    @RequestMapping("/pullAccountsLocal")
+    public UserAccount pullAccounts () {
+        System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
-    public void checkOthersNeary() {
-        //Pull People arround in the same bld, then radius
-        // Scan or Query?
-        ScanRequest scanRequest = new ScanRequest().withTableName("accounts");
+//      AmazonDynamoDB ddb = DynamoDBEmbedded.create().amazonDynamoDB();
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
 
-        ScanResult result = client.scan(scanRequest);
-        for (Map<String, AttributeValue> item : result.getItems()) {
-            
-        }
+        DescribeTableResult describeTableResult = client.describeTable("Accounts");
+        System.out.println("Describing table is: " + describeTableResult.toString());
+
+        final UserAccount[] newUser = new UserAccount[1];
+        ScanResult allResults = client.scan("Accounts", Arrays.asList("username","FirstName","Locality"));
+        allResults.getItems().forEach(item -> {
+            newUser[0] = new UserAccount();
+            newUser[0].setFirstName(item.get("username").getS());
+            newUser[0].setLastName(item.get("FirstName").getS());
+            newUser[0].setUserName(item.get("Locality").getS());
+        });
+
+        return newUser[0];
+
     }
 
     public static String getParamsString(Map<String, String> params)

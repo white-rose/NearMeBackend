@@ -111,13 +111,6 @@
           <artifactId>sqlite4java</artifactId>
           <version>1.0.392</version>
       </dependency>
-
-      <!-- https://mvnrepository.com/artifact/com.almworks.sqlite4java/libsqlite4java-osx -->
-      <dependency>
-          <groupId>com.almworks.sqlite4java</groupId>
-          <artifactId>libsqlite4java-osx</artifactId>
-          <version>0.201</version>
-      </dependency>
   </dependencies>
 
     <!--Custom repository:-->
