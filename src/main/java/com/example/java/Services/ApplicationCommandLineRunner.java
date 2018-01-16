@@ -1,59 +1,41 @@
 package com.example.java.Services;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.local.embedded.DynamoDBEmbedded;
 import com.amazonaws.services.dynamodbv2.model.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class ApplicationCommandLineRunner implements CommandLineRunner {
 
-  @Override
+    public static AmazonDynamoDB ddb;
+
+    @Override
     public void run(String... strings) throws Exception {
       System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
-//    AmazonDynamoDB ddb = DynamoDBEmbedded.create().amazonDynamoDB();
-      AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
+      ddb = DynamoDBEmbedded.create().amazonDynamoDB();
+    //    AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
 
-      String tableName = "Users";
-      String firstNameAttribute = "FirstName";
-      String lastNameAttribute = "LastName";
-      String localityAttribute = "Locality";
       String usernameAttribute = "username";
-
 
       ProvisionedThroughput provisionedthroughput = new ProvisionedThroughput(1000L, 1000L);
 
       List<KeySchemaElement> keySchema = new ArrayList<KeySchemaElement>() {{
-//          add(new KeySchemaElement()
-//                  .withAttributeName(localityAttribute)
-//                  .withKeyType(KeyType.HASH));
           add(new KeySchemaElement()
                   .withAttributeName(usernameAttribute)
                   .withKeyType(KeyType.HASH));
       }};
 
       List<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>() {
-          {
-//              add(new AttributeDefinition()
-//                      .withAttributeName(firstNameAttribute)
-//                      .withAttributeType("S"));
-//              add(new AttributeDefinition()
-//                      .withAttributeName(lastNameAttribute)
-//                      .withAttributeType("S"));
-//              add(new AttributeDefinition()
-//                      .withAttributeName(localityAttribute)
-//                      .withAttributeType("S"));
-              add(new AttributeDefinition()
-                      .withAttributeName(usernameAttribute)
-                      .withAttributeType("S"));
-          }};
-
+      {
+          add(new AttributeDefinition()
+                  .withAttributeName(usernameAttribute)
+                  .withAttributeType("S"));
+      }};
 
       CreateTableRequest createTableRequest = new CreateTableRequest()
               .withTableName("Accounts")
@@ -62,6 +44,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
               .withProvisionedThroughput(new ProvisionedThroughput()
                 .withReadCapacityUnits(5L)
                 .withWriteCapacityUnits(6L));
+
+      ddb.createTable(createTableRequest);
 
       HashMap BillyAttributes = new HashMap() {{
             put("FirstName", new AttributeValue().withS("Billy"));
@@ -128,11 +112,10 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
       PutRequest Elise = new PutRequest()
               .withItem(BobAttributes);
 
-      ListTablesResult listTablesResult = client.listTables();
+      ListTablesResult listTablesResult = ddb.listTables();
       System.out.println(listTablesResult.getTableNames());
 
       ArrayList allWriteRequests = new ArrayList() {{
-//          add(new WriteRequest().withPutRequest(Billy));
           add(new WriteRequest().withPutRequest(James));
           add(new WriteRequest().withPutRequest(Sam));
           add(new WriteRequest().withPutRequest(Sally));
@@ -150,27 +133,75 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
       }};
       BatchWriteItemRequest populateItems = new BatchWriteItemRequest()
               .withRequestItems(moreItems);
-//    client.batchWriteItem(populateItems);
+    //    client.batchWriteItem(populateItems);
 
-      client.putItem(new PutItemRequest()
-              .withTableName("Accounts")
-              .withItem(new HashMap() {{
-                  put("FirstName", new AttributeValue().withS("Greg"));
-                  put("Locality", new AttributeValue().withS("Nike"));
-                  put("username", new AttributeValue().withS("tester"));
-              }}));
+    //      for (int i = 0; i < 100; i++) {
+    //          int finalI = i;
+    //          ddb.putItem(new PutItemRequest()
+    //                  .withTableName("Accounts")
+    //                  .withItem(new HashMap() {{
+    //                      put("FirstName", new AttributeValue().withS(randomIdentifier()));
+    //                      put("Locality", new AttributeValue().withS("Nike"));
+    //                      put("username", new AttributeValue().withS("tester" + finalI));
+    //                      put("friends", new AttributeValue().withSS("Random1", "Random2"));
+    //                      put("friendRequests", new AttributeValue().withSS("none"));
+    //                  }}));
+    //      }
+    //
+    //      ddb.putItem(new PutItemRequest()
+    //              .withTableName("Accounts")
+    //              .withItem(new HashMap() {{
+    //                  put("FirstName", new AttributeValue().withS("Nathan"));
+    //                  put("Locality", new AttributeValue().withS("Nike"));
+    //                  put("username", new AttributeValue().withS("Nathan"));
+    //                  put("friends", new AttributeValue().withSS("Nathan", "Billy"));
+    //                  put("friendRequests", new AttributeValue().withSS("none"));
+    //              }}));
+    //
+    //      ddb.putItem(new PutItemRequest()
+    //              .withTableName("Accounts")
+    //              .withItem(new HashMap() {{
+    //                  put("FirstName", new AttributeValue().withS("Bob"));
+    //                  put("Locality", new AttributeValue().withS("Nike"));
+    //                  put("username", new AttributeValue().withS("Bob"));
+    //                  put("friends", new AttributeValue().withSS("Bob", "Billy"));
+    //                  put("friendRequests", new AttributeValue().withSS("none"));
+    //              }}));
 
-      DescribeTableResult describeTableResult = client.describeTable("Accounts");
-      System.out.println("Describing table is: " + describeTableResult.toString());
+    //    DescribeTableResult describeTableResult = client.describeTable("Accounts");
+    //    System.out.println("Describing table is: " + describeTableResult.toString());
+      ScanResult allResults = ddb.scan("Accounts", Arrays.asList("FirstName", "Locality", "username"));
 
-//      allResults.getItems().forEach(item -> System.out.println("This item has username: " + item.get("username") + "\n"));
-//      allResults.getItems().forEach(item -> System.out.println("This item has locality: " + item.get("locality") + "\n"));
-//      allResults.getItems().forEach(item -> System.out.println("This item has firstname: " + item.get("FirstName") + "\n"));
-//      allResults.getItems().forEach(item -> System.out.println("This item has: " + item.get("Username") + "\n"));
-//      AttributeValue firstName = allResults.getItems().get(0).get("FirstName");
-//      System.out.println("The official first name is : " + firstName.getS());
+    //    allResults.getItems().forEach(item -> System.out.println("This item has firstname: " + item.get("FirstName") + "\n"));
+      System.out.println(allResults.getItems());
+    //    allResults.getItems().forEach(item -> System.out.println("This item has: " + item.get("Username") + "\n"));
+    //    AttributeValue firstName = allResults.getItems().get(0).get("FirstName");
+    //    System.out.println("The official first name is : " + firstName.getS());
 
-  }
+    }
+
+    // Returns random String
+    public String randomIdentifier() {
+        // class variable
+        final String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        final java.util.Random rand = new java.util.Random();
+
+    // consider using a Map<String,Boolean> to say whether the identifier is being used or not
+        final Set<String> identifiers = new HashSet<>();
+
+        StringBuilder builder = new StringBuilder();
+        while(builder.toString().length() == 0) {
+            int length = rand.nextInt(5)+5;
+            for(int i = 0; i < length; i++) {
+                builder.append(lexicon.charAt(rand.nextInt(lexicon.length())));
+            }
+            if(identifiers.contains(builder.toString())) {
+                builder = new StringBuilder();
+            }
+        }
+        return builder.toString();
+    }
 
     public static void listTables(ListTablesResult result, String method) {
         System.out.println("found " + Integer.toString(result.getTableNames().size()) + " tables with " + method);
@@ -178,4 +209,5 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
             System.out.println(table);
         }
     }
+
 }

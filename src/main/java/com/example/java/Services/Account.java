@@ -7,13 +7,11 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.Table;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.DescribeTableResult;
-import com.amazonaws.services.dynamodbv2.model.ScanRequest;
-import com.amazonaws.services.dynamodbv2.model.ScanResult;
+import com.amazonaws.services.dynamodbv2.model.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.DetailedResponse;
+import model.FriendRequest;
 import model.GooglePlaceResult;
 import model.UserAccount;
 import org.slf4j.Logger;
@@ -23,20 +21,18 @@ import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.PagedList;
 import org.springframework.social.facebook.api.Post;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
 
 @RestController
 public class Account {
@@ -45,7 +41,10 @@ public class Account {
     String firstName;
     String lastName;
 
-    static BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAIKMJOWW23COVBKAA", "pUlGQxF4y9Hwvs28nqEgrXk7kcoRnFw29aacFRjA");
+    private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
+    private static final String secretKey = "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";
+
+    static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
 
     static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
     static DynamoDB dynamoDB = new DynamoDB(client);
@@ -58,8 +57,6 @@ public class Account {
     private Logger logger = LoggerFactory.getLogger(Account.class);
 
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
-
-    public Account () {}
 
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
     public void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) {
@@ -81,21 +78,6 @@ public class Account {
     public void login() {
         System.out.print("User logging in");
         //Login to Account
-    }
-
-    @RequestMapping("/retrieveAccounts")
-    public String retrieveAccounts () {
-
-        ScanRequest scanRequest = new ScanRequest().withTableName("accounts");
-
-        ScanResult result = client.scan(scanRequest);
-        for (Map<String, AttributeValue> item : result.getItems()) {
-           if (item.containsKey("sex")) {
-               System.out.println(item);
-           }
-        }
-
-        return result.toString();
     }
 
     @RequestMapping("/checkNearby/latitude/{latitude}/longitude/{longitude}")
@@ -125,47 +107,105 @@ public class Account {
         return jsonPlaceString;
     }
 
+    @RequestMapping(
+            value = "/updateLocation/{locality}",
+            method = { RequestMethod.POST }
+    )
+    public void updateLocation (@PathVariable("locality") String locality) {
+
+          ApplicationCommandLineRunner.ddb.putItem(new PutItemRequest()
+          .withTableName("Accounts")
+          .withItem(new HashMap() {{
+              put("FirstName", new AttributeValue().withS("Nathan"));
+              put("Locality", new AttributeValue().withS(locality));
+              put("username", new AttributeValue().withS("Nathan"));
+              put("friends", new AttributeValue().withSS("Nathan", "Billy"));
+              put("friendRequests", new AttributeValue().withSS("none"));
+          }}));
+
+          ScanRequest scanRequest = new ScanRequest();
+          scanRequest.withTableName("Accounts");
+          System.out.println(ApplicationCommandLineRunner.ddb.scan(scanRequest).getItems());
+
+    }
+
     //Local DynamoDB
     @RequestMapping("/pullAccountsLocal")
-    public UserAccount pullAccounts () {
+    public List<UserAccount> pullAccounts () {
         System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
-//      AmazonDynamoDB ddb = DynamoDBEmbedded.create().amazonDynamoDB();
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
+        List<UserAccount> userAccounts = new ArrayList<>();
 
-        DescribeTableResult describeTableResult = client.describeTable("Accounts");
-        System.out.println("Describing table is: " + describeTableResult.toString());
-
-        final UserAccount[] newUser = new UserAccount[1];
-        ScanResult allResults = client.scan("Accounts", Arrays.asList("username","FirstName","Locality"));
-        allResults.getItems().forEach(item -> {
-            newUser[0] = new UserAccount();
-            newUser[0].setFirstName(item.get("username").getS());
-            newUser[0].setLastName(item.get("FirstName").getS());
-            newUser[0].setUserName(item.get("Locality").getS());
+        UserAccount[] newUser = new UserAccount[1];
+        ScanResult allResults = ApplicationCommandLineRunner.ddb.scan("Accounts"
+                , Arrays.asList("username","FirstName","Locality","friendRequests"));
+        allResults.getItems().stream().forEach(item -> {
+            UserAccount userAccount = new UserAccount();
+            userAccount.setFirstName(item.get("FirstName").getS());
+            userAccount.setLocality(item.get("Locality").getS());
+            userAccount.setUserName(item.get("username").getS());
+            if (item.get("friendRequests").getSS() != null)
+                userAccount.setFriendRequests(item.get("friendRequests").getSS());
+            userAccounts.add(userAccount);
         });
 
-        return newUser[0];
+        return userAccounts;
 
     }
 
-    public static String getParamsString(Map<String, String> params)
-                throws UnsupportedEncodingException {
-        StringBuilder result = new StringBuilder();
+    @RequestMapping(
+            value = "/getFriendRequests/{user}",
+            method = { RequestMethod.GET }
+    )
+    public List getFriendRequests(@PathVariable("user") String user) {
 
-        for (Map.Entry<String, String> entry : params.entrySet()) {
-            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-            result.append("=");
-            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-            result.append("&");
-        }
+        GetItemRequest getItemRequest = new GetItemRequest()
+                .withTableName("Accounts")
+                .withKey(new HashMap<String, AttributeValue>() {{
+                    put("username" , new AttributeValue().withS(user));
+                }});
 
-        String resultString = result.toString();
-        return resultString.length() > 0
-                ? resultString.substring(0, resultString.length() - 1)
-                : resultString;
+
+        return ApplicationCommandLineRunner.ddb.getItem(getItemRequest).getItem().get("friendRequests").getSS();
+
     }
 
+    @RequestMapping(
+            value = "/sendFriendRequest",
+            method = { RequestMethod.POST }
+    )
+    public void sendFriendRequest(@RequestBody FriendRequest friendRequest) {
+
+//        GetItemRequest getFriendRequests = new GetItemRequest()
+//                .withTableName("Accounts")
+//                .withKey(new HashMap<String, AttributeValue>() {{
+//                    put("username" , new AttributeValue().withS("nathan"));
+//                }});
+//        GetItemResult getItemResult = ApplicationCommandLineRunner.ddb.getItem(getFriendRequests);
+//        getItemResult.getItem().get("friendRequests");
+
+        AttributeValueUpdate attributeValueUpdate = new AttributeValueUpdate();
+        attributeValueUpdate.setValue(new AttributeValue()
+                .withSS(friendRequest.fromName));
+
+        UpdateItemRequest addFriendRequest = new UpdateItemRequest()
+                .withTableName("Accounts")
+                .withKey(new HashMap<String, AttributeValue>() {{
+                    put("username" , new AttributeValue().withS(friendRequest.toName));
+                }})
+                .withAttributeUpdates(new HashMap<String, AttributeValueUpdate>() {{
+                    put("friendRequests" , attributeValueUpdate);
+                }});
+        ApplicationCommandLineRunner.ddb.updateItem(addFriendRequest);
+
+        GetItemRequest getItemRequest = new GetItemRequest()
+                .withTableName("Accounts")
+                .withKey(new HashMap<String, AttributeValue>() {{
+                    put("username" , new AttributeValue().withS(friendRequest.toName));
+                }});
+
+        System.out.println(ApplicationCommandLineRunner.ddb.getItem(getItemRequest));
+    }
 
     public void getFacebookData (Model model) {
         model.addAttribute("facebookProfile", facebook.userOperations().getUserProfile());

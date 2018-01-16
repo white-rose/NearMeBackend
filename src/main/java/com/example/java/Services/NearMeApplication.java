@@ -27,7 +27,6 @@ import model.Greeting;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -40,11 +39,6 @@ public class NearMeApplication {
   private static final String template = "The device token is , %s!";
   private final AtomicLong counter = new AtomicLong();
 
-  @RequestMapping(value = "/" , method=RequestMethod.GET, produces = "application/json")
-  public String home() {
-    return "This is the default path";
-  }
-
   /**
    * <a href="https://cloud.google.com/appengine/docs/flexible/java/how-instances-are-managed#health_checking">
    * App Engine health checking</a> requires responding with 200 to {@code /_ah/health}.
@@ -55,14 +49,9 @@ public class NearMeApplication {
     return "Still surviving.";
   }
 
-  @RequestMapping("/greeting")
-  public Greeting greeting(@RequestParam(value="name", defaultValue = "Nathan") String name) {
-    return new Greeting(counter.incrementAndGet(), String.format(template, name));
-  }
-
   /*
   Nathan Iphone 7 device token - 847748fb896318b4cf5ab22884c5046a002ad3206d3930ad24a8003c1b91b4a7
-   */
+  */
 
   @RequestMapping("/requestResturant")
   //UserID as parameter?
@@ -124,8 +113,5 @@ public class NearMeApplication {
 
     return jsonArray.toString();
   }
-
-
-
 
 }
