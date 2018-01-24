@@ -9,10 +9,6 @@ public class placePhoto {
     private String photo_reference;
     private int width;
 
-    public placePhoto() {
-
-    }
-
     public int getHeight() {
         return height;
     }

@@ -1,12 +1,6 @@
 package com.example.java.Services;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-import com.amazonaws.services.dynamodbv2.document.Item;
-import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.model.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,14 +34,15 @@ public class Account {
     String username;
     String firstName;
     String lastName;
+    String locality;
 
     private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
     private static final String secretKey = "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";
 
     static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
 
-    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
-    static DynamoDB dynamoDB = new DynamoDB(client);
+//    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
+//    static DynamoDB dynamoDB = new DynamoDB(client);
 
     static String tableName = "accounts";
 
@@ -61,17 +56,17 @@ public class Account {
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
     public void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) {
 
-        Table table = dynamoDB.getTable("accounts");
-        try {
-            Item item = new Item().withPrimaryKey("username", firstname)
-                    .withString("firstName", firstname)
-                    .withString("lastName", lastname)
-                    .withString("password", password);
-            table.putItem(item);
-        } catch (Exception e) {
-            System.err.println("Create items failed.");
-            System.err.println(e.getMessage());
-        }
+//        Table table = dynamoDB.getTable("accounts");
+//        try {
+//            Item item = new Item().withPrimaryKey("username", firstname)
+//                    .withString("firstName", firstname)
+//                    .withString("lastName", lastname)
+//                    .withString("password", password);
+//            table.putItem(item);
+//        } catch (Exception e) {
+//            System.err.println("Create items failed.");
+//            System.err.println(e.getMessage());
+//        }
     }
 
     @RequestMapping("/login")
@@ -108,24 +103,25 @@ public class Account {
     }
 
     @RequestMapping(
-            value = "/updateLocation/{locality}",
+            value = "/updateLocation",
             method = { RequestMethod.POST }
     )
-    public void updateLocation (@PathVariable("locality") String locality) {
+    public void updateLocation (@RequestBody model.Account userAccount) {
 
-          ApplicationCommandLineRunner.ddb.putItem(new PutItemRequest()
+          ApplicationCommandLineRunner.accountsDDB.putItem(new PutItemRequest()
           .withTableName("Accounts")
           .withItem(new HashMap() {{
-              put("FirstName", new AttributeValue().withS("Nathan"));
-              put("Locality", new AttributeValue().withS(locality));
-              put("username", new AttributeValue().withS("Nathan"));
+              put("FirstName", new AttributeValue().withS(userAccount.getFirstName()));
+              put("Locality", new AttributeValue().withS(userAccount.getLocality()));
+              put("username", new AttributeValue().withS(userAccount.getUsername()));
+              put("facebookid", new AttributeValue().withS(userAccount.getFacebookId()));
               put("friends", new AttributeValue().withSS("Nathan", "Billy"));
               put("friendRequests", new AttributeValue().withSS("none"));
           }}));
 
           ScanRequest scanRequest = new ScanRequest();
           scanRequest.withTableName("Accounts");
-          System.out.println(ApplicationCommandLineRunner.ddb.scan(scanRequest).getItems());
+          System.out.println(ApplicationCommandLineRunner.accountsDDB.scan(scanRequest).getItems());
 
     }
 
@@ -137,19 +133,26 @@ public class Account {
         List<UserAccount> userAccounts = new ArrayList<>();
 
         UserAccount[] newUser = new UserAccount[1];
-        ScanResult allResults = ApplicationCommandLineRunner.ddb.scan("Accounts"
-                , Arrays.asList("username","FirstName","Locality","friendRequests"));
+        ScanResult allResults = ApplicationCommandLineRunner.accountsDDB.scan("Accounts"
+                , Arrays.asList("username","FirstName","Locality","friendRequests","sex","friends","facebookId"));
         allResults.getItems().stream().forEach(item -> {
             UserAccount userAccount = new UserAccount();
             userAccount.setFirstName(item.get("FirstName").getS());
             userAccount.setLocality(item.get("Locality").getS());
             userAccount.setUserName(item.get("username").getS());
-            if (item.get("friendRequests").getSS() != null)
-                userAccount.setFriendRequests(item.get("friendRequests").getSS());
+//            userAccount.setFriendRequests(item.get("friendRequests").getSS());
+            if (item.get("facebookId") != null) {
+                userAccount.setFacebookId(item.get("facebookId").getS());
+            }
+            userAccount.setFriends(item.get("friends").getSS());
+            userAccount.setSex("MALE");
             userAccounts.add(userAccount);
         });
 
         return userAccounts;
+//                .stream()
+//                .filter(males -> !"FEMALE".equals(males.getSex()))
+//                .collect(Collectors.toList());
 
     }
 
@@ -166,7 +169,7 @@ public class Account {
                 }});
 
 
-        return ApplicationCommandLineRunner.ddb.getItem(getItemRequest).getItem().get("friendRequests").getSS();
+        return ApplicationCommandLineRunner.accountsDDB.getItem(getItemRequest).getItem().get("friendRequests").getSS();
 
     }
 
@@ -181,7 +184,7 @@ public class Account {
 //                .withKey(new HashMap<String, AttributeValue>() {{
 //                    put("username" , new AttributeValue().withS("nathan"));
 //                }});
-//        GetItemResult getItemResult = ApplicationCommandLineRunner.ddb.getItem(getFriendRequests);
+//        GetItemResult getItemResult = ApplicationCommandLineRunner.accountsDDB.getItem(getFriendRequests);
 //        getItemResult.getItem().get("friendRequests");
 
         AttributeValueUpdate attributeValueUpdate = new AttributeValueUpdate();
@@ -196,7 +199,7 @@ public class Account {
                 .withAttributeUpdates(new HashMap<String, AttributeValueUpdate>() {{
                     put("friendRequests" , attributeValueUpdate);
                 }});
-        ApplicationCommandLineRunner.ddb.updateItem(addFriendRequest);
+        ApplicationCommandLineRunner.accountsDDB.updateItem(addFriendRequest);
 
         GetItemRequest getItemRequest = new GetItemRequest()
                 .withTableName("Accounts")
@@ -204,7 +207,7 @@ public class Account {
                     put("username" , new AttributeValue().withS(friendRequest.toName));
                 }});
 
-        System.out.println(ApplicationCommandLineRunner.ddb.getItem(getItemRequest));
+        System.out.println(ApplicationCommandLineRunner.accountsDDB.getItem(getItemRequest));
     }
 
     public void getFacebookData (Model model) {

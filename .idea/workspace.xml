@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="Service connected to GCloud">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_aws_java_sdk_core_1_11_179.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_6_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__software_amazon_ion_ion_java_1_0_2.xml" afterPath="" />
+    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/java/Services/Account.class" afterPath="$PROJECT_DIR$/target/classes/com/example/java/Services/Account.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/placePhoto.java" afterPath="$PROJECT_DIR$/src/main/java/model/placePhoto.java" />
     </list>
     <ignored path="helloworld-springboot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +26,8 @@
     <SUITE FILE_PATH="coverage/NearMeBackend$AWSService.coverage" NAME="AWSService Coverage Results" MODIFIED="1503623143077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.example.java.Services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/NearMeBackend$GCloud.coverage" NAME="GCloud Coverage Results" MODIFIED="1514782263452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.example.java.Services.*</FILTER>
+    <SUITE FILE_PATH="coverage/NearMeBackend$GCloud.coverage" NAME="GCloud Coverage Results" MODIFIED="1516311343963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>model.*</FILTER>
     </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -48,41 +44,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+            <state relative-caret-position="-1238">
+              <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
               <folding>
-                <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-                <element signature="class#988:1169" expanded="false" />
-                <element signature="initializer##0;class#988:1169" expanded="false" />
-                <element signature="class#1231:1422" expanded="false" />
-                <element signature="initializer##0;class#1231:1422" expanded="false" />
-                <element signature="class#1878:2098" expanded="false" />
-                <element signature="initializer##0;class#1878:2098" expanded="false" />
-                <element signature="class#2136:2351" expanded="false" />
-                <element signature="initializer##0;class#2136:2351" expanded="false" />
-                <element signature="class#2388:2601" expanded="false" />
-                <element signature="initializer##0;class#2388:2601" expanded="false" />
-                <element signature="class#2640:2855" expanded="false" />
-                <element signature="initializer##0;class#2640:2855" expanded="false" />
-                <element signature="class#2892:3105" expanded="false" />
-                <element signature="initializer##0;class#2892:3105" expanded="false" />
-                <element signature="class#3143:3357" expanded="false" />
-                <element signature="initializer##0;class#3143:3357" expanded="false" />
-                <element signature="class#3398:3615" expanded="false" />
-                <element signature="initializer##0;class#3398:3615" expanded="false" />
-                <element signature="class#3654:3869" expanded="false" />
-                <element signature="initializer##0;class#3654:3869" expanded="false" />
-                <element signature="class#4692:5169" expanded="false" />
-                <element signature="initializer##0;class#4692:5169" expanded="false" />
-                <element signature="class#5250:5314" expanded="false" />
-                <element signature="initializer##0;class#5250:5314" expanded="false" />
-                <element signature="e#5436#5479#0" expanded="false" />
-                <element signature="e#7815#7928#0" expanded="false" />
-                <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-                <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <element signature="method#login#0;class#Account#0" expanded="false" />
+                <element signature="method#checkIn#0;class#Account#0" expanded="false" />
+                <element signature="e#6884#6998#0" expanded="false" />
+                <element signature="class#7204:7331" expanded="false" />
+                <element signature="initializer##0;class#7204:7331" expanded="false" />
+                <element signature="e#7469#7577#0" expanded="false" />
+                <element signature="class#8435:8578" expanded="false" />
+                <element signature="initializer##0;class#8435:8578" expanded="false" />
+                <element signature="class#8622:8749" expanded="false" />
+                <element signature="initializer##0;class#8622:8749" expanded="false" />
+                <element signature="class#8965:9108" expanded="false" />
+                <element signature="initializer##0;class#8965:9108" expanded="false" />
+                <element signature="method#getFacebookData#0;class#Account#0" expanded="false" />
+                <element signature="method#hashPassword#0;class#Account#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -91,97 +72,53 @@
       <file leaf-file-name="GCloud.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-              <folding />
+            <state relative-caret-position="180">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="e#345#346#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NearMeApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java">
+      <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="115" column="3" lean-forward="false" selection-start-line="115" selection-start-column="3" selection-end-line="115" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FriendRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/FriendRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="90">
+              <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="2" selection-end-line="153" selection-end-column="9" />
+              <folding>
+                <element signature="class#3111:3331" expanded="false" />
+                <element signature="initializer##0;class#3111:3331" expanded="false" />
+                <element signature="class#3368:3583" expanded="false" />
+                <element signature="initializer##0;class#3368:3583" expanded="false" />
+                <element signature="class#3619:3832" expanded="false" />
+                <element signature="initializer##0;class#3619:3832" expanded="false" />
+                <element signature="class#3870:4085" expanded="false" />
+                <element signature="initializer##0;class#3870:4085" expanded="false" />
+                <element signature="class#4121:4334" expanded="false" />
+                <element signature="initializer##0;class#4121:4334" expanded="false" />
+                <element signature="class#4371:4585" expanded="false" />
+                <element signature="initializer##0;class#4371:4585" expanded="false" />
+                <element signature="class#4625:4842" expanded="false" />
+                <element signature="initializer##0;class#4625:4842" expanded="false" />
+                <element signature="class#4880:5095" expanded="false" />
+                <element signature="initializer##0;class#4880:5095" expanded="false" />
+                <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="690">
+              <caret line="71" column="35" lean-forward="false" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
               <folding>
-                <element signature="method#createAccount#0;class#Account#0" expanded="false" />
-                <element signature="method#login#0;class#Account#0" expanded="false" />
-                <element signature="method#checkIn#0;class#Account#0" expanded="false" />
-                <element signature="e#4172#4288#0" expanded="false" />
-                <element signature="method#updateLocation#0;class#Account#0" expanded="false" />
-                <element signature="class#4500:4885" expanded="false" />
-                <element signature="initializer##0;class#4500:4885" expanded="false" />
-                <element signature="method#pullAccounts#0;class#Account#0" expanded="false" />
-                <element signature="e#5639#6101#0" expanded="false" />
-                <element signature="e#6146#6260#0" expanded="false" />
-                <element signature="method#getFriendRequests#0;class#Account#0" expanded="false" />
-                <element signature="class#6466:6593" expanded="false" />
-                <element signature="initializer##0;class#6466:6593" expanded="false" />
-                <element signature="e#6723#6831#0" expanded="false" />
-                <element signature="method#sendFriendRequest#0;class#Account#0" expanded="false" />
-                <element signature="e#6911#6976#0" expanded="false" />
-                <element signature="class#7681:7824" expanded="false" />
-                <element signature="initializer##0;class#7681:7824" expanded="false" />
-                <element signature="class#7868:7995" expanded="false" />
-                <element signature="initializer##0;class#7868:7995" expanded="false" />
-                <element signature="class#8203:8346" expanded="false" />
-                <element signature="initializer##0;class#8203:8346" expanded="false" />
-                <element signature="method#getFacebookData#0;class#Account#0" expanded="false" />
-                <element signature="method#hashPassword#0;class#Account#0" expanded="false" />
+                <element signature="e#1778#1779#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserAccount.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/UserAccount.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="51" column="37" lean-forward="false" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1006#1007#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Suggestion.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Suggestion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="placePhoto.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/placePhoto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -211,6 +148,7 @@
       <find>sql</find>
       <find>describe</find>
       <find>updateloca</find>
+      <find>updatelocation</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/main/java/model/GooglePlace.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Greeting.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Geometry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/placePhoto.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Notification.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/GooglePlaceResult.java" />
@@ -248,12 +185,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/FriendRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/UserAccount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/FriendRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/placePhoto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/UserAccount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
       </list>
     </option>
   </component>
@@ -286,10 +224,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="110" />
-    <option name="y" value="23" />
-    <option name="width" value="1232" />
-    <option name="height" value="877" />
+    <option name="x" value="26" />
+    <option name="y" value="78" />
+    <option name="width" value="1307" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -306,10 +244,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -349,6 +284,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+              <item name="ApplicationCommandLineRunner.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -363,13 +307,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="RemoteServers" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="Scala" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -808,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514743085424</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Cleanup">
+      <created>1516080895215</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1516080895216</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -821,13 +775,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="110" y="23" width="1232" height="877" extended-state="0" />
+    <frame x="26" y="78" width="1307" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SFDX" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28936744" sideWeight="0.42184874" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24693042" sideWeight="0.3035573" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2846924" sideWeight="0.4790287" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -837,7 +791,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26198083" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28936744" sideWeight="0.5781513" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29740793" sideWeight="0.516996" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.48569384" order="6" side_tool="false" content_ui="tabs" />
@@ -846,12 +800,12 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2987887" sideWeight="0.67731094" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24693042" sideWeight="0.69644266" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270525" sideWeight="0.48855507" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19411765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19051383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Log Manager" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -863,7 +817,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16523606" sideWeight="0.5209713" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287858" sideWeight="0.49663866" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -921,7 +875,8 @@
     <MESSAGE value="Run Local Dynamodb w/ Scan Queries" />
     <MESSAGE value="ReadMe Updated" />
     <MESSAGE value="Dynamodb Local and request mapping to pull Accounts from embedded DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dynamodb Local and request mapping to pull Accounts from embedded DB" />
+    <MESSAGE value="Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -929,27 +884,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java</url>
-          <line>72</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java</url>
-          <line>49</line>
+          <line>48</line>
           <properties />
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java</url>
-          <line>200</line>
+          <line>118</line>
           <properties />
-          <option name="timeStamp" value="83" />
+          <option name="timeStamp" value="109" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="95" />
+      <option name="time" value="110" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -963,33 +918,23 @@
         <state relative-caret-position="210">
           <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#988:1169" expanded="false" />
-            <element signature="initializer##0;class#988:1169" expanded="false" />
-            <element signature="class#1231:1422" expanded="false" />
-            <element signature="initializer##0;class#1231:1422" expanded="false" />
-            <element signature="class#1878:2098" expanded="false" />
-            <element signature="initializer##0;class#1878:2098" expanded="false" />
-            <element signature="class#2136:2351" expanded="false" />
-            <element signature="initializer##0;class#2136:2351" expanded="false" />
-            <element signature="class#2388:2601" expanded="false" />
-            <element signature="initializer##0;class#2388:2601" expanded="false" />
-            <element signature="class#2640:2855" expanded="false" />
-            <element signature="initializer##0;class#2640:2855" expanded="false" />
-            <element signature="class#2892:3105" expanded="false" />
-            <element signature="initializer##0;class#2892:3105" expanded="false" />
-            <element signature="class#3143:3357" expanded="false" />
-            <element signature="initializer##0;class#3143:3357" expanded="false" />
-            <element signature="class#3398:3615" expanded="false" />
-            <element signature="initializer##0;class#3398:3615" expanded="false" />
-            <element signature="class#3654:3869" expanded="false" />
-            <element signature="initializer##0;class#3654:3869" expanded="false" />
-            <element signature="class#4692:5169" expanded="false" />
-            <element signature="initializer##0;class#4692:5169" expanded="false" />
-            <element signature="class#5250:5314" expanded="false" />
-            <element signature="initializer##0;class#5250:5314" expanded="false" />
-            <element signature="e#5436#5479#0" expanded="false" />
-            <element signature="e#7815#7928#0" expanded="false" />
+            <element signature="class#3111:3331" expanded="false" />
+            <element signature="initializer##0;class#3111:3331" expanded="false" />
+            <element signature="class#3368:3583" expanded="false" />
+            <element signature="initializer##0;class#3368:3583" expanded="false" />
+            <element signature="class#3619:3832" expanded="false" />
+            <element signature="initializer##0;class#3619:3832" expanded="false" />
+            <element signature="class#3870:4085" expanded="false" />
+            <element signature="initializer##0;class#3870:4085" expanded="false" />
+            <element signature="class#4121:4334" expanded="false" />
+            <element signature="initializer##0;class#4121:4334" expanded="false" />
+            <element signature="class#4371:4585" expanded="false" />
+            <element signature="initializer##0;class#4371:4585" expanded="false" />
+            <element signature="class#4625:4842" expanded="false" />
+            <element signature="initializer##0;class#4625:4842" expanded="false" />
+            <element signature="class#4880:5095" expanded="false" />
+            <element signature="initializer##0;class#4880:5095" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
           </folding>
@@ -1008,7 +953,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1017,33 +964,23 @@
         <state relative-caret-position="210">
           <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#988:1169" expanded="false" />
-            <element signature="initializer##0;class#988:1169" expanded="false" />
-            <element signature="class#1231:1422" expanded="false" />
-            <element signature="initializer##0;class#1231:1422" expanded="false" />
-            <element signature="class#1878:2098" expanded="false" />
-            <element signature="initializer##0;class#1878:2098" expanded="false" />
-            <element signature="class#2136:2351" expanded="false" />
-            <element signature="initializer##0;class#2136:2351" expanded="false" />
-            <element signature="class#2388:2601" expanded="false" />
-            <element signature="initializer##0;class#2388:2601" expanded="false" />
-            <element signature="class#2640:2855" expanded="false" />
-            <element signature="initializer##0;class#2640:2855" expanded="false" />
-            <element signature="class#2892:3105" expanded="false" />
-            <element signature="initializer##0;class#2892:3105" expanded="false" />
-            <element signature="class#3143:3357" expanded="false" />
-            <element signature="initializer##0;class#3143:3357" expanded="false" />
-            <element signature="class#3398:3615" expanded="false" />
-            <element signature="initializer##0;class#3398:3615" expanded="false" />
-            <element signature="class#3654:3869" expanded="false" />
-            <element signature="initializer##0;class#3654:3869" expanded="false" />
-            <element signature="class#4692:5169" expanded="false" />
-            <element signature="initializer##0;class#4692:5169" expanded="false" />
-            <element signature="class#5250:5314" expanded="false" />
-            <element signature="initializer##0;class#5250:5314" expanded="false" />
-            <element signature="e#5436#5479#0" expanded="false" />
-            <element signature="e#7815#7928#0" expanded="false" />
+            <element signature="class#3111:3331" expanded="false" />
+            <element signature="initializer##0;class#3111:3331" expanded="false" />
+            <element signature="class#3368:3583" expanded="false" />
+            <element signature="initializer##0;class#3368:3583" expanded="false" />
+            <element signature="class#3619:3832" expanded="false" />
+            <element signature="initializer##0;class#3619:3832" expanded="false" />
+            <element signature="class#3870:4085" expanded="false" />
+            <element signature="initializer##0;class#3870:4085" expanded="false" />
+            <element signature="class#4121:4334" expanded="false" />
+            <element signature="initializer##0;class#4121:4334" expanded="false" />
+            <element signature="class#4371:4585" expanded="false" />
+            <element signature="initializer##0;class#4371:4585" expanded="false" />
+            <element signature="class#4625:4842" expanded="false" />
+            <element signature="initializer##0;class#4625:4842" expanded="false" />
+            <element signature="class#4880:5095" expanded="false" />
+            <element signature="initializer##0;class#4880:5095" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
           </folding>
@@ -1062,7 +999,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1071,33 +1010,23 @@
         <state relative-caret-position="210">
           <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#988:1169" expanded="false" />
-            <element signature="initializer##0;class#988:1169" expanded="false" />
-            <element signature="class#1231:1422" expanded="false" />
-            <element signature="initializer##0;class#1231:1422" expanded="false" />
-            <element signature="class#1878:2098" expanded="false" />
-            <element signature="initializer##0;class#1878:2098" expanded="false" />
-            <element signature="class#2136:2351" expanded="false" />
-            <element signature="initializer##0;class#2136:2351" expanded="false" />
-            <element signature="class#2388:2601" expanded="false" />
-            <element signature="initializer##0;class#2388:2601" expanded="false" />
-            <element signature="class#2640:2855" expanded="false" />
-            <element signature="initializer##0;class#2640:2855" expanded="false" />
-            <element signature="class#2892:3105" expanded="false" />
-            <element signature="initializer##0;class#2892:3105" expanded="false" />
-            <element signature="class#3143:3357" expanded="false" />
-            <element signature="initializer##0;class#3143:3357" expanded="false" />
-            <element signature="class#3398:3615" expanded="false" />
-            <element signature="initializer##0;class#3398:3615" expanded="false" />
-            <element signature="class#3654:3869" expanded="false" />
-            <element signature="initializer##0;class#3654:3869" expanded="false" />
-            <element signature="class#4692:5169" expanded="false" />
-            <element signature="initializer##0;class#4692:5169" expanded="false" />
-            <element signature="class#5250:5314" expanded="false" />
-            <element signature="initializer##0;class#5250:5314" expanded="false" />
-            <element signature="e#5436#5479#0" expanded="false" />
-            <element signature="e#7815#7928#0" expanded="false" />
+            <element signature="class#3111:3331" expanded="false" />
+            <element signature="initializer##0;class#3111:3331" expanded="false" />
+            <element signature="class#3368:3583" expanded="false" />
+            <element signature="initializer##0;class#3368:3583" expanded="false" />
+            <element signature="class#3619:3832" expanded="false" />
+            <element signature="initializer##0;class#3619:3832" expanded="false" />
+            <element signature="class#3870:4085" expanded="false" />
+            <element signature="initializer##0;class#3870:4085" expanded="false" />
+            <element signature="class#4121:4334" expanded="false" />
+            <element signature="initializer##0;class#4121:4334" expanded="false" />
+            <element signature="class#4371:4585" expanded="false" />
+            <element signature="initializer##0;class#4371:4585" expanded="false" />
+            <element signature="class#4625:4842" expanded="false" />
+            <element signature="initializer##0;class#4625:4842" expanded="false" />
+            <element signature="class#4880:5095" expanded="false" />
+            <element signature="initializer##0;class#4880:5095" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
           </folding>
@@ -1116,7 +1045,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1125,33 +1056,23 @@
         <state relative-caret-position="210">
           <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#988:1169" expanded="false" />
-            <element signature="initializer##0;class#988:1169" expanded="false" />
-            <element signature="class#1231:1422" expanded="false" />
-            <element signature="initializer##0;class#1231:1422" expanded="false" />
-            <element signature="class#1878:2098" expanded="false" />
-            <element signature="initializer##0;class#1878:2098" expanded="false" />
-            <element signature="class#2136:2351" expanded="false" />
-            <element signature="initializer##0;class#2136:2351" expanded="false" />
-            <element signature="class#2388:2601" expanded="false" />
-            <element signature="initializer##0;class#2388:2601" expanded="false" />
-            <element signature="class#2640:2855" expanded="false" />
-            <element signature="initializer##0;class#2640:2855" expanded="false" />
-            <element signature="class#2892:3105" expanded="false" />
-            <element signature="initializer##0;class#2892:3105" expanded="false" />
-            <element signature="class#3143:3357" expanded="false" />
-            <element signature="initializer##0;class#3143:3357" expanded="false" />
-            <element signature="class#3398:3615" expanded="false" />
-            <element signature="initializer##0;class#3398:3615" expanded="false" />
-            <element signature="class#3654:3869" expanded="false" />
-            <element signature="initializer##0;class#3654:3869" expanded="false" />
-            <element signature="class#4692:5169" expanded="false" />
-            <element signature="initializer##0;class#4692:5169" expanded="false" />
-            <element signature="class#5250:5314" expanded="false" />
-            <element signature="initializer##0;class#5250:5314" expanded="false" />
-            <element signature="e#5436#5479#0" expanded="false" />
-            <element signature="e#7815#7928#0" expanded="false" />
+            <element signature="class#3111:3331" expanded="false" />
+            <element signature="initializer##0;class#3111:3331" expanded="false" />
+            <element signature="class#3368:3583" expanded="false" />
+            <element signature="initializer##0;class#3368:3583" expanded="false" />
+            <element signature="class#3619:3832" expanded="false" />
+            <element signature="initializer##0;class#3619:3832" expanded="false" />
+            <element signature="class#3870:4085" expanded="false" />
+            <element signature="initializer##0;class#3870:4085" expanded="false" />
+            <element signature="class#4121:4334" expanded="false" />
+            <element signature="initializer##0;class#4121:4334" expanded="false" />
+            <element signature="class#4371:4585" expanded="false" />
+            <element signature="initializer##0;class#4371:4585" expanded="false" />
+            <element signature="class#4625:4842" expanded="false" />
+            <element signature="initializer##0;class#4625:4842" expanded="false" />
+            <element signature="class#4880:5095" expanded="false" />
+            <element signature="initializer##0;class#4880:5095" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
           </folding>
@@ -1170,7 +1091,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1179,33 +1102,23 @@
         <state relative-caret-position="210">
           <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#988:1169" expanded="false" />
-            <element signature="initializer##0;class#988:1169" expanded="false" />
-            <element signature="class#1231:1422" expanded="false" />
-            <element signature="initializer##0;class#1231:1422" expanded="false" />
-            <element signature="class#1878:2098" expanded="false" />
-            <element signature="initializer##0;class#1878:2098" expanded="false" />
-            <element signature="class#2136:2351" expanded="false" />
-            <element signature="initializer##0;class#2136:2351" expanded="false" />
-            <element signature="class#2388:2601" expanded="false" />
-            <element signature="initializer##0;class#2388:2601" expanded="false" />
-            <element signature="class#2640:2855" expanded="false" />
-            <element signature="initializer##0;class#2640:2855" expanded="false" />
-            <element signature="class#2892:3105" expanded="false" />
-            <element signature="initializer##0;class#2892:3105" expanded="false" />
-            <element signature="class#3143:3357" expanded="false" />
-            <element signature="initializer##0;class#3143:3357" expanded="false" />
-            <element signature="class#3398:3615" expanded="false" />
-            <element signature="initializer##0;class#3398:3615" expanded="false" />
-            <element signature="class#3654:3869" expanded="false" />
-            <element signature="initializer##0;class#3654:3869" expanded="false" />
-            <element signature="class#4692:5169" expanded="false" />
-            <element signature="initializer##0;class#4692:5169" expanded="false" />
-            <element signature="class#5250:5314" expanded="false" />
-            <element signature="initializer##0;class#5250:5314" expanded="false" />
-            <element signature="e#5436#5479#0" expanded="false" />
-            <element signature="e#7815#7928#0" expanded="false" />
+            <element signature="class#3111:3331" expanded="false" />
+            <element signature="initializer##0;class#3111:3331" expanded="false" />
+            <element signature="class#3368:3583" expanded="false" />
+            <element signature="initializer##0;class#3368:3583" expanded="false" />
+            <element signature="class#3619:3832" expanded="false" />
+            <element signature="initializer##0;class#3619:3832" expanded="false" />
+            <element signature="class#3870:4085" expanded="false" />
+            <element signature="initializer##0;class#3870:4085" expanded="false" />
+            <element signature="class#4121:4334" expanded="false" />
+            <element signature="initializer##0;class#4121:4334" expanded="false" />
+            <element signature="class#4371:4585" expanded="false" />
+            <element signature="initializer##0;class#4371:4585" expanded="false" />
+            <element signature="class#4625:4842" expanded="false" />
+            <element signature="initializer##0;class#4625:4842" expanded="false" />
+            <element signature="class#4880:5095" expanded="false" />
+            <element signature="initializer##0;class#4880:5095" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
           </folding>
@@ -1232,7 +1145,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1241,33 +1156,23 @@
         <state relative-caret-position="225">
           <caret line="30" column="57" lean-forward="true" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
           <folding>
-            <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#988:1169" expanded="false" />
-            <element signature="initializer##0;class#988:1169" expanded="false" />
-            <element signature="class#1231:1422" expanded="false" />
-            <element signature="initializer##0;class#1231:1422" expanded="false" />
-            <element signature="class#1878:2098" expanded="false" />
-            <element signature="initializer##0;class#1878:2098" expanded="false" />
-            <element signature="class#2136:2351" expanded="false" />
-            <element signature="initializer##0;class#2136:2351" expanded="false" />
-            <element signature="class#2388:2601" expanded="false" />
-            <element signature="initializer##0;class#2388:2601" expanded="false" />
-            <element signature="class#2640:2855" expanded="false" />
-            <element signature="initializer##0;class#2640:2855" expanded="false" />
-            <element signature="class#2892:3105" expanded="false" />
-            <element signature="initializer##0;class#2892:3105" expanded="false" />
-            <element signature="class#3143:3357" expanded="false" />
-            <element signature="initializer##0;class#3143:3357" expanded="false" />
-            <element signature="class#3398:3615" expanded="false" />
-            <element signature="initializer##0;class#3398:3615" expanded="false" />
-            <element signature="class#3654:3869" expanded="false" />
-            <element signature="initializer##0;class#3654:3869" expanded="false" />
-            <element signature="class#4692:5169" expanded="false" />
-            <element signature="initializer##0;class#4692:5169" expanded="false" />
-            <element signature="class#5250:5314" expanded="false" />
-            <element signature="initializer##0;class#5250:5314" expanded="false" />
-            <element signature="e#5436#5479#0" expanded="false" />
-            <element signature="e#7815#7928#0" expanded="false" />
+            <element signature="class#3111:3331" expanded="false" />
+            <element signature="initializer##0;class#3111:3331" expanded="false" />
+            <element signature="class#3368:3583" expanded="false" />
+            <element signature="initializer##0;class#3368:3583" expanded="false" />
+            <element signature="class#3619:3832" expanded="false" />
+            <element signature="initializer##0;class#3619:3832" expanded="false" />
+            <element signature="class#3870:4085" expanded="false" />
+            <element signature="initializer##0;class#3870:4085" expanded="false" />
+            <element signature="class#4121:4334" expanded="false" />
+            <element signature="initializer##0;class#4121:4334" expanded="false" />
+            <element signature="class#4371:4585" expanded="false" />
+            <element signature="initializer##0;class#4371:4585" expanded="false" />
+            <element signature="class#4625:4842" expanded="false" />
+            <element signature="initializer##0;class#4625:4842" expanded="false" />
+            <element signature="class#4880:5095" expanded="false" />
+            <element signature="initializer##0;class#4880:5095" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
           </folding>
@@ -1401,20 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Geometry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/DetailedResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/GooglePlaceResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1430,14 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/config/RestConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1446,89 +1329,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Suggestion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/placePhoto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="method#createAccount#0;class#Account#0" expanded="false" />
-            <element signature="method#login#0;class#Account#0" expanded="false" />
-            <element signature="method#checkIn#0;class#Account#0" expanded="false" />
-            <element signature="e#4172#4288#0" expanded="false" />
-            <element signature="method#updateLocation#0;class#Account#0" expanded="false" />
-            <element signature="class#4500:4885" expanded="false" />
-            <element signature="initializer##0;class#4500:4885" expanded="false" />
-            <element signature="method#pullAccounts#0;class#Account#0" expanded="false" />
-            <element signature="e#5639#6101#0" expanded="false" />
-            <element signature="e#6146#6260#0" expanded="false" />
-            <element signature="method#getFriendRequests#0;class#Account#0" expanded="false" />
-            <element signature="class#6466:6593" expanded="false" />
-            <element signature="initializer##0;class#6466:6593" expanded="false" />
-            <element signature="e#6723#6831#0" expanded="false" />
-            <element signature="method#sendFriendRequest#0;class#Account#0" expanded="false" />
-            <element signature="e#6911#6976#0" expanded="false" />
-            <element signature="class#7681:7824" expanded="false" />
-            <element signature="initializer##0;class#7681:7824" expanded="false" />
-            <element signature="class#7868:7995" expanded="false" />
-            <element signature="initializer##0;class#7868:7995" expanded="false" />
-            <element signature="class#8203:8346" expanded="false" />
-            <element signature="initializer##0;class#8203:8346" expanded="false" />
-            <element signature="method#getFacebookData#0;class#Account#0" expanded="false" />
-            <element signature="method#hashPassword#0;class#Account#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
-          <folding>
-            <element signature="method#run#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#988:1169" expanded="false" />
-            <element signature="initializer##0;class#988:1169" expanded="false" />
-            <element signature="class#1231:1422" expanded="false" />
-            <element signature="initializer##0;class#1231:1422" expanded="false" />
-            <element signature="class#1878:2098" expanded="false" />
-            <element signature="initializer##0;class#1878:2098" expanded="false" />
-            <element signature="class#2136:2351" expanded="false" />
-            <element signature="initializer##0;class#2136:2351" expanded="false" />
-            <element signature="class#2388:2601" expanded="false" />
-            <element signature="initializer##0;class#2388:2601" expanded="false" />
-            <element signature="class#2640:2855" expanded="false" />
-            <element signature="initializer##0;class#2640:2855" expanded="false" />
-            <element signature="class#2892:3105" expanded="false" />
-            <element signature="initializer##0;class#2892:3105" expanded="false" />
-            <element signature="class#3143:3357" expanded="false" />
-            <element signature="initializer##0;class#3143:3357" expanded="false" />
-            <element signature="class#3398:3615" expanded="false" />
-            <element signature="initializer##0;class#3398:3615" expanded="false" />
-            <element signature="class#3654:3869" expanded="false" />
-            <element signature="initializer##0;class#3654:3869" expanded="false" />
-            <element signature="class#4692:5169" expanded="false" />
-            <element signature="initializer##0;class#4692:5169" expanded="false" />
-            <element signature="class#5250:5314" expanded="false" />
-            <element signature="initializer##0;class#5250:5314" expanded="false" />
-            <element signature="e#5436#5479#0" expanded="false" />
-            <element signature="e#7815#7928#0" expanded="false" />
-            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1540,46 +1351,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="130">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Geometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/config/RestConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/DetailedResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="115" column="3" lean-forward="false" selection-start-line="115" selection-start-column="3" selection-end-line="115" selection-end-column="3" />
+        <state relative-caret-position="1275">
+          <caret line="114" column="3" lean-forward="false" selection-start-line="114" selection-start-column="3" selection-end-line="114" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/UserAccount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="51" column="37" lean-forward="false" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+        <state relative-caret-position="321">
+          <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="false" />
+            <element signature="e#1385#1386#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Suggestion.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="690">
+          <caret line="71" column="35" lean-forward="false" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+          <folding>
+            <element signature="e#1778#1779#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/placePhoto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="-1238">
+          <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+          <folding>
+            <element signature="method#login#0;class#Account#0" expanded="false" />
+            <element signature="method#checkIn#0;class#Account#0" expanded="false" />
+            <element signature="e#6884#6998#0" expanded="false" />
+            <element signature="class#7204:7331" expanded="false" />
+            <element signature="initializer##0;class#7204:7331" expanded="false" />
+            <element signature="e#7469#7577#0" expanded="false" />
+            <element signature="class#8435:8578" expanded="false" />
+            <element signature="initializer##0;class#8435:8578" expanded="false" />
+            <element signature="class#8622:8749" expanded="false" />
+            <element signature="initializer##0;class#8622:8749" expanded="false" />
+            <element signature="class#8965:9108" expanded="false" />
+            <element signature="initializer##0;class#8965:9108" expanded="false" />
+            <element signature="method#getFacebookData#0;class#Account#0" expanded="false" />
+            <element signature="method#hashPassword#0;class#Account#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="2" selection-end-line="153" selection-end-column="9" />
+          <folding>
+            <element signature="class#3111:3331" expanded="false" />
+            <element signature="initializer##0;class#3111:3331" expanded="false" />
+            <element signature="class#3368:3583" expanded="false" />
+            <element signature="initializer##0;class#3368:3583" expanded="false" />
+            <element signature="class#3619:3832" expanded="false" />
+            <element signature="initializer##0;class#3619:3832" expanded="false" />
+            <element signature="class#3870:4085" expanded="false" />
+            <element signature="initializer##0;class#3870:4085" expanded="false" />
+            <element signature="class#4121:4334" expanded="false" />
+            <element signature="initializer##0;class#4121:4334" expanded="false" />
+            <element signature="class#4371:4585" expanded="false" />
+            <element signature="initializer##0;class#4371:4585" expanded="false" />
+            <element signature="class#4625:4842" expanded="false" />
+            <element signature="initializer##0;class#4625:4842" expanded="false" />
+            <element signature="class#4880:5095" expanded="false" />
+            <element signature="initializer##0;class#4880:5095" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1635,11 +1521,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Kotlin|NearMe</last-edited>
+          <last-edited>NearMe</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

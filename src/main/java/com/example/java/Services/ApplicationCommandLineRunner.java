@@ -1,7 +1,6 @@
 package com.example.java.Services;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.local.embedded.DynamoDBEmbedded;
 import com.amazonaws.services.dynamodbv2.model.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,13 +10,18 @@ import java.util.*;
 @Component
 public class ApplicationCommandLineRunner implements CommandLineRunner {
 
-    public static AmazonDynamoDB ddb;
+    public static AmazonDynamoDB accountsDDB;
+    public static AmazonDynamoDB californiaDDB;
 
     @Override
     public void run(String... strings) throws Exception {
+
       System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
-      ddb = DynamoDBEmbedded.create().amazonDynamoDB();
+//      accountsDDB = DynamoDBEmbedded.create().amazonDynamoDB();
+//      californiaDDB = DynamoDBEmbedded.create().amazonDynamoDB();
+      accountsDDB = null;
+      californiaDDB = null;
     //    AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
 
       String usernameAttribute = "username";
@@ -42,53 +46,68 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
               .withKeySchema(keySchema)
               .withAttributeDefinitions(attributeDefinitions)
               .withProvisionedThroughput(new ProvisionedThroughput()
-                .withReadCapacityUnits(5L)
+                      .withReadCapacityUnits(5L)
                 .withWriteCapacityUnits(6L));
 
-      ddb.createTable(createTableRequest);
+        List<KeySchemaElement> keySchema1 = new ArrayList<KeySchemaElement>() {{
+            add(new KeySchemaElement()
+                    .withAttributeName(usernameAttribute)
+                    .withKeyType(KeyType.HASH));
+        }};
+
+        List<AttributeDefinition> attributeDefinitions1 = new ArrayList<AttributeDefinition>() {
+            {
+                add(new AttributeDefinition()
+                        .withAttributeName(usernameAttribute)
+                        .withAttributeType("S"));
+            }};
+
+        CreateTableRequest createTableRequest1 = new CreateTableRequest()
+                .withTableName("California")
+                .withKeySchema(keySchema1)
+                .withAttributeDefinitions(attributeDefinitions1)
+                .withProvisionedThroughput(new ProvisionedThroughput()
+                        .withReadCapacityUnits(5L)
+                        .withWriteCapacityUnits(6L));
+
+//      accountsDDB.createTable(createTableRequest);
+//      californiaDDB.createTable(createTableRequest1);
 
       HashMap BillyAttributes = new HashMap() {{
             put("FirstName", new AttributeValue().withS("Billy"));
             put("Username", new AttributeValue().withS("tester"));
             put("Password", new AttributeValue().withS("Test"));
       }};
-
       HashMap JamesAttribute = new HashMap() {{
           put("FirstName", new AttributeValue().withS("James"));
           put("Username", new AttributeValue().withS("tester2"));
           put("Password", new AttributeValue().withS("Test"));
       }};
-
       HashMap SamAttributes = new HashMap() {{
           put("FirstName", new AttributeValue().withS("Sam"));
           put("Username", new AttributeValue().withS("tester3"));
           put("Password", new AttributeValue().withS("Test"));
       }};
-
       HashMap SallyAttributes = new HashMap() {{
           put("FirstName", new AttributeValue().withS("Sally"));
           put("Username", new AttributeValue().withS("tester4"));
           put("Password", new AttributeValue().withS("Test"));
       }};
-
       HashMap BobAttributes = new HashMap() {{
           put("FirstName", new AttributeValue().withS("Bob"));
           put("Username", new AttributeValue().withS("tester5"));
           put("Password", new AttributeValue().withS("Test"));
       }};
-
       HashMap GregAttributes = new HashMap() {{
           put("FirstName", new AttributeValue().withS("Greg"));
           put("Username", new AttributeValue().withS("tester5"));
           put("Password", new AttributeValue().withS("Test"));
       }};
-
       HashMap MichaelAttributes = new HashMap() {{
           put("FirstName", new AttributeValue().withS("Michael"));
           put("Username", new AttributeValue().withS("tester5"));
           put("Password", new AttributeValue().withS("Test"));
       }};
-
       HashMap EliseAttributes = new HashMap() {{
           put("FirstName", new AttributeValue().withS("Elise"));
           put("Username", new AttributeValue().withS("tester5"));
@@ -97,87 +116,75 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
       PutRequest Billy = new PutRequest()
               .withItem(BillyAttributes);
-      PutRequest James = new PutRequest()
-              .withItem(JamesAttribute);
-      PutRequest Sam = new PutRequest()
-              .withItem(SamAttributes);
-      PutRequest Sally = new PutRequest()
-              .withItem(SallyAttributes);
-      PutRequest Bob = new PutRequest()
-              .withItem(BobAttributes);
-      PutRequest Greg = new PutRequest()
-              .withItem(GregAttributes);
-      PutRequest Michael = new PutRequest()
-              .withItem(BobAttributes);
-      PutRequest Elise = new PutRequest()
-              .withItem(BobAttributes);
 
-      ListTablesResult listTablesResult = ddb.listTables();
-      System.out.println(listTablesResult.getTableNames());
+//      ArrayList allWriteRequests = new ArrayList() {{
+//          add(new WriteRequest().withPutRequest(James));
+//          add(new WriteRequest().withPutRequest(Sam));
+//          add(new WriteRequest().withPutRequest(Sally));
+//          add(new WriteRequest().withPutRequest(Bob));
+//          add(new WriteRequest().withPutRequest(Billy));
+//          add(new WriteRequest().withPutRequest(Greg));
+//          add(new WriteRequest().withPutRequest(Michael));
+//          add(new WriteRequest().withPutRequest(Elise));
+//      }};
 
-      ArrayList allWriteRequests = new ArrayList() {{
-          add(new WriteRequest().withPutRequest(James));
-          add(new WriteRequest().withPutRequest(Sam));
-          add(new WriteRequest().withPutRequest(Sally));
-          add(new WriteRequest().withPutRequest(Bob));
-          add(new WriteRequest().withPutRequest(Billy));
-          add(new WriteRequest().withPutRequest(Greg));
-          add(new WriteRequest().withPutRequest(Michael));
-          add(new WriteRequest().withPutRequest(Elise));
+//      allWriteRequests.add(new WriteRequest());
+//      HashMap moreItems = new HashMap() {{
+//          put("String", allWriteRequests);
+//      }};
+//      BatchWriteItemRequest populateItems = new BatchWriteItemRequest()
+//              .withRequestItems(moreItems);
+//        client.batchWriteItem(populateItems);
 
-      }};
+//      for (int i = 0; i < 100; i++) {
+//          int finalI = i;
+//          accountsDDB.putItem(new PutItemRequest()
+//                  .withTableName("Accounts")
+//                  .withItem(new HashMap() {{
+//                      put("FirstName", new AttributeValue().withS(randomIdentifier()));
+//                      put("Locality", new AttributeValue().withS("Nike"));
+//                      put("username", new AttributeValue().withS("tester" + finalI));
+//                      put("facebookId", new AttributeValue().withS("12345678"));
+//                      put("friends", new AttributeValue().withSS("Random1", "Random2"));
+//                      put("friendRequests", new AttributeValue().withSS("none"));
+//                      put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
+//                  }}));
+//      }
 
-      allWriteRequests.add(new WriteRequest());
-      HashMap moreItems = new HashMap() {{
-          put("String", allWriteRequests);
-      }};
-      BatchWriteItemRequest populateItems = new BatchWriteItemRequest()
-              .withRequestItems(moreItems);
-    //    client.batchWriteItem(populateItems);
+//      accountsDDB.putItem(new PutItemRequest()
+//              .withTableName("Accounts")
+//              .withItem(new HashMap() {{
+//                  put("FirstName", new AttributeValue().withS("Henry"));
+//                  put("Locality", new AttributeValue().withS("Nike"));
+//                  put("username", new AttributeValue().withS("Bob"));
+//                  put("friends", new AttributeValue().withSS("Nathan", "Bob"));
+//                  put("friendRequests", new AttributeValue().withSS("none"));
+//                  put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
+//              }}));
+//
+//      accountsDDB.putItem(new PutItemRequest()
+//              .withTableName("Accounts")
+//              .withItem(new HashMap() {{
+//                  put("FirstName", new AttributeValue().withS("Nathan"));
+//                  put("Locality", new AttributeValue().withS("Nike"));
+//                  put("username", new AttributeValue().withS("Nathan"));
+//                  put("friends", new AttributeValue().withSS("Nathan", "Bob"));
+//                  put("friendRequests", new AttributeValue().withSS("none"));
+//                  put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
+//              }}));
 
-    //      for (int i = 0; i < 100; i++) {
-    //          int finalI = i;
-    //          ddb.putItem(new PutItemRequest()
-    //                  .withTableName("Accounts")
-    //                  .withItem(new HashMap() {{
-    //                      put("FirstName", new AttributeValue().withS(randomIdentifier()));
-    //                      put("Locality", new AttributeValue().withS("Nike"));
-    //                      put("username", new AttributeValue().withS("tester" + finalI));
-    //                      put("friends", new AttributeValue().withSS("Random1", "Random2"));
-    //                      put("friendRequests", new AttributeValue().withSS("none"));
-    //                  }}));
-    //      }
-    //
-    //      ddb.putItem(new PutItemRequest()
-    //              .withTableName("Accounts")
-    //              .withItem(new HashMap() {{
-    //                  put("FirstName", new AttributeValue().withS("Nathan"));
-    //                  put("Locality", new AttributeValue().withS("Nike"));
-    //                  put("username", new AttributeValue().withS("Nathan"));
-    //                  put("friends", new AttributeValue().withSS("Nathan", "Billy"));
-    //                  put("friendRequests", new AttributeValue().withSS("none"));
-    //              }}));
-    //
-    //      ddb.putItem(new PutItemRequest()
-    //              .withTableName("Accounts")
-    //              .withItem(new HashMap() {{
-    //                  put("FirstName", new AttributeValue().withS("Bob"));
-    //                  put("Locality", new AttributeValue().withS("Nike"));
-    //                  put("username", new AttributeValue().withS("Bob"));
-    //                  put("friends", new AttributeValue().withSS("Bob", "Billy"));
-    //                  put("friendRequests", new AttributeValue().withSS("none"));
-    //              }}));
+//      californiaDDB.putItem(new PutItemRequest()
+//            .withTableName("California")
+//            .withItem(new HashMap() {{
+//                put("")
+//            }}));
 
-    //    DescribeTableResult describeTableResult = client.describeTable("Accounts");
-    //    System.out.println("Describing table is: " + describeTableResult.toString());
-      ScanResult allResults = ddb.scan("Accounts", Arrays.asList("FirstName", "Locality", "username"));
+    }
 
-    //    allResults.getItems().forEach(item -> System.out.println("This item has firstname: " + item.get("FirstName") + "\n"));
-      System.out.println(allResults.getItems());
-    //    allResults.getItems().forEach(item -> System.out.println("This item has: " + item.get("Username") + "\n"));
-    //    AttributeValue firstName = allResults.getItems().get(0).get("FirstName");
-    //    System.out.println("The official first name is : " + firstName.getS());
-
+    public String randomSex() {
+        Sex[] sexes = {Sex.FEMALE, Sex.MALE};
+        Random rand = new Random();
+        return sexes[rand.nextInt(sexes.length)].toString();
     }
 
     // Returns random String
@@ -210,4 +217,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
         }
     }
 
+}
+
+enum Sex {
+    MALE, FEMALE;
 }
