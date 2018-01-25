@@ -70,8 +70,8 @@ public class Account {
     }
 
     @RequestMapping("/login")
-    public void login() {
-        System.out.print("User logging in");
+    public String login() {
+        return "Success";
         //Login to Account
     }
 
