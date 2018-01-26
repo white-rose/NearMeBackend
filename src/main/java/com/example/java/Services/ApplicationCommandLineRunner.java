@@ -3,7 +3,6 @@ package com.example.java.Services;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.local.embedded.DynamoDBEmbedded;
 import com.amazonaws.services.dynamodbv2.model.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,13 +14,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     public static AmazonDynamoDB accountsDDB;
     public static AmazonDynamoDB californiaDDB;
 
-    @Autowired
-    DatabaseConfig db;
-
     @Override
     public void run(String... strings) throws Exception {
-
-        System.out.print(db.dataSource());
 
       System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
