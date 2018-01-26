@@ -1,7 +1,9 @@
 package com.example.java.Services;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.local.embedded.DynamoDBEmbedded;
 import com.amazonaws.services.dynamodbv2.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,15 +15,20 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     public static AmazonDynamoDB accountsDDB;
     public static AmazonDynamoDB californiaDDB;
 
+    @Autowired
+    DatabaseConfig db;
+
     @Override
     public void run(String... strings) throws Exception {
 
+        System.out.print(db.dataSource());
+
       System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
-//      accountsDDB = DynamoDBEmbedded.create().amazonDynamoDB();
-//      californiaDDB = DynamoDBEmbedded.create().amazonDynamoDB();
-      accountsDDB = null;
-      californiaDDB = null;
+      accountsDDB = DynamoDBEmbedded.create().amazonDynamoDB();
+      californiaDDB = DynamoDBEmbedded.create().amazonDynamoDB();
+//      accountsDDB = null;
+//      californiaDDB = null;
     //    AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion("us-west-2").build();
 
       String usernameAttribute = "username";
@@ -70,8 +77,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
                         .withReadCapacityUnits(5L)
                         .withWriteCapacityUnits(6L));
 
-//      accountsDDB.createTable(createTableRequest);
-//      californiaDDB.createTable(createTableRequest1);
+      accountsDDB.createTable(createTableRequest);
+      californiaDDB.createTable(createTableRequest1);
 
       HashMap BillyAttributes = new HashMap() {{
             put("FirstName", new AttributeValue().withS("Billy"));
@@ -136,42 +143,42 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 //              .withRequestItems(moreItems);
 //        client.batchWriteItem(populateItems);
 
-//      for (int i = 0; i < 100; i++) {
-//          int finalI = i;
-//          accountsDDB.putItem(new PutItemRequest()
-//                  .withTableName("Accounts")
-//                  .withItem(new HashMap() {{
-//                      put("FirstName", new AttributeValue().withS(randomIdentifier()));
-//                      put("Locality", new AttributeValue().withS("Nike"));
-//                      put("username", new AttributeValue().withS("tester" + finalI));
-//                      put("facebookId", new AttributeValue().withS("12345678"));
-//                      put("friends", new AttributeValue().withSS("Random1", "Random2"));
-//                      put("friendRequests", new AttributeValue().withSS("none"));
-//                      put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
-//                  }}));
-//      }
+      for (int i = 0; i < 100; i++) {
+          int finalI = i;
+          accountsDDB.putItem(new PutItemRequest()
+                  .withTableName("Accounts")
+                  .withItem(new HashMap() {{
+                      put("FirstName", new AttributeValue().withS(randomIdentifier()));
+                      put("Locality", new AttributeValue().withS("Nike"));
+                      put("username", new AttributeValue().withS("tester" + finalI));
+                      put("facebookId", new AttributeValue().withS("12345678"));
+                      put("friends", new AttributeValue().withSS("Random1", "Random2"));
+                      put("friendRequests", new AttributeValue().withSS("none"));
+                      put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
+                  }}));
+      }
 
-//      accountsDDB.putItem(new PutItemRequest()
-//              .withTableName("Accounts")
-//              .withItem(new HashMap() {{
-//                  put("FirstName", new AttributeValue().withS("Henry"));
-//                  put("Locality", new AttributeValue().withS("Nike"));
-//                  put("username", new AttributeValue().withS("Bob"));
-//                  put("friends", new AttributeValue().withSS("Nathan", "Bob"));
-//                  put("friendRequests", new AttributeValue().withSS("none"));
-//                  put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
-//              }}));
-//
-//      accountsDDB.putItem(new PutItemRequest()
-//              .withTableName("Accounts")
-//              .withItem(new HashMap() {{
-//                  put("FirstName", new AttributeValue().withS("Nathan"));
-//                  put("Locality", new AttributeValue().withS("Nike"));
-//                  put("username", new AttributeValue().withS("Nathan"));
-//                  put("friends", new AttributeValue().withSS("Nathan", "Bob"));
-//                  put("friendRequests", new AttributeValue().withSS("none"));
-//                  put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
-//              }}));
+      accountsDDB.putItem(new PutItemRequest()
+              .withTableName("Accounts")
+              .withItem(new HashMap() {{
+                  put("FirstName", new AttributeValue().withS("Henry"));
+                  put("Locality", new AttributeValue().withS("Nike"));
+                  put("username", new AttributeValue().withS("Bob"));
+                  put("friends", new AttributeValue().withSS("Nathan", "Bob"));
+                  put("friendRequests", new AttributeValue().withSS("none"));
+                  put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
+              }}));
+
+      accountsDDB.putItem(new PutItemRequest()
+              .withTableName("Accounts")
+              .withItem(new HashMap() {{
+                  put("FirstName", new AttributeValue().withS("Nathan"));
+                  put("Locality", new AttributeValue().withS("Nike"));
+                  put("username", new AttributeValue().withS("Nathan"));
+                  put("friends", new AttributeValue().withSS("Nathan", "Bob"));
+                  put("friendRequests", new AttributeValue().withSS("none"));
+                  put("sex", new AttributeValue().withS(String.valueOf(Sex.MALE)));
+              }}));
 
 //      californiaDDB.putItem(new PutItemRequest()
 //            .withTableName("California")
