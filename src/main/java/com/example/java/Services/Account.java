@@ -10,6 +10,7 @@ import model.GooglePlaceResult;
 import model.UserAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.PagedList;
@@ -21,8 +22,12 @@ import org.springframework.web.client.RestTemplate;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import javax.sql.DataSource;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -53,6 +58,9 @@ public class Account {
 
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
 
+    @Autowired
+    DataSource dataSource;
+
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
     public void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) {
 
@@ -70,9 +78,15 @@ public class Account {
     }
 
     @RequestMapping("/login")
-    public String login() {
-        return "Success";
-        //Login to Account
+    public void login() throws SQLException{
+        Statement stmt = dataSource.getConnection().createStatement();
+        stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
+        stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
+        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+        while (rs.next()) {
+            System.out.println("Read from DB: " + rs.getTimestamp("tick"));
+        }
     }
 
     @RequestMapping("/checkNearby/latitude/{latitude}/longitude/{longitude}")
