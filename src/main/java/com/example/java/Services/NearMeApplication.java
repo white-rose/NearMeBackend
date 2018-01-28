@@ -52,7 +52,7 @@ public class NearMeApplication {
    * <a href="https://cloud.google.com/appengine/docs/flexible/java/how-instances-are-managed#health_checking">
    * App Engine health checking</a> requires responding with 200 to {@code /_ah/health}.
    */
-  @RequestMapping("/_ah/health")
+  @RequestMapping("/health")
   public String healthy() {
     // Message body required though ignored
     return "Still surviving.";
@@ -60,16 +60,9 @@ public class NearMeApplication {
 
   @RequestMapping("/test")
   public void test() throws SQLException {
-    try {
-      Class.forName("org.postgresql.Driver");
-    } catch (ClassNotFoundException e) {
-      System.out.print("Sucks to suck");
-    }
     Connection connection = dataSource.getConnection();
     Statement stmt = connection.createStatement();
-    stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
-    stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
-    stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+    stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('tester2', 'nathan2')");
     ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
     while (rs.next()) {
       System.out.println("Read from DB: " + rs.getTimestamp("tick"));

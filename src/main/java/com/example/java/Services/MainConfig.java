@@ -38,6 +38,21 @@ public class MainConfig {
             DataSource ds = DataSourceBuilder.create().build();
             return ds;
         }
+
+//        @Bean
+//        public BasicDataSource dataSource() throws URISyntaxException {
+//            String dbUrl = System.getenv("DATABASEURL");
+//            String username = System.getenv("DATABASEUSERNAME");
+//            String password = System.getenv("DATABASEPASSWORD");
+//            String test = System.getenv("LOGNAME");
+//
+//            BasicDataSource basicDataSource = new BasicDataSource();
+//            basicDataSource.setUrl(dbUrl);
+//            basicDataSource.setUsername(username);
+//            basicDataSource.setPassword(password);
+//
+//            return basicDataSource;
+//        }
     }
 
 }
