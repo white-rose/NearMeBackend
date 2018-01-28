@@ -26,11 +26,17 @@ import model.GooglePlaceResult;
 import model.Greeting;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -38,6 +44,9 @@ public class NearMeApplication {
 
   private static final String template = "The device token is , %s!";
   private final AtomicLong counter = new AtomicLong();
+
+  @Autowired
+  DataSource dataSource;
 
   /**
    * <a href="https://cloud.google.com/appengine/docs/flexible/java/how-instances-are-managed#health_checking">
@@ -47,6 +56,24 @@ public class NearMeApplication {
   public String healthy() {
     // Message body required though ignored
     return "Still surviving.";
+  }
+
+  @RequestMapping("/test")
+  public void test() throws SQLException {
+    try {
+      Class.forName("org.postgresql.Driver");
+    } catch (ClassNotFoundException e) {
+      System.out.print("Sucks to suck");
+    }
+    Connection connection = dataSource.getConnection();
+    Statement stmt = connection.createStatement();
+    stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
+    stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
+    stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+    ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+    while (rs.next()) {
+      System.out.println("Read from DB: " + rs.getTimestamp("tick"));
+    }
   }
 
   /*
