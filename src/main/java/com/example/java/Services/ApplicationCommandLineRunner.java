@@ -11,7 +11,6 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.*;
 
 @Component
@@ -26,11 +25,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 
-        Connection connection = dataSource.getConnection();
-        Statement stmt = connection.createStatement();
-        stmt.executeUpdate("DROP TABLE IF EXISTS accounts");
-        stmt.executeUpdate("CREATE TABLE accounts (username TEXT, FirstName TEXT)");
-        stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('tester3', 'nathan3')");
 //        stmt.executeUpdate("INSERT INTO accounts VALUES (hello)");
 //        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
 //        while (rs.next()) {

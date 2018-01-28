@@ -4,9 +4,8 @@
     <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
     </list>
     <ignored path="helloworld-springboot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,75 +46,76 @@
       <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="32" column="65" lean-forward="true" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
+            <state relative-caret-position="38">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
-                <element signature="class#3888:4108" expanded="false" />
-                <element signature="initializer##0;class#3888:4108" expanded="false" />
-                <element signature="class#4145:4360" expanded="false" />
-                <element signature="initializer##0;class#4145:4360" expanded="false" />
-                <element signature="class#4396:4609" expanded="false" />
-                <element signature="initializer##0;class#4396:4609" expanded="false" />
-                <element signature="class#4647:4862" expanded="false" />
-                <element signature="initializer##0;class#4647:4862" expanded="false" />
-                <element signature="class#4898:5111" expanded="false" />
-                <element signature="initializer##0;class#4898:5111" expanded="false" />
-                <element signature="class#5148:5362" expanded="false" />
-                <element signature="initializer##0;class#5148:5362" expanded="false" />
-                <element signature="class#5402:5619" expanded="false" />
-                <element signature="initializer##0;class#5402:5619" expanded="false" />
-                <element signature="class#5657:5872" expanded="false" />
-                <element signature="initializer##0;class#5657:5872" expanded="false" />
+                <element signature="class#3546:3766" expanded="false" />
+                <element signature="initializer##0;class#3546:3766" expanded="false" />
+                <element signature="class#3803:4018" expanded="false" />
+                <element signature="initializer##0;class#3803:4018" expanded="false" />
+                <element signature="class#4054:4267" expanded="false" />
+                <element signature="initializer##0;class#4054:4267" expanded="false" />
+                <element signature="class#4305:4520" expanded="false" />
+                <element signature="initializer##0;class#4305:4520" expanded="false" />
+                <element signature="class#4556:4769" expanded="false" />
+                <element signature="initializer##0;class#4556:4769" expanded="false" />
+                <element signature="class#4806:5020" expanded="false" />
+                <element signature="initializer##0;class#4806:5020" expanded="false" />
+                <element signature="class#5060:5277" expanded="false" />
+                <element signature="initializer##0;class#5060:5277" expanded="false" />
+                <element signature="class#5315:5530" expanded="false" />
+                <element signature="initializer##0;class#5315:5530" expanded="false" />
                 <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
                 <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
                 <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-                <marker date="1517114373928" expanded="true" signature="925:938" ph=" DROP TABLE statement (IF)" />
-                <marker date="1517114373928" expanded="true" signature="986:999" ph=" CREATE statement" />
-                <marker date="1517114373928" expanded="true" signature="986:1007" ph=" CREATE statement" />
-                <marker date="1517114373928" expanded="true" signature="1071:1143" ph=" INSERT statement (ACCOUNTS)" />
-                <marker date="1517114373928" expanded="true" signature="1177:1212" ph=" INSERT statement (TICKS)" />
-                <marker date="1517114373928" expanded="true" signature="1260:1282" ph=" SELECT statement (TICKS)" />
-                <marker date="1517114373928" expanded="true" signature="9799:9812" ph=" DROP TABLE statement (IF)" />
-                <marker date="1517114373928" expanded="true" signature="9859:9877" ph=" CREATE statement" />
-                <marker date="1517114373928" expanded="true" signature="9928:9960" ph=" INSERT statement (TICKS)" />
-                <marker date="1517114373928" expanded="true" signature="10008:10030" ph=" SELECT statement (TICKS)" />
+                <marker date="1517114977307" expanded="true" signature="835:870" ph=" INSERT statement (TICKS)" />
+                <marker date="1517114977307" expanded="true" signature="918:940" ph=" SELECT statement (TICKS)" />
+                <marker date="1517114977307" expanded="true" signature="9457:9470" ph=" DROP TABLE statement (IF)" />
+                <marker date="1517114977307" expanded="true" signature="9517:9535" ph=" CREATE statement" />
+                <marker date="1517114977307" expanded="true" signature="9586:9618" ph=" INSERT statement (TICKS)" />
+                <marker date="1517114977307" expanded="true" signature="9666:9688" ph=" SELECT statement (TICKS)" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NearMeApplication.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NearMeApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-581">
-              <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+            <state relative-caret-position="270">
+              <caret line="75" column="24" lean-forward="true" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
               <folding>
-                <marker date="1517113845298" expanded="true" signature="2261:2333" ph=" INSERT statement (ACCOUNTS)" />
-                <marker date="1517113845298" expanded="true" signature="2332:2333" ph=" INSERT statement (TICKS)" />
-                <marker date="1517113845298" expanded="true" signature="2375:2397" ph=" SELECT statement (TICKS)" />
+                <marker date="1517115377833" expanded="true" signature="2362:2375" ph=" DROP TABLE statement (IF)" />
+                <marker date="1517115377833" expanded="true" signature="2419:2440" ph=" CREATE statement" />
+                <marker date="1517115377833" expanded="true" signature="2500:2569" ph=" INSERT statement (ACCOUNTS)" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
+              <caret line="64" column="31" lean-forward="true" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="61" />
+              <folding>
+                <element signature="method#checkIn#0;class#Account#0" expanded="false" />
+                <element signature="e#7136#7250#0" expanded="false" />
+                <element signature="class#7456:7583" expanded="false" />
+                <element signature="initializer##0;class#7456:7583" expanded="false" />
+                <element signature="class#8687:8830" expanded="false" />
+                <element signature="initializer##0;class#8687:8830" expanded="false" />
+                <element signature="class#8874:9001" expanded="false" />
+                <element signature="initializer##0;class#8874:9001" expanded="false" />
+                <element signature="class#9217:9360" expanded="false" />
+                <element signature="initializer##0;class#9217:9360" expanded="false" />
+                <element signature="method#getFacebookData#0;class#Account#0" expanded="false" />
+                <element signature="method#hashPassword#0;class#Account#0" expanded="false" />
+                <marker date="1517011215236" expanded="true" signature="3121:3134" ph=" DROP TABLE statement (IF)" />
+                <marker date="1517011215236" expanded="true" signature="3179:3197" ph=" CREATE statement" />
+                <marker date="1517011215236" expanded="true" signature="3246:3278" ph=" INSERT statement (TICKS)" />
+                <marker date="1517011215236" expanded="true" signature="3324:3346" ph=" SELECT statement (TICKS)" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,10 +189,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/DatabaseConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" />
       </list>
     </option>
   </component>
@@ -802,7 +802,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517098278710</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Moved Credentials to property files and env variables">
+      <created>1517114482619</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1517114482619</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -922,7 +929,8 @@
     <MESSAGE value="Add Config" />
     <MESSAGE value="Add mapping for Datasource" />
     <MESSAGE value="Heroku Config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Heroku Config" />
+    <MESSAGE value="Moved Credentials to property files and env variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved Credentials to property files and env variables" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -936,21 +944,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java</url>
-          <line>213</line>
+          <line>210</line>
           <properties />
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java</url>
-          <line>203</line>
+          <line>200</line>
           <properties />
           <option name="timeStamp" value="116" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="136" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -980,35 +982,31 @@
         <state relative-caret-position="210">
           <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="class#3888:4108" expanded="false" />
-            <element signature="initializer##0;class#3888:4108" expanded="false" />
-            <element signature="class#4145:4360" expanded="false" />
-            <element signature="initializer##0;class#4145:4360" expanded="false" />
-            <element signature="class#4396:4609" expanded="false" />
-            <element signature="initializer##0;class#4396:4609" expanded="false" />
-            <element signature="class#4647:4862" expanded="false" />
-            <element signature="initializer##0;class#4647:4862" expanded="false" />
-            <element signature="class#4898:5111" expanded="false" />
-            <element signature="initializer##0;class#4898:5111" expanded="false" />
-            <element signature="class#5148:5362" expanded="false" />
-            <element signature="initializer##0;class#5148:5362" expanded="false" />
-            <element signature="class#5402:5619" expanded="false" />
-            <element signature="initializer##0;class#5402:5619" expanded="false" />
-            <element signature="class#5657:5872" expanded="false" />
-            <element signature="initializer##0;class#5657:5872" expanded="false" />
+            <element signature="class#3546:3766" expanded="false" />
+            <element signature="initializer##0;class#3546:3766" expanded="false" />
+            <element signature="class#3803:4018" expanded="false" />
+            <element signature="initializer##0;class#3803:4018" expanded="false" />
+            <element signature="class#4054:4267" expanded="false" />
+            <element signature="initializer##0;class#4054:4267" expanded="false" />
+            <element signature="class#4305:4520" expanded="false" />
+            <element signature="initializer##0;class#4305:4520" expanded="false" />
+            <element signature="class#4556:4769" expanded="false" />
+            <element signature="initializer##0;class#4556:4769" expanded="false" />
+            <element signature="class#4806:5020" expanded="false" />
+            <element signature="initializer##0;class#4806:5020" expanded="false" />
+            <element signature="class#5060:5277" expanded="false" />
+            <element signature="initializer##0;class#5060:5277" expanded="false" />
+            <element signature="class#5315:5530" expanded="false" />
+            <element signature="initializer##0;class#5315:5530" expanded="false" />
             <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <marker date="1517114373928" expanded="true" signature="925:938" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="986:999" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="986:1007" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="1071:1143" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517114373928" expanded="true" signature="1177:1212" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="1260:1282" ph=" SELECT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="9799:9812" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="9859:9877" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="9928:9960" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="10008:10030" ph=" SELECT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="835:870" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="918:940" ph=" SELECT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9457:9470" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517114977307" expanded="true" signature="9517:9535" ph=" CREATE statement" />
+            <marker date="1517114977307" expanded="true" signature="9586:9618" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9666:9688" ph=" SELECT statement (TICKS)" />
           </folding>
         </state>
       </provider>
@@ -1018,9 +1016,9 @@
         <state relative-caret-position="270">
           <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
           <folding>
-            <marker date="1517113845298" expanded="true" signature="2261:2333" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517113845298" expanded="true" signature="2332:2333" ph=" INSERT statement (TICKS)" />
-            <marker date="1517113845298" expanded="true" signature="2375:2397" ph=" SELECT statement (TICKS)" />
+            <marker date="1517115377833" expanded="true" signature="2362:2375" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517115377833" expanded="true" signature="2419:2440" ph=" CREATE statement" />
+            <marker date="1517115377833" expanded="true" signature="2500:2569" ph=" INSERT statement (ACCOUNTS)" />
           </folding>
         </state>
       </provider>
@@ -1040,35 +1038,31 @@
         <state relative-caret-position="210">
           <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="class#3888:4108" expanded="false" />
-            <element signature="initializer##0;class#3888:4108" expanded="false" />
-            <element signature="class#4145:4360" expanded="false" />
-            <element signature="initializer##0;class#4145:4360" expanded="false" />
-            <element signature="class#4396:4609" expanded="false" />
-            <element signature="initializer##0;class#4396:4609" expanded="false" />
-            <element signature="class#4647:4862" expanded="false" />
-            <element signature="initializer##0;class#4647:4862" expanded="false" />
-            <element signature="class#4898:5111" expanded="false" />
-            <element signature="initializer##0;class#4898:5111" expanded="false" />
-            <element signature="class#5148:5362" expanded="false" />
-            <element signature="initializer##0;class#5148:5362" expanded="false" />
-            <element signature="class#5402:5619" expanded="false" />
-            <element signature="initializer##0;class#5402:5619" expanded="false" />
-            <element signature="class#5657:5872" expanded="false" />
-            <element signature="initializer##0;class#5657:5872" expanded="false" />
+            <element signature="class#3546:3766" expanded="false" />
+            <element signature="initializer##0;class#3546:3766" expanded="false" />
+            <element signature="class#3803:4018" expanded="false" />
+            <element signature="initializer##0;class#3803:4018" expanded="false" />
+            <element signature="class#4054:4267" expanded="false" />
+            <element signature="initializer##0;class#4054:4267" expanded="false" />
+            <element signature="class#4305:4520" expanded="false" />
+            <element signature="initializer##0;class#4305:4520" expanded="false" />
+            <element signature="class#4556:4769" expanded="false" />
+            <element signature="initializer##0;class#4556:4769" expanded="false" />
+            <element signature="class#4806:5020" expanded="false" />
+            <element signature="initializer##0;class#4806:5020" expanded="false" />
+            <element signature="class#5060:5277" expanded="false" />
+            <element signature="initializer##0;class#5060:5277" expanded="false" />
+            <element signature="class#5315:5530" expanded="false" />
+            <element signature="initializer##0;class#5315:5530" expanded="false" />
             <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <marker date="1517114373928" expanded="true" signature="925:938" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="986:999" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="986:1007" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="1071:1143" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517114373928" expanded="true" signature="1177:1212" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="1260:1282" ph=" SELECT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="9799:9812" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="9859:9877" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="9928:9960" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="10008:10030" ph=" SELECT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="835:870" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="918:940" ph=" SELECT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9457:9470" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517114977307" expanded="true" signature="9517:9535" ph=" CREATE statement" />
+            <marker date="1517114977307" expanded="true" signature="9586:9618" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9666:9688" ph=" SELECT statement (TICKS)" />
           </folding>
         </state>
       </provider>
@@ -1078,9 +1072,9 @@
         <state relative-caret-position="270">
           <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
           <folding>
-            <marker date="1517113845298" expanded="true" signature="2261:2333" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517113845298" expanded="true" signature="2332:2333" ph=" INSERT statement (TICKS)" />
-            <marker date="1517113845298" expanded="true" signature="2375:2397" ph=" SELECT statement (TICKS)" />
+            <marker date="1517115377833" expanded="true" signature="2362:2375" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517115377833" expanded="true" signature="2419:2440" ph=" CREATE statement" />
+            <marker date="1517115377833" expanded="true" signature="2500:2569" ph=" INSERT statement (ACCOUNTS)" />
           </folding>
         </state>
       </provider>
@@ -1090,9 +1084,9 @@
         <state relative-caret-position="105">
           <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
-            <marker date="1517113845298" expanded="true" signature="2261:2333" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517113845298" expanded="true" signature="2332:2333" ph=" INSERT statement (TICKS)" />
-            <marker date="1517113845298" expanded="true" signature="2375:2397" ph=" SELECT statement (TICKS)" />
+            <marker date="1517115377833" expanded="true" signature="2362:2375" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517115377833" expanded="true" signature="2419:2440" ph=" CREATE statement" />
+            <marker date="1517115377833" expanded="true" signature="2500:2569" ph=" INSERT statement (ACCOUNTS)" />
           </folding>
         </state>
       </provider>
@@ -1112,35 +1106,31 @@
         <state relative-caret-position="225">
           <caret line="30" column="57" lean-forward="true" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
           <folding>
-            <element signature="class#3888:4108" expanded="false" />
-            <element signature="initializer##0;class#3888:4108" expanded="false" />
-            <element signature="class#4145:4360" expanded="false" />
-            <element signature="initializer##0;class#4145:4360" expanded="false" />
-            <element signature="class#4396:4609" expanded="false" />
-            <element signature="initializer##0;class#4396:4609" expanded="false" />
-            <element signature="class#4647:4862" expanded="false" />
-            <element signature="initializer##0;class#4647:4862" expanded="false" />
-            <element signature="class#4898:5111" expanded="false" />
-            <element signature="initializer##0;class#4898:5111" expanded="false" />
-            <element signature="class#5148:5362" expanded="false" />
-            <element signature="initializer##0;class#5148:5362" expanded="false" />
-            <element signature="class#5402:5619" expanded="false" />
-            <element signature="initializer##0;class#5402:5619" expanded="false" />
-            <element signature="class#5657:5872" expanded="false" />
-            <element signature="initializer##0;class#5657:5872" expanded="false" />
+            <element signature="class#3546:3766" expanded="false" />
+            <element signature="initializer##0;class#3546:3766" expanded="false" />
+            <element signature="class#3803:4018" expanded="false" />
+            <element signature="initializer##0;class#3803:4018" expanded="false" />
+            <element signature="class#4054:4267" expanded="false" />
+            <element signature="initializer##0;class#4054:4267" expanded="false" />
+            <element signature="class#4305:4520" expanded="false" />
+            <element signature="initializer##0;class#4305:4520" expanded="false" />
+            <element signature="class#4556:4769" expanded="false" />
+            <element signature="initializer##0;class#4556:4769" expanded="false" />
+            <element signature="class#4806:5020" expanded="false" />
+            <element signature="initializer##0;class#4806:5020" expanded="false" />
+            <element signature="class#5060:5277" expanded="false" />
+            <element signature="initializer##0;class#5060:5277" expanded="false" />
+            <element signature="class#5315:5530" expanded="false" />
+            <element signature="initializer##0;class#5315:5530" expanded="false" />
             <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
             <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <marker date="1517114373928" expanded="true" signature="925:938" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="986:999" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="986:1007" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="1071:1143" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517114373928" expanded="true" signature="1177:1212" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="1260:1282" ph=" SELECT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="9799:9812" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="9859:9877" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="9928:9960" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="10008:10030" ph=" SELECT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="835:870" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="918:940" ph=" SELECT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9457:9470" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517114977307" expanded="true" signature="9517:9535" ph=" CREATE statement" />
+            <marker date="1517114977307" expanded="true" signature="9586:9618" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9666:9688" ph=" SELECT statement (TICKS)" />
           </folding>
         </state>
       </provider>
@@ -1402,10 +1392,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="class#3546:3766" expanded="false" />
+            <element signature="initializer##0;class#3546:3766" expanded="false" />
+            <element signature="class#3803:4018" expanded="false" />
+            <element signature="initializer##0;class#3803:4018" expanded="false" />
+            <element signature="class#4054:4267" expanded="false" />
+            <element signature="initializer##0;class#4054:4267" expanded="false" />
+            <element signature="class#4305:4520" expanded="false" />
+            <element signature="initializer##0;class#4305:4520" expanded="false" />
+            <element signature="class#4556:4769" expanded="false" />
+            <element signature="initializer##0;class#4556:4769" expanded="false" />
+            <element signature="class#4806:5020" expanded="false" />
+            <element signature="initializer##0;class#4806:5020" expanded="false" />
+            <element signature="class#5060:5277" expanded="false" />
+            <element signature="initializer##0;class#5060:5277" expanded="false" />
+            <element signature="class#5315:5530" expanded="false" />
+            <element signature="initializer##0;class#5315:5530" expanded="false" />
+            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <marker date="1517114977307" expanded="true" signature="835:870" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="918:940" ph=" SELECT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9457:9470" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517114977307" expanded="true" signature="9517:9535" ph=" CREATE statement" />
+            <marker date="1517114977307" expanded="true" signature="9586:9618" ph=" INSERT statement (TICKS)" />
+            <marker date="1517114977307" expanded="true" signature="9666:9688" ph=" SELECT statement (TICKS)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="25" />
+        <state relative-caret-position="90">
+          <caret line="64" column="31" lean-forward="true" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="61" />
           <folding>
             <element signature="method#checkIn#0;class#Account#0" expanded="false" />
             <element signature="e#7136#7250#0" expanded="false" />
@@ -1429,69 +1471,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-581">
-          <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        <state relative-caret-position="270">
+          <caret line="75" column="24" lean-forward="true" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
           <folding>
-            <marker date="1517113845298" expanded="true" signature="2261:2333" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517113845298" expanded="true" signature="2332:2333" ph=" INSERT statement (TICKS)" />
-            <marker date="1517113845298" expanded="true" signature="2375:2397" ph=" SELECT statement (TICKS)" />
+            <marker date="1517115377833" expanded="true" signature="2362:2375" ph=" DROP TABLE statement (IF)" />
+            <marker date="1517115377833" expanded="true" signature="2419:2440" ph=" CREATE statement" />
+            <marker date="1517115377833" expanded="true" signature="2500:2569" ph=" INSERT statement (ACCOUNTS)" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="32" column="65" lean-forward="true" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
-          <folding>
-            <element signature="class#3888:4108" expanded="false" />
-            <element signature="initializer##0;class#3888:4108" expanded="false" />
-            <element signature="class#4145:4360" expanded="false" />
-            <element signature="initializer##0;class#4145:4360" expanded="false" />
-            <element signature="class#4396:4609" expanded="false" />
-            <element signature="initializer##0;class#4396:4609" expanded="false" />
-            <element signature="class#4647:4862" expanded="false" />
-            <element signature="initializer##0;class#4647:4862" expanded="false" />
-            <element signature="class#4898:5111" expanded="false" />
-            <element signature="initializer##0;class#4898:5111" expanded="false" />
-            <element signature="class#5148:5362" expanded="false" />
-            <element signature="initializer##0;class#5148:5362" expanded="false" />
-            <element signature="class#5402:5619" expanded="false" />
-            <element signature="initializer##0;class#5402:5619" expanded="false" />
-            <element signature="class#5657:5872" expanded="false" />
-            <element signature="initializer##0;class#5657:5872" expanded="false" />
-            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <marker date="1517114373928" expanded="true" signature="925:938" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="986:999" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="986:1007" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="1071:1143" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517114373928" expanded="true" signature="1177:1212" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="1260:1282" ph=" SELECT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="9799:9812" ph=" DROP TABLE statement (IF)" />
-            <marker date="1517114373928" expanded="true" signature="9859:9877" ph=" CREATE statement" />
-            <marker date="1517114373928" expanded="true" signature="9928:9960" ph=" INSERT statement (TICKS)" />
-            <marker date="1517114373928" expanded="true" signature="10008:10030" ph=" SELECT statement (TICKS)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

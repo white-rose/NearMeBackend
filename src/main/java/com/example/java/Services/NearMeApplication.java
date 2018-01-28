@@ -27,6 +27,7 @@ import model.Greeting;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,6 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.concurrent.atomic.AtomicLong;
@@ -58,15 +58,13 @@ public class NearMeApplication {
     return "Still surviving.";
   }
 
-  @RequestMapping("/test")
-  public void test() throws SQLException {
+  @RequestMapping("/test/{username}")
+  public void test(@PathVariable String username) throws SQLException {
     Connection connection = dataSource.getConnection();
     Statement stmt = connection.createStatement();
-    stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('tester2', 'nathan2')");
-    ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-    while (rs.next()) {
-      System.out.println("Read from DB: " + rs.getTimestamp("tick"));
-    }
+    stmt.executeUpdate("DROP TABLE IF EXISTS accounts");
+    stmt.executeUpdate("CREATE TABLE accounts (username TEXT, FirstName TEXT)");
+    stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('tester3', 'greg')");
   }
 
   /*
