@@ -64,7 +64,7 @@ public class NearMeApplication {
     Statement stmt = connection.createStatement();
     stmt.executeUpdate("DROP TABLE IF EXISTS accounts");
     stmt.executeUpdate("CREATE TABLE accounts (username TEXT, FirstName TEXT)");
-    stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('tester3', 'greg')");
+    stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('tester3', '" + username +"')");
   }
 
   /*

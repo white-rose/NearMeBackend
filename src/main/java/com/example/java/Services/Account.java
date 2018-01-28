@@ -25,11 +25,7 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.sql.DataSource;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -75,18 +71,6 @@ public class Account {
 //            System.err.println("Create items failed.");
 //            System.err.println(e.getMessage());
 //        }
-    }
-
-    @RequestMapping("/login")
-    public void login() throws SQLException{
-        Statement stmt = dataSource.getConnection().createStatement();
-        stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
-        stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
-        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-        while (rs.next()) {
-            System.out.println("Read from DB: " + rs.getTimestamp("tick"));
-        }
     }
 
     @RequestMapping("/checkNearby/latitude/{latitude}/longitude/{longitude}")
@@ -140,28 +124,36 @@ public class Account {
     }
 
     //Local DynamoDB
-    @RequestMapping("/pullAccountsLocal")
+    @RequestMapping("/pullAccounts")
     public List<UserAccount> pullAccounts () {
-        System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
-
+//        System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
+//
         List<UserAccount> userAccounts = new ArrayList<>();
-
-        UserAccount[] newUser = new UserAccount[1];
-        ScanResult allResults = ApplicationCommandLineRunner.accountsDDB.scan("Accounts"
-                , Arrays.asList("username","FirstName","Locality","friendRequests","sex","friends","facebookId"));
-        allResults.getItems().stream().forEach(item -> {
-            UserAccount userAccount = new UserAccount();
-            userAccount.setFirstName(item.get("FirstName").getS());
-            userAccount.setLocality(item.get("Locality").getS());
-            userAccount.setUserName(item.get("username").getS());
-//            userAccount.setFriendRequests(item.get("friendRequests").getSS());
-            if (item.get("facebookId") != null) {
-                userAccount.setFacebookId(item.get("facebookId").getS());
-            }
-            userAccount.setFriends(item.get("friends").getSS());
-            userAccount.setSex("MALE");
-            userAccounts.add(userAccount);
-        });
+//
+//        UserAccount[] newUser = new UserAccount[1];
+//        ScanResult allResults = ApplicationCommandLineRunner.accountsDDB.scan("Accounts"
+//                , Arrays.asList("username","FirstName","Locality","friendRequests","sex","friends","facebookId"));
+//        allResults.getItems().stream().forEach(item -> {
+//            UserAccount userAccount = new UserAccount();
+//            userAccount.setFirstName(item.get("FirstName").getS());
+//            userAccount.setLocality(item.get("Locality").getS());
+//            userAccount.setUserName(item.get("username").getS());
+////            userAccount.setFriendRequests(item.get("friendRequests").getSS());
+//            if (item.get("facebookId") != null) {
+//                userAccount.setFacebookId(item.get("facebookId").getS());
+//            }
+//            userAccount.setFriends(item.get("friends").getSS());
+//            userAccount.setSex("MALE");
+//            userAccounts.add(userAccount);
+//        });
+        UserAccount nathanAccount = new UserAccount();
+        nathanAccount.setFirstName("Nathan");
+        nathanAccount.setFacebookId("12345678");
+        UserAccount bobAccount = new UserAccount();
+        bobAccount.setFirstName("Sally");
+        bobAccount.setFacebookId("12345678");
+        userAccounts.add(nathanAccount);
+        userAccounts.add(bobAccount);
 
         return userAccounts;
 //                .stream()
