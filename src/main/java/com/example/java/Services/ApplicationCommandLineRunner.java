@@ -21,12 +21,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 
-//        stmt.executeUpdate("INSERT INTO accounts VALUES (hello)");
-//        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-//        while (rs.next()) {
-//            System.out.println("Read from DB: " + rs.getTimestamp("tick"));
-//        }
-
       System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 
 //      accountsDDB = DynamoDBEmbedded.create().amazonDynamoDB();

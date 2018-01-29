@@ -126,9 +126,8 @@ public class Account {
 
         Connection connection = dataSource.getConnection();
         Statement stmt = connection.createStatement();
-        stmt.executeUpdate("DROP TABLE IF EXISTS nothing");
-        stmt.executeUpdate("CREATE TABLE nothing (firstName TEXT, facebookId TEXT)");
-        stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('" + userAccount.getFirstName() + "', '" + userAccount.getFacebookId() +"')");
+        stmt.executeUpdate("INSERT INTO accounts (username, firstname, facebookId) " +
+                "VALUES ('" + userAccount.getUsername() + "','" + userAccount.getFirstName() + "', '" + userAccount.getFacebookId() +"')");
 
     }
 
@@ -160,8 +159,9 @@ public class Account {
         ResultSet rs = stmt.executeQuery("SELECT * FROM accounts");
         while (rs.next()) {
             UserAccount userAccount = new UserAccount();
+            userAccount.setUserName(rs.getString("username"));
             userAccount.setFirstName(rs.getString("firstName"));
-            userAccount.setFacebookId("123456789");
+            userAccount.setFacebookId(rs.getString("facebookid"));
             userAccounts.add(userAccount);
         }
 

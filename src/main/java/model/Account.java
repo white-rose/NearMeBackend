@@ -6,11 +6,11 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 @DynamoDBTable(tableName = "Accounts")
 public class Account {
 
-    @DynamoDBHashKey(attributeName = "Username")
+    @DynamoDBHashKey(attributeName = "username")
     private String username;
-    @DynamoDBHashKey(attributeName = "FirstName")
+    @DynamoDBHashKey(attributeName = "firstname")
     private String firstName;
-    @DynamoDBHashKey(attributeName = "LastName")
+    @DynamoDBHashKey(attributeName = "lastname")
     private String lastName;
     @DynamoDBHashKey(attributeName = "locality")
     private String locality;
