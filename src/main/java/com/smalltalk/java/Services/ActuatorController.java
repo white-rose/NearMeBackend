@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.java.Services;
+package com.smalltalk.java.Services;
 
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
@@ -36,7 +36,7 @@ import javax.sql.DataSource;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-public class NearMeApplication {
+public class ActuatorController {
 
   private static final String template = "The device token is , %s!";
   private final AtomicLong counter = new AtomicLong();
@@ -54,12 +54,8 @@ public class NearMeApplication {
     return "Still surviving.";
   }
 
-  /*
-  Nathan Iphone 7 device token - 847748fb896318b4cf5ab22884c5046a002ad3206d3930ad24a8003c1b91b4a7
-  */
-
+  //Send Push Notication to phone
   @RequestMapping("/requestResturant")
-  //UserID as parameter?
   public Greeting notification(@RequestParam(value="token") String deviceToken) {
       ApnsService service = APNS.newService()
               .withCert("/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12", "Cabinboy23")
@@ -118,6 +114,5 @@ public class NearMeApplication {
 
     return jsonArray.toString();
   }
-
 
 }

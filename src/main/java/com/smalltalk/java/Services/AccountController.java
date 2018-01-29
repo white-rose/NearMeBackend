@@ -1,4 +1,4 @@
-package com.example.java.Services;
+package com.smalltalk.java.Services;
 
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-public class Account {
+public class AccountController {
 
     String username;
     String firstName;
@@ -49,63 +49,18 @@ public class Account {
 
     static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
 
-//    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
-//    static DynamoDB dynamoDB = new DynamoDB(client);
-
-    static String tableName = "accounts";
+    static final String tableName = "accounts";
 
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
 
-    private Logger logger = LoggerFactory.getLogger(Account.class);
+    private Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
 
-    @Autowired
-    DataSource dataSource;
-
-    @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
-    public void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) {
-
-//        Table table = dynamoDB.getTable("accounts");
-//        try {
-//            Item item = new Item().withPrimaryKey("username", firstname)
-//                    .withString("firstName", firstname)
-//                    .withString("lastName", lastname)
-//                    .withString("password", password);
-//            table.putItem(item);
-//        } catch (Exception e) {
-//            System.err.println("Create items failed.");
-//            System.err.println(e.getMessage());
-//        }
-    }
-
-    @RequestMapping("/checkNearby/latitude/{latitude}/longitude/{longitude}")
-    public String checkIn(@PathVariable String latitude, @PathVariable String longitude) throws JsonProcessingException {
-
-        final StringBuilder locationUrl = new StringBuilder();
-        locationUrl.append("https://maps.googleapis.com/maps/api/place/nearbysearch/json?")
-                   .append(String.valueOf(latitude))
-                   .append(",")
-                   .append(longitude)
-                   .append("&radius=1000&")
-                   .append("key" + this.apiKey);
-
-        Logger logger = LoggerFactory.getLogger(Account.class);
-        logger.info(locationUrl.toString());
-
-        RestTemplate restTemplate = new RestTemplate();
-        DetailedResponse result = restTemplate.getForObject(locationUrl.toString(), DetailedResponse.class);
-        GooglePlaceResult[] places = result.getPlaces();
-        System.out.print(places[0].getIcon());
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        String jsonPlaceString = mapper.writeValueAsString(places[0]);
-        logger.info("Results came back as " + jsonPlaceString);
-
-        return jsonPlaceString;
-    }
+    //Client for AWS DynamoDB production
+    //static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
+//    static DynamoDB dynamoDB = new DynamoDB(client);
 
     @RequestMapping(
             value = "/updateLocation",
@@ -131,7 +86,6 @@ public class Account {
 
     }
 
-    //Local DynamoDB
     @RequestMapping("/pullAccounts")
     public List<UserAccount> pullAccounts () throws SQLException{
 //        System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
@@ -170,6 +124,52 @@ public class Account {
 //                .filter(males -> !"FEMALE".equals(males.getSex()))
 //                .collect(Collectors.toList());
 
+    }
+
+    @Autowired
+    DataSource dataSource;
+
+    @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
+    public void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) {
+
+//        Table table = dynamoDB.getTable("accounts");
+//        try {
+//            Item item = new Item().withPrimaryKey("username", firstname)
+//                    .withString("firstName", firstname)
+//                    .withString("lastName", lastname)
+//                    .withString("password", password);
+//            table.putItem(item);
+//        } catch (Exception e) {
+//            System.err.println("Create items failed.");
+//            System.err.println(e.getMessage());
+//        }
+    }
+
+    @RequestMapping("/checkNearby/latitude/{latitude}/longitude/{longitude}")
+    public String checkIn(@PathVariable String latitude, @PathVariable String longitude) throws JsonProcessingException {
+
+        final StringBuilder locationUrl = new StringBuilder();
+        locationUrl.append("https://maps.googleapis.com/maps/api/place/nearbysearch/json?")
+                   .append(String.valueOf(latitude))
+                   .append(",")
+                   .append(longitude)
+                   .append("&radius=1000&")
+                   .append("key" + this.apiKey);
+
+        Logger logger = LoggerFactory.getLogger(AccountController.class);
+        logger.info(locationUrl.toString());
+
+        RestTemplate restTemplate = new RestTemplate();
+        DetailedResponse result = restTemplate.getForObject(locationUrl.toString(), DetailedResponse.class);
+        GooglePlaceResult[] places = result.getPlaces();
+        System.out.print(places[0].getIcon());
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        String jsonPlaceString = mapper.writeValueAsString(places[0]);
+        logger.info("Results came back as " + jsonPlaceString);
+
+        return jsonPlaceString;
     }
 
     @RequestMapping(
