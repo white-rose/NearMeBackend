@@ -1,7 +1,10 @@
 package com.example.java.Services;
 
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.dynamodbv2.model.*;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.AttributeValueUpdate;
+import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
+import com.amazonaws.services.dynamodbv2.model.UpdateItemRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.DetailedResponse;
@@ -25,6 +28,10 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.sql.DataSource;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -104,28 +111,30 @@ public class Account {
             value = "/updateLocation",
             method = { RequestMethod.POST }
     )
-    public void updateLocation (@RequestBody model.Account userAccount) {
+    public void updateLocation (@RequestBody model.Account userAccount) throws SQLException {
 
-          ApplicationCommandLineRunner.accountsDDB.putItem(new PutItemRequest()
-          .withTableName("Accounts")
-          .withItem(new HashMap() {{
-              put("FirstName", new AttributeValue().withS(userAccount.getFirstName()));
-              put("Locality", new AttributeValue().withS(userAccount.getLocality()));
-              put("username", new AttributeValue().withS(userAccount.getUsername()));
-              put("facebookid", new AttributeValue().withS(userAccount.getFacebookId()));
-              put("friends", new AttributeValue().withSS("Nathan", "Billy"));
-              put("friendRequests", new AttributeValue().withSS("none"));
-          }}));
+//          ApplicationCommandLineRunner.accountsDDB.putItem(new PutItemRequest()
+//          .withTableName("Accounts")
+//          .withItem(new HashMap() {{
+//              put("FirstName", new AttributeValue().withS(userAccount.getFirstName()));
+//              put("Locality", new AttributeValue().withS(userAccount.getLocality()));
+//              put("username", new AttributeValue().withS(userAccount.getUsername()));
+//              put("facebookid", new AttributeValue().withS(userAccount.getFacebookId()));
+//              put("friends", new AttributeValue().withSS("Nathan", "Billy"));
+//              put("friendRequests", new AttributeValue().withSS("none"));
+//          }}));
 
-          ScanRequest scanRequest = new ScanRequest();
-          scanRequest.withTableName("Accounts");
-          System.out.println(ApplicationCommandLineRunner.accountsDDB.scan(scanRequest).getItems());
+        Connection connection = dataSource.getConnection();
+        Statement stmt = connection.createStatement();
+        stmt.executeUpdate("DROP TABLE IF EXISTS nothing");
+        stmt.executeUpdate("CREATE TABLE nothing (firstName TEXT, facebookId TEXT)");
+        stmt.executeUpdate("INSERT INTO accounts (username, firstname) VALUES ('" + userAccount.getFirstName() + "', '" + userAccount.getFacebookId() +"')");
 
     }
 
     //Local DynamoDB
     @RequestMapping("/pullAccounts")
-    public List<UserAccount> pullAccounts () {
+    public List<UserAccount> pullAccounts () throws SQLException{
 //        System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 //
         List<UserAccount> userAccounts = new ArrayList<>();
@@ -146,14 +155,15 @@ public class Account {
 //            userAccount.setSex("MALE");
 //            userAccounts.add(userAccount);
 //        });
-        UserAccount nathanAccount = new UserAccount();
-        nathanAccount.setFirstName("Nathan");
-        nathanAccount.setFacebookId("12345678");
-        UserAccount bobAccount = new UserAccount();
-        bobAccount.setFirstName("Sally");
-        bobAccount.setFacebookId("12345678");
-        userAccounts.add(nathanAccount);
-        userAccounts.add(bobAccount);
+
+        Statement stmt = dataSource.getConnection().createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM accounts");
+        while (rs.next()) {
+            UserAccount userAccount = new UserAccount();
+            userAccount.setFirstName(rs.getString("firstName"));
+            userAccount.setFacebookId("123456789");
+            userAccounts.add(userAccount);
+        }
 
         return userAccounts;
 //                .stream()

@@ -7,10 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.*;
 
 @Component
@@ -195,27 +191,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 //            }}));
 
     }
-
-    private static Connection getConnection() throws URISyntaxException, SQLException {
-        Properties props = new Properties();
-        props.setProperty("user","yfdcultzhzhsos");
-        props.setProperty("password","08357ce1b8f56cb12bfd807e64a6bdf4d7f828bba48df33ec225518595f7fa85");
-        props.setProperty("ssl","true");
-        String dbUrl = "postgres://ec2-54-225-230-142.compute-1.amazonaws.com:5432/dba8br45ci0k1e";
-        return DriverManager.getConnection(dbUrl, props);
-    }
-
-//    @PostConstruct
-//    public void myRealMainMethod() throws SQLException {
-//        Statement stmt = dataSource.getConnection().createStatement();
-//        stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
-//        stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
-//        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-//        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-//        while (rs.next()) {
-//            System.out.println("Read from DB: " + rs.getTimestamp("tick"));
-//        }
-//    }
 
     public String randomSex() {
         Sex[] sexes = {Sex.FEMALE, Sex.MALE};
