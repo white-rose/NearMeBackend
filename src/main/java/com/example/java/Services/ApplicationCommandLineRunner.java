@@ -1,4 +1,4 @@
-package com.smalltalk.java.Services;
+package com.example.java.Services;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.model.*;

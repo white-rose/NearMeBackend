@@ -146,7 +146,7 @@
               <goal>repackage</goal>
             </goals>
             <configuration>
-              <mainClass>com.smalltalk.java.Services.GCloud</mainClass>
+              <mainClass>com.example.java.Services.GCloud</mainClass>
             </configuration>
           </execution>
         </executions>

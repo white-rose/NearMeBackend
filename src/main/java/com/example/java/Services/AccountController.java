@@ -1,4 +1,4 @@
-package com.smalltalk.java.Services;
+package com.example.java.Services;
 
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
@@ -43,6 +43,9 @@ public class AccountController {
     String firstName;
     String lastName;
     String locality;
+
+    @Autowired
+    DataSource dataSource;
 
     private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
     private static final String secretKey = "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";
@@ -125,9 +128,6 @@ public class AccountController {
 //                .collect(Collectors.toList());
 
     }
-
-    @Autowired
-    DataSource dataSource;
 
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
     public void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) {

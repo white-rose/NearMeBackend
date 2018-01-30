@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.smalltalk.java.Services;
+package com.example.java.Services;
 
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
