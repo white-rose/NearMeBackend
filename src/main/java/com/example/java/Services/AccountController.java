@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static java.time.LocalDate.now;
+
 @RestController
 public class AccountController {
 
@@ -67,8 +69,7 @@ public class AccountController {
 
     @RequestMapping(
             value = "/updateLocation",
-            method = { RequestMethod.POST }
-    )
+            method = { RequestMethod.POST })
     public void updateLocation (@RequestBody model.Account userAccount) throws SQLException {
 
 //          ApplicationCommandLineRunner.accountsDDB.putItem(new PutItemRequest()
@@ -83,14 +84,23 @@ public class AccountController {
 //          }}));
 
         Connection connection = dataSource.getConnection();
-        Statement stmt = connection.createStatement();
-        stmt.executeUpdate("INSERT INTO accounts (username, firstname, facebookId) " +
-                "VALUES ('" + userAccount.getUsername() + "','" + userAccount.getFirstName() + "', '" + userAccount.getFacebookId() +"')");
+//        Statement stmt = connection.createStatement();
+//        String updateAccountsSQL = "INSERT INTO accounts (username, firstname, facebookId) " +
+//                "VALUES ('" + userAccount.getUsername() + "','" + userAccount.getFirstName() + "', '" + userAccount.getFacebookId() +"')";
+//        stmt.executeUpdate(updateAccountsSQL);
+
+        Statement locationStmt = connection.createStatement();
+        String updateLocationSQL = "INSERT INTO sanfrancisco (facebookid, locality)"
+                + "VALUES ('" + userAccount.getFacebookId() + "', '" + userAccount.getLocality() + "','" + now() + "')";
+        locationStmt.executeUpdate(updateLocationSQL);
 
     }
 
-    @RequestMapping("/pullAccounts")
-    public List<UserAccount> pullAccounts () throws SQLException{
+    //TODO: Add timestamp to location
+    @RequestMapping(
+            value = "/pullAccounts",
+            method = RequestMethod.POST)
+    public List<UserAccount> pullAccounts (@RequestBody UserAccount currentAccounts) throws SQLException{
 //        System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 //
         List<UserAccount> userAccounts = new ArrayList<>();
@@ -113,11 +123,9 @@ public class AccountController {
 //        });
 
         Statement stmt = dataSource.getConnection().createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM accounts");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM sanfrancisco WHERE locality = '" + currentAccounts.getLocality() + "'");
         while (rs.next()) {
             UserAccount userAccount = new UserAccount();
-            userAccount.setUserName(rs.getString("username"));
-            userAccount.setFirstName(rs.getString("firstName"));
             userAccount.setFacebookId(rs.getString("facebookid"));
             userAccounts.add(userAccount);
         }

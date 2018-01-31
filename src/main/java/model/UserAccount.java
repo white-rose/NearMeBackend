@@ -7,6 +7,8 @@ import java.util.List;
 public class UserAccount {
 
     @JsonProperty
+    String facebookId;
+    @JsonProperty
     String userName;
     @JsonProperty
     String firstName;
@@ -18,8 +20,6 @@ public class UserAccount {
     List friends;
     @JsonProperty
     List friendRequests;
-    @JsonProperty
-    String facebookId;
 
     public String getUserName() {
         return userName;
