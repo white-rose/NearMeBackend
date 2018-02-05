@@ -90,8 +90,8 @@ public class AccountController {
 //        stmt.executeUpdate(updateAccountsSQL);
 
         Statement locationStmt = connection.createStatement();
-        String updateLocationSQL = "INSERT INTO sanfrancisco (facebookid, locality)"
-                + "VALUES ('" + userAccount.getFacebookId() + "', '" + userAccount.getLocality() + "','" + now() + "')";
+        String updateLocationSQL = "INSERT INTO sanfrancisco (facebookid, locality, time)"
+                + "VALUES ('" + userAccount.getFacebookId() + "','" + userAccount.getLocality() + "','" + now() + "')";
         locationStmt.executeUpdate(updateLocationSQL);
 
     }
