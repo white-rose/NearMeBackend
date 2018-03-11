@@ -10,6 +10,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 /**
  * Created by mrrobot on 7/5/17.
  */
+
 @Configuration
 public class RestConfiguration {
     @Bean

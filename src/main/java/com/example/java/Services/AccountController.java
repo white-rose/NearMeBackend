@@ -7,10 +7,15 @@ import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
 import com.amazonaws.services.dynamodbv2.model.UpdateItemRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import model.DetailedResponse;
-import model.FriendRequest;
-import model.GooglePlaceResult;
-import model.UserAccount;
+import com.google.gson.Gson;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import com.notnoop.apns.APNS;
+import com.notnoop.apns.ApnsService;
+import model.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +23,7 @@ import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.PagedList;
 import org.springframework.social.facebook.api.Post;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -28,17 +34,16 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.sql.DataSource;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static java.time.LocalDate.now;
+import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
+@Component
 public class AccountController {
 
     String username;
@@ -52,6 +57,9 @@ public class AccountController {
     private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
     private static final String secretKey = "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";
 
+    private static final String template = "The device token is , %s!";
+    private final AtomicLong counter = new AtomicLong();
+
     static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
 
     static final String tableName = "accounts";
@@ -63,48 +71,18 @@ public class AccountController {
 
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
 
-    //Client for AWS DynamoDB production
-    //static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
-//    static DynamoDB dynamoDB = new DynamoDB(client);
+    // Client for AWS DynamoDB production
+    // static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
+    // static DynamoDB dynamoDB = new DynamoDB(client);
 
-    @RequestMapping(
-            value = "/updateLocation",
-            method = { RequestMethod.POST })
-    public void updateLocation (@RequestBody model.Account userAccount) throws SQLException {
-
-//          ApplicationCommandLineRunner.accountsDDB.putItem(new PutItemRequest()
-//          .withTableName("Accounts")
-//          .withItem(new HashMap() {{
-//              put("FirstName", new AttributeValue().withS(userAccount.getFirstName()));
-//              put("Locality", new AttributeValue().withS(userAccount.getLocality()));
-//              put("username", new AttributeValue().withS(userAccount.getUsername()));
-//              put("facebookid", new AttributeValue().withS(userAccount.getFacebookId()));
-//              put("friends", new AttributeValue().withSS("Nathan", "Billy"));
-//              put("friendRequests", new AttributeValue().withSS("none"));
-//          }}));
-
-        Connection connection = dataSource.getConnection();
-//        Statement stmt = connection.createStatement();
-//        String updateAccountsSQL = "INSERT INTO accounts (username, firstname, facebookId) " +
-//                "VALUES ('" + userAccount.getUsername() + "','" + userAccount.getFirstName() + "', '" + userAccount.getFacebookId() +"')";
-//        stmt.executeUpdate(updateAccountsSQL);
-
-        Statement locationStmt = connection.createStatement();
-        String updateLocationSQL = "INSERT INTO sanfrancisco (facebookid, locality, time)"
-                + "VALUES ('" + userAccount.getFacebookId() + "','" + userAccount.getLocality() + "','" + now() + "')";
-        locationStmt.executeUpdate(updateLocationSQL);
-
-    }
-
-    //TODO: Add timestamp to location
     @RequestMapping(
             value = "/pullAccounts",
             method = RequestMethod.POST)
-    public List<UserAccount> pullAccounts (@RequestBody UserAccount currentAccounts) throws SQLException{
-//        System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
+    public List<UserAccount> pullAccounts (@RequestBody UserAccount currentAccounts) throws SQLException {
+//      System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 //
         List<UserAccount> userAccounts = new ArrayList<>();
-//
+
 //        UserAccount[] newUser = new UserAccount[1];
 //        ScanResult allResults = ApplicationCommandLineRunner.accountsDDB.scan("Accounts"
 //                , Arrays.asList("username","FirstName","Locality","friendRequests","sex","friends","facebookId"));
@@ -122,19 +100,20 @@ public class AccountController {
 //            userAccounts.add(userAccount);
 //        });
 
+        long beginningTime = System.currentTimeMillis();
         Statement stmt = dataSource.getConnection().createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM sanfrancisco WHERE locality = '" + currentAccounts.getLocality() + "'");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM sanfrancisco " +
+                "WHERE locality = '" + currentAccounts.getLocality() + "'");
         while (rs.next()) {
             UserAccount userAccount = new UserAccount();
             userAccount.setFacebookId(rs.getString("facebookid"));
             userAccounts.add(userAccount);
         }
 
-        return userAccounts;
-//                .stream()
-//                .filter(males -> !"FEMALE".equals(males.getSex()))
-//                .collect(Collectors.toList());
+        long endTime = System.currentTimeMillis();
+        System.out.println((endTime - beginningTime));
 
+        return userAccounts;
     }
 
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")
@@ -232,6 +211,67 @@ public class AccountController {
                 }});
 
         System.out.println(ApplicationCommandLineRunner.accountsDDB.getItem(getItemRequest));
+    }
+
+    //Send Push Notication to phone
+    @RequestMapping("/samplePush")
+    public Greeting notification(@RequestParam(value="token") String deviceToken) {
+        ApnsService service = APNS.newService()
+                .withCert("/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12", "Cabinboy23")
+                .withSandboxDestination()
+                .build();
+
+        String payload = APNS.newPayload()
+                .alertBody("Simple!")
+                .alertTitle("Test 123")
+                .build();
+
+        deviceToken = "c8ad4e8b7a96943039b3ea89a6a5508bc6426953fdbadfeae06c970b28a495c0";
+
+        service.push(deviceToken, payload);
+
+        return new Greeting(counter.incrementAndGet(), String.format(template, deviceToken));
+    }
+
+    //API Key = AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0
+    @RequestMapping("/pull")
+    public String pull () {
+
+        GooglePlaceResult checkinLocation = new GooglePlaceResult();
+
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+
+            StringBuilder stringBuilder = new StringBuilder();
+            String latitude, longitude, radius;
+            String APIkey = "AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0";
+
+            HttpResponse<String> response = Unirest.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
+                    "location=37.779758, -122.404139" +
+                    "&radius=31" +
+                    "&key=AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0")
+                    .header("cache-control", "no-cache")
+                    .header("postman-token", "187d7feb-72b8-3e90-5874-44255f0b1dd5")
+                    .asString();
+
+            jsonObject = new JSONObject(response.getBody());
+            jsonArray = (JSONArray) jsonObject.get("results");
+            String firstPlace = jsonArray.get(0).toString();
+            System.out.println(firstPlace);
+            Gson gson = new Gson();
+            checkinLocation = gson.fromJson(firstPlace, GooglePlaceResult.class);
+
+//    GooglePlaceResult result = (GooglePlaceResult) jsonArray.get(0);
+
+            System.out.println(response);
+        } catch (UnirestException ex) {
+            System.out.print(ex);
+        }
+
+        return jsonArray.toString();
     }
 
     public void getFacebookData (Model model) {

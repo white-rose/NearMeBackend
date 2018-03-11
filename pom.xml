@@ -33,7 +33,25 @@
       <kotlin.version>1.1.60</kotlin.version>
   </properties>
 
+    <dependencyManagement>
+        <dependencies>
+<!--        <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth</artifactId>
+                <version>2.0.0.M6</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency> -->
+        </dependencies>
+    </dependencyManagement>
+
   <dependencies>
+
+	
+<!--  <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-sleuth</artifactId>
+      </dependency> -->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -124,15 +142,38 @@
           <version>1.4</version>
       </dependency>
 
+      <dependency>
+          <groupId>org.scala-lang</groupId>
+          <artifactId>scala-library</artifactId>
+          <version>2.11.7</version>
+      </dependency>
+
+      <!--<dependency>-->
+          <!--<groupId>org.mongodb</groupId>-->
+          <!--<artifactId>mongodb-driver</artifactId>-->
+          <!--<version>3.6.2</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <version>RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+      </dependency>
+
   </dependencies>
 
     <!--Custom repository:-->
     <repositories>
-    <repository>
-        <id>dynamodb-local-oregon</id>
-        <name>DynamoDB Local Release Repository</name>
-        <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
-    </repository>
+        <repository>
+            <id>dynamodb-local-oregon</id>
+            <name>DynamoDB Local Release Repository</name>
+            <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
+        </repository>
         <repository>
             <id>spring-releases</id>
             <name>Spring Releases</name>
@@ -175,7 +216,7 @@
           <!--<max_module_instances>2</max_module_instances>-->
         </configuration>
       </plugin>
-        <plugin>
+<!--  <plugin>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
@@ -198,7 +239,7 @@
             <configuration>
                 <jvmTarget>1.8</jvmTarget>
             </configuration>
-        </plugin>
+        </plugin> -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -220,6 +261,33 @@
             </executions>
         </plugin>
         <!-- END plugin -->
+        <!-- This plugin compiles Scala files -->
+
+        <!-- This plugin adds all dependencies to JAR file during 'package' command.
+Pay EXTRA attention to the 'mainClass' tag.
+You have to set name of class with entry point to program ('main' method) -->
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.5.3</version>
+            <configuration>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <archive>
+                    <manifest>
+                        <mainClass>ScalaRunner</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
     </plugins>
   </build>
 </project>

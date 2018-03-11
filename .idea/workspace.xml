@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="">
+    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="Fix Update Location Endpoint">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/java/Services/GCloud.class" afterPath="$PROJECT_DIR$/target/classes/com/example/java/Services/GCloud.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/RestConfiguration.class" afterPath="$PROJECT_DIR$/target/classes/config/RestConfiguration.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/Greeting.class" afterPath="$PROJECT_DIR$/target/classes/model/Greeting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/Notification.class" afterPath="$PROJECT_DIR$/target/classes/model/Notification.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/Suggestion.class" afterPath="$PROJECT_DIR$/target/classes/model/Suggestion.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/config/RestConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/config/RestConfiguration.java" />
     </list>
     <ignored path="helloworld-springboot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,8 +35,8 @@
     <SUITE FILE_PATH="coverage/NearMeBackend$AWSService.coverage" NAME="AWSService Coverage Results" MODIFIED="1503623143077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.example.java.Services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/NearMeBackend$GCloud.coverage" NAME="GCloud Coverage Results" MODIFIED="1517342762592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>model.*</FILTER>
+    <SUITE FILE_PATH="coverage/NearMeBackend$GCloud.coverage" NAME="GCloud Coverage Results" MODIFIED="1518223491719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.java.Services.*</FILTER>
     </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -42,37 +53,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java">
+      <file leaf-file-name="LocationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="148">
+              <caret line="52" column="96" lean-forward="false" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
               <folding>
-                <element signature="e#4397#4504#0" expanded="false" />
-                <element signature="e#4568#4570#0" expanded="false" />
-                <element signature="method#createAccount#0;class#AccountController#0" expanded="false" />
-                <element signature="e#6378#6432#0" expanded="false" />
-                <element signature="method#checkIn#0;class#AccountController#0" expanded="false" />
-                <element signature="method#getFriendRequests#0;class#AccountController#0" expanded="false" />
-                <element signature="class#8404:8531" expanded="false" />
-                <element signature="initializer##0;class#8404:8531" expanded="false" />
-                <element signature="method#sendFriendRequest#0;class#AccountController#0" expanded="false" />
-                <element signature="e#8857#8922#0" expanded="false" />
-                <element signature="class#9635:9778" expanded="false" />
-                <element signature="initializer##0;class#9635:9778" expanded="false" />
-                <element signature="class#9822:9949" expanded="false" />
-                <element signature="initializer##0;class#9822:9949" expanded="false" />
-                <element signature="class#10165:10308" expanded="false" />
-                <element signature="initializer##0;class#10165:10308" expanded="false" />
-                <element signature="method#getFacebookData#0;class#AccountController#0" expanded="false" />
-                <element signature="method#hashPassword#0;class#AccountController#0" expanded="false" />
-                <marker date="1517613184440" expanded="true" signature="3567:3764" ph=" INSERT statement (ACCOUNTS)" />
-                <marker date="1517613184440" expanded="true" signature="3916:4073" ph=" INSERT statement (SANFRANCISCO)" />
-                <marker date="1517613184440" expanded="true" signature="3916:4088" ph=" INSERT statement (SANFRANCISCO)" />
-                <marker date="1517613184440" expanded="true" signature="5666:5680" ph=" SELECT statement (ACCOUNTS)" />
-                <marker date="1517613184440" expanded="true" signature="5666:5709" ph=" SELECT statement (SANFRANCISCO)" />
-                <marker date="1517613184440" expanded="true" signature="5666:5711" ph=" SELECT statement (SANFRANCISCO)" />
-                <marker date="1517613184440" expanded="true" signature="5666:5749" ph=" SELECT statement (SANFRANCISCO)" />
+                <element signature="imports" expanded="true" />
+                <marker date="1520803994703" expanded="true" signature="1740:1912" ph=" INSERT statement (SANFRANCISCO)" />
+                <marker date="1520803994703" expanded="true" signature="2212:2318" ph=" DELETE statement (SANFRANCISCO)" />
               </folding>
             </state>
           </provider>
@@ -81,69 +70,42 @@
       <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2385">
-              <caret line="227" column="17" lean-forward="false" selection-start-line="227" selection-start-column="17" selection-end-line="227" selection-end-column="17" />
+            <state relative-caret-position="-3337">
+              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
-                <element signature="class#3134:3354" expanded="false" />
-                <element signature="initializer##0;class#3134:3354" expanded="false" />
-                <element signature="class#3391:3606" expanded="false" />
-                <element signature="initializer##0;class#3391:3606" expanded="false" />
-                <element signature="class#3642:3855" expanded="false" />
-                <element signature="initializer##0;class#3642:3855" expanded="false" />
-                <element signature="class#3893:4108" expanded="false" />
-                <element signature="initializer##0;class#3893:4108" expanded="false" />
-                <element signature="class#4144:4357" expanded="false" />
-                <element signature="initializer##0;class#4144:4357" expanded="false" />
-                <element signature="class#4394:4608" expanded="false" />
-                <element signature="initializer##0;class#4394:4608" expanded="false" />
-                <element signature="class#4648:4865" expanded="false" />
-                <element signature="initializer##0;class#4648:4865" expanded="false" />
-                <element signature="class#4903:5118" expanded="false" />
-                <element signature="initializer##0;class#4903:5118" expanded="false" />
-                <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-                <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-                <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <marker date="1520760819207" expanded="true" signature="1679:1787" ph=" DELETE statement (SANFRANCISCO)" />
+                <marker date="1520760819207" expanded="true" signature="2261:2341" ph=" DELETE statement (SANFRANCISCO)" />
+                <marker date="1520760819207" expanded="true" signature="2261:2369" ph=" DELETE statement (SANFRANCISCO)" />
+                <marker date="1520760819207" expanded="true" signature="10836:10926" ph=" INSERT statement (SANFRANCISCO)" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserAccount.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/UserAccount.java">
+      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Tester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="e#131#132#0" expanded="true" />
+                <element signature="e#182#183#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <file leaf-file-name="LocationCleanser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SanFranciscoTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/SanFranciscoTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="60">
+              <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+              <folding>
+                <marker date="1519599821893" expanded="true" signature="520:557" ph=" DELETE statement (SANFRANCISCO)" />
+                <marker date="1519599821893" expanded="true" signature="520:577" ph=" DELETE statement (SANFRANCISCO)" />
+                <marker date="1519599821893" expanded="true" signature="520:623" ph=" DELETE statement (SANFRANCISCO)" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,6 +116,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
+        <option value="Scala Worksheet" />
+        <option value="Scala Script" />
+        <option value="Package Object" />
         <option value="Class" />
       </list>
     </option>
@@ -176,6 +141,11 @@
       <find>updatelocation</find>
       <find>context</find>
       <find>nothing</find>
+      <find>repositories</find>
+      <find>management</find>
+      <find>reposi</find>
+      <find>depend</find>
+      <find>mongo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,19 +159,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/model/Suggestion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/config/RestConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/gettingstarted/GCloud.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/gettingstarted/HelloworldApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/gettingstarted/AWSService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/GooglePlace.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Greeting.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Geometry.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Notification.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/GooglePlaceResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/AWSService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java" />
         <option value="$PROJECT_DIR$/src/main/appengine/app.yaml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloworldApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/DetailedResponse.java" />
@@ -215,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/DataSource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/DatabaseConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Account.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" />
@@ -226,9 +187,29 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smalltalk/java/Services/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/UserAccount.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/scala/HelloWorld.scala" />
+        <option value="$PROJECT_DIR$/ScalaTester/src/main/Tester.scala" />
+        <option value="$PROJECT_DIR$/ScalaTester/src/main/scala/package.scala" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/TestInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/TesterImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AsyncTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/GetThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/AsyncTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/config/RestConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java" />
+        <option value="$PROJECT_DIR$/ScalaTester/src/main/package.scala" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/SanFranciscoTable.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/model/LocationTag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/SanFranciscoTag.java" />
+        <option value="$PROJECT_DIR$/manifest.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Tester.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
       </list>
     </option>
   </component>
@@ -254,16 +235,17 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="NearMe" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
         </path>
       </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="34" />
-    <option name="width" value="1440" />
-    <option name="height" value="866" />
+    <option name="x" value="22" />
+    <option name="y" value="44" />
+    <option name="width" value="1317" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -280,10 +262,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,14 +313,6 @@
               <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -349,7 +323,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="Scala" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -357,6 +331,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="com.example.java.Services" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -377,58 +352,70 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GCloud">
-    <configuration name="AWSService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Tester">
+    <configuration name="AsyncTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="com.example.java.Services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.AWSService" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <module name="NearMe" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="com.example.java.Services" />
+      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.AsyncTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="helloworld-springboot" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
     </configuration>
-    <configuration name="Account" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="AsyncTest.testAsynchronousCalls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="com.example.java.Services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.Account" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <module name="NearMe" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="com.example.java.Services" />
+      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.AsyncTest" />
+      <option name="METHOD_NAME" value="testAsynchronousCalls" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="helloworld-springboot" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
     </configuration>
-    <configuration name="GCloud" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GCloud" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="com.example.java.Services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.example.java.Services.GCloud" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -443,14 +430,14 @@
         <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="package" />
       </method>
     </configuration>
-    <configuration name="NearMeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="com.example.java.Services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.NearMeApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.Tester" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -713,19 +700,35 @@
       <setting name="rowsRange" value="" />
       <method />
     </configuration>
-    <list size="5">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ScalaTester" />
+      <envs />
+    </configuration>
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Google App Engine Deployment.Google App Engine Deployment" />
-      <item index="1" class="java.lang.String" itemvalue="Application.NearMeApplication" />
-      <item index="2" class="java.lang.String" itemvalue="Application.GCloud" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Account" />
-      <item index="4" class="java.lang.String" itemvalue="Application.AWSService" />
+      <item index="1" class="java.lang.String" itemvalue="Application.main" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AsyncTest.testAsynchronousCalls" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AsyncTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.GCloud" />
+      <item index="5" class="java.lang.String" itemvalue="Application.Tester" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.GCloud" />
-        <item index="1" class="java.lang.String" itemvalue="Application.AWSService" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Account" />
-        <item index="3" class="java.lang.String" itemvalue="Application.NearMeApplication" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Tester" />
+        <item index="1" class="java.lang.String" itemvalue="Application.GCloud" />
+        <item index="2" class="java.lang.String" itemvalue="Application.main" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AsyncTest.testAsynchronousCalls" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AsyncTest" />
       </list>
     </recent_temporary>
   </component>
@@ -909,8 +912,41 @@
       <option name="project" value="LOCAL" />
       <updated>1517441946553</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fix Update Location Endpoint">
+      <created>1517865776459</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1517865776459</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="AsyncTest - 2018.02.08 at 11h 41m 07s.xml">
+      <configuration name="AsyncTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AsyncTest - 2018.02.08 at 11h 43m 06s.xml">
+      <configuration name="AsyncTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AsyncTest - 2018.02.08 at 16h 13m 33s.xml">
+      <configuration name="AsyncTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AsyncTest - 2018.02.08 at 16h 17m 57s.xml">
+      <configuration name="AsyncTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AsyncTest_testAsynchronousCalls - 2018.02.08 at 11h 27m 11s.xml">
+      <configuration name="AsyncTest.testAsynchronousCalls" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AsyncTest_testAsynchronousCalls - 2018.02.08 at 11h 29m 10s.xml">
+      <configuration name="AsyncTest.testAsynchronousCalls" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AsyncTest_testAsynchronousCalls - 2018.02.08 at 16h 14m 59s.xml">
+      <configuration name="AsyncTest.testAsynchronousCalls" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AsyncTest_testAsynchronousCalls - 2018.02.08 at 16h 20m 03s.xml">
+      <configuration name="AsyncTest.testAsynchronousCalls" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -922,12 +958,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="34" width="1440" height="866" extended-state="0" />
+    <frame x="22" y="44" width="1317" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29918033" sideWeight="0.416309" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08941345" sideWeight="0.47173488" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44414535" sideWeight="0.18117647" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24016064" sideWeight="0.47173488" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Job" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -935,20 +972,20 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26198083" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29644808" sideWeight="0.71387696" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33243608" sideWeight="0.6521407" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11136891" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.48569384" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32103825" sideWeight="0.6572052" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3176312" sideWeight="0.632263" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29918033" sideWeight="0.583691" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44414535" sideWeight="0.8188235" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270525" sideWeight="0.48855507" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.544137" sideWeight="0.67921567" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13662376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28235295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -961,7 +998,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.109898105" sideWeight="0.5282651" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.097991966" sideWeight="0.5282651" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287858" sideWeight="0.4908836" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Log Manager" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1035,29 +1072,30 @@
     <MESSAGE value="Buildable" />
     <MESSAGE value="Pull accouts from another table" />
     <MESSAGE value="Fix build" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix build" />
+    <MESSAGE value="Fix Update Location Endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Update Location Endpoint" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java</url>
-          <line>85</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java</url>
+          <line>217</line>
           <properties />
-          <option name="timeStamp" value="140" />
+          <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java</url>
-          <line>82</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java</url>
+          <line>17</line>
           <properties />
-          <option name="timeStamp" value="141" />
+          <option name="timeStamp" value="150" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="142" />
+      <option name="time" value="159" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1066,334 +1104,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="class#3134:3354" expanded="false" />
-            <element signature="initializer##0;class#3134:3354" expanded="false" />
-            <element signature="class#3391:3606" expanded="false" />
-            <element signature="initializer##0;class#3391:3606" expanded="false" />
-            <element signature="class#3642:3855" expanded="false" />
-            <element signature="initializer##0;class#3642:3855" expanded="false" />
-            <element signature="class#3893:4108" expanded="false" />
-            <element signature="initializer##0;class#3893:4108" expanded="false" />
-            <element signature="class#4144:4357" expanded="false" />
-            <element signature="initializer##0;class#4144:4357" expanded="false" />
-            <element signature="class#4394:4608" expanded="false" />
-            <element signature="initializer##0;class#4394:4608" expanded="false" />
-            <element signature="class#4648:4865" expanded="false" />
-            <element signature="initializer##0;class#4648:4865" expanded="false" />
-            <element signature="class#4903:5118" expanded="false" />
-            <element signature="initializer##0;class#4903:5118" expanded="false" />
-            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;method#healthy#0;class#ActuatorController#0" expanded="false" />
-            <element signature="method#healthy#0;class#ActuatorController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="class#3134:3354" expanded="false" />
-            <element signature="initializer##0;class#3134:3354" expanded="false" />
-            <element signature="class#3391:3606" expanded="false" />
-            <element signature="initializer##0;class#3391:3606" expanded="false" />
-            <element signature="class#3642:3855" expanded="false" />
-            <element signature="initializer##0;class#3642:3855" expanded="false" />
-            <element signature="class#3893:4108" expanded="false" />
-            <element signature="initializer##0;class#3893:4108" expanded="false" />
-            <element signature="class#4144:4357" expanded="false" />
-            <element signature="initializer##0;class#4144:4357" expanded="false" />
-            <element signature="class#4394:4608" expanded="false" />
-            <element signature="initializer##0;class#4394:4608" expanded="false" />
-            <element signature="class#4648:4865" expanded="false" />
-            <element signature="initializer##0;class#4648:4865" expanded="false" />
-            <element signature="class#4903:5118" expanded="false" />
-            <element signature="initializer##0;class#4903:5118" expanded="false" />
-            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;method#healthy#0;class#ActuatorController#0" expanded="false" />
-            <element signature="method#healthy#0;class#ActuatorController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;method#healthy#0;class#ActuatorController#0" expanded="false" />
-            <element signature="method#healthy#0;class#ActuatorController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="57" lean-forward="true" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-          <folding>
-            <element signature="class#3134:3354" expanded="false" />
-            <element signature="initializer##0;class#3134:3354" expanded="false" />
-            <element signature="class#3391:3606" expanded="false" />
-            <element signature="initializer##0;class#3391:3606" expanded="false" />
-            <element signature="class#3642:3855" expanded="false" />
-            <element signature="initializer##0;class#3642:3855" expanded="false" />
-            <element signature="class#3893:4108" expanded="false" />
-            <element signature="initializer##0;class#3893:4108" expanded="false" />
-            <element signature="class#4144:4357" expanded="false" />
-            <element signature="initializer##0;class#4144:4357" expanded="false" />
-            <element signature="class#4394:4608" expanded="false" />
-            <element signature="initializer##0;class#4394:4608" expanded="false" />
-            <element signature="class#4648:4865" expanded="false" />
-            <element signature="initializer##0;class#4648:4865" expanded="false" />
-            <element signature="class#4903:5118" expanded="false" />
-            <element signature="initializer##0;class#4903:5118" expanded="false" />
-            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/appengine/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-core/1.11.179/aws-java-sdk-core-1.11.179-sources.jar!/com/amazonaws/client/builder/AwsSyncClientBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="37" column="23" lean-forward="true" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/DynamoDBLocal/1.11.86/DynamoDBLocal-1.11.86.jar!/com/amazonaws/services/dynamodbv2/local/embedded/DynamoDBEmbedded.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/DynamoDBLocal/1.11.86/DynamoDBLocal-1.11.86.jar!/com/amazonaws/services/dynamodbv2/local/shared/access/AmazonDynamoDBLocal.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/CreateTableResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="32" column="7" lean-forward="false" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/AmazonDynamoDBClientBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="34" column="46" lean-forward="false" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-core/1.11.179/aws-java-sdk-core-1.11.179-sources.jar!/com/amazonaws/client/builder/AwsClientBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="284" column="22" lean-forward="true" selection-start-line="284" selection-start-column="22" selection-end-line="284" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/PutItemRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="576" column="26" lean-forward="false" selection-start-line="576" selection-start-column="26" selection-end-line="576" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/AttributeAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/DescribeTableResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/UpdateTableRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="454" column="30" lean-forward="false" selection-start-line="454" selection-start-column="30" selection-end-line="454" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/BatchWriteItemRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="417" column="18" lean-forward="true" selection-start-line="417" selection-start-column="8" selection-end-line="417" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="473" column="11" lean-forward="false" selection-start-line="473" selection-start-column="11" selection-end-line="473" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3458">
-          <caret line="163" column="11" lean-forward="false" selection-start-line="163" selection-start-column="11" selection-end-line="163" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/DeleteItemRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="1963" column="29" lean-forward="false" selection-start-line="1963" selection-start-column="29" selection-end-line="1963" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/model/CreateTableRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7140">
-          <caret line="492" column="30" lean-forward="false" selection-start-line="492" selection-start-column="30" selection-end-line="492" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Notification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/GooglePlaceResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk-dynamodb/1.11.179/aws-java-sdk-dynamodb-1.11.179-sources.jar!/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="640" column="24" lean-forward="false" selection-start-line="640" selection-start-column="24" selection-end-line="640" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Suggestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/placePhoto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Geometry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/DetailedResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/FriendRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/DatabaseConfig.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.12.RELEASE/spring-beans-4.3.12.RELEASE.jar!/org/springframework/beans/factory/annotation/InitDestroyAnnotationBeanPostProcessor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/javax/sql/DataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/sql/DriverManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
@@ -1415,49 +1125,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-341">
-          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        <state relative-caret-position="105">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaTest/src/main" />
+    <entry file="file://$PROJECT_DIR$/src/main/scala/HelloWorld.scala" />
+    <entry file="file://$PROJECT_DIR$/ScalaTester/src/main/ScalaTester.scala" />
+    <entry file="file://$PROJECT_DIR$/ScalaTester/src/main/scala/package.scala" />
+    <entry file="file://$PROJECT_DIR$/ScalaTester/src/main/Tester.scala" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/TestInterface.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/TesterImpl.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="140" column="29" lean-forward="false" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/config/RestConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.6.2/mongodb-driver-core-3.6.2.jar!/com/mongodb/connection/SocketStream.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#345#346#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="78" column="24" lean-forward="false" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
-          <folding>
-            <element signature="docComment;method#healthy#0;class#ActuatorController#0" expanded="false" />
-            <element signature="method#healthy#0;class#ActuatorController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="128">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1465,14 +1171,191 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/placePhoto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Notification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/GooglePlaceResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Geometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/FriendRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/DetailedResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Greeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Suggestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AsyncTest.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/time/Instant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="271" column="26" lean-forward="false" selection-start-line="271" selection-start-column="26" selection-end-line="271" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.12.RELEASE/spring-context-4.3.12.RELEASE.jar!/org/springframework/scheduling/annotation/Scheduled.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaTester/src/main/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/appengine/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-129">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearMe.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/notnoop/apns/apns/1.0.0.Beta6/apns-1.0.0.Beta6-sources.jar!/com/notnoop/apns/ApnsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver/3.6.2/mongodb-driver-3.6.2.jar!/com/mongodb/client/MongoIterable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver/3.6.2/mongodb-driver-3.6.2.jar!/com/mongodb/client/ListDatabasesIterable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver/3.6.2/mongodb-driver-3.6.2.jar!/com/mongodb/MongoClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="154" column="43" lean-forward="false" selection-start-line="154" selection-start-column="43" selection-end-line="154" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/LocationTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="81" lean-forward="false" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/SanFranciscoTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4335">
+          <caret line="289" column="17" lean-forward="false" selection-start-line="289" selection-start-column="17" selection-end-line="289" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GetThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        <state relative-caret-position="60">
+          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1480,77 +1363,102 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/SanFranciscoTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2385">
-          <caret line="227" column="17" lean-forward="false" selection-start-line="227" selection-start-column="17" selection-end-line="227" selection-end-column="17" />
-          <folding>
-            <element signature="class#3134:3354" expanded="false" />
-            <element signature="initializer##0;class#3134:3354" expanded="false" />
-            <element signature="class#3391:3606" expanded="false" />
-            <element signature="initializer##0;class#3391:3606" expanded="false" />
-            <element signature="class#3642:3855" expanded="false" />
-            <element signature="initializer##0;class#3642:3855" expanded="false" />
-            <element signature="class#3893:4108" expanded="false" />
-            <element signature="initializer##0;class#3893:4108" expanded="false" />
-            <element signature="class#4144:4357" expanded="false" />
-            <element signature="initializer##0;class#4144:4357" expanded="false" />
-            <element signature="class#4394:4608" expanded="false" />
-            <element signature="initializer##0;class#4394:4608" expanded="false" />
-            <element signature="class#4648:4865" expanded="false" />
-            <element signature="initializer##0;class#4648:4865" expanded="false" />
-            <element signature="class#4903:5118" expanded="false" />
-            <element signature="initializer##0;class#4903:5118" expanded="false" />
-            <element signature="method#randomSex#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#randomIdentifier#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#listTables#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="1275">
+          <caret line="274" column="5" lean-forward="true" selection-start-line="274" selection-start-column="5" selection-end-line="274" selection-end-column="5" />
           <folding>
-            <element signature="e#4397#4504#0" expanded="false" />
-            <element signature="e#4568#4570#0" expanded="false" />
-            <element signature="method#createAccount#0;class#AccountController#0" expanded="false" />
-            <element signature="e#6378#6432#0" expanded="false" />
+            <element signature="method#pullAccounts#0;class#AccountController#0" expanded="false" />
+            <element signature="e#3265#3318#0" expanded="false" />
+            <element signature="e#5110#5164#0" expanded="false" />
             <element signature="method#checkIn#0;class#AccountController#0" expanded="false" />
             <element signature="method#getFriendRequests#0;class#AccountController#0" expanded="false" />
-            <element signature="class#8404:8531" expanded="false" />
-            <element signature="initializer##0;class#8404:8531" expanded="false" />
+            <element signature="class#7136:7263" expanded="false" />
+            <element signature="initializer##0;class#7136:7263" expanded="false" />
             <element signature="method#sendFriendRequest#0;class#AccountController#0" expanded="false" />
-            <element signature="e#8857#8922#0" expanded="false" />
-            <element signature="class#9635:9778" expanded="false" />
-            <element signature="initializer##0;class#9635:9778" expanded="false" />
-            <element signature="class#9822:9949" expanded="false" />
-            <element signature="initializer##0;class#9822:9949" expanded="false" />
-            <element signature="class#10165:10308" expanded="false" />
-            <element signature="initializer##0;class#10165:10308" expanded="false" />
+            <element signature="class#8367:8510" expanded="false" />
+            <element signature="initializer##0;class#8367:8510" expanded="false" />
+            <element signature="class#8554:8681" expanded="false" />
+            <element signature="initializer##0;class#8554:8681" expanded="false" />
+            <element signature="class#8897:9040" expanded="false" />
+            <element signature="initializer##0;class#8897:9040" expanded="false" />
+            <element signature="method#pull#0;class#AccountController#0" expanded="false" />
             <element signature="method#getFacebookData#0;class#AccountController#0" expanded="false" />
             <element signature="method#hashPassword#0;class#AccountController#0" expanded="false" />
-            <marker date="1517613184440" expanded="true" signature="3567:3764" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1517613184440" expanded="true" signature="3916:4073" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1517613184440" expanded="true" signature="3916:4088" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1517613184440" expanded="true" signature="5666:5680" ph=" SELECT statement (ACCOUNTS)" />
-            <marker date="1517613184440" expanded="true" signature="5666:5709" ph=" SELECT statement (SANFRANCISCO)" />
-            <marker date="1517613184440" expanded="true" signature="5666:5711" ph=" SELECT statement (SANFRANCISCO)" />
-            <marker date="1517613184440" expanded="true" signature="5666:5749" ph=" SELECT statement (SANFRANCISCO)" />
+            <marker date="1519981899007" expanded="true" signature="4417:4431" ph=" SELECT statement (ACCOUNTS)" />
+            <marker date="1519981899007" expanded="true" signature="4417:4481" ph=" SELECT statement (SANFRANCISCO)" />
+            <marker date="1519981899007" expanded="true" signature="4417:4483" ph=" SELECT statement (SANFRANCISCO)" />
+            <marker date="1519981899007" expanded="true" signature="4417:4521" ph=" SELECT statement (SANFRANCISCO)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3337">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520760819207" expanded="true" signature="1679:1787" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1520760819207" expanded="true" signature="2261:2341" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1520760819207" expanded="true" signature="2261:2369" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1520760819207" expanded="true" signature="10836:10926" ph=" INSERT statement (SANFRANCISCO)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="52" column="96" lean-forward="false" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520803994703" expanded="true" signature="1740:1912" ph=" INSERT statement (SANFRANCISCO)" />
+            <marker date="1520803994703" expanded="true" signature="2212:2318" ph=" DELETE statement (SANFRANCISCO)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <marker date="1519599821893" expanded="true" signature="520:557" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1519599821893" expanded="true" signature="520:577" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1519599821893" expanded="true" signature="520:623" ph=" DELETE statement (SANFRANCISCO)" />
           </folding>
         </state>
       </provider>
