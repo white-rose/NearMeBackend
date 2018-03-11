@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="Fix Update Location Endpoint">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/java/Services/GCloud.class" afterPath="$PROJECT_DIR$/target/classes/com/example/java/Services/GCloud.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/RestConfiguration.class" afterPath="$PROJECT_DIR$/target/classes/config/RestConfiguration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/Greeting.class" afterPath="$PROJECT_DIR$/target/classes/model/Greeting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/Notification.class" afterPath="$PROJECT_DIR$/target/classes/model/Notification.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/Suggestion.class" afterPath="$PROJECT_DIR$/target/classes/model/Suggestion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/model/LocationTag.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/config/RestConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/config/RestConfiguration.java" />
     </list>
     <ignored path="helloworld-springboot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,27 +41,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LocationController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="52" column="96" lean-forward="false" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1520803994703" expanded="true" signature="1740:1912" ph=" INSERT statement (SANFRANCISCO)" />
-                <marker date="1520803994703" expanded="true" signature="2212:2318" ph=" DELETE statement (SANFRANCISCO)" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3337">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="45">
+              <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <marker date="1520760819207" expanded="true" signature="1679:1787" ph=" DELETE statement (SANFRANCISCO)" />
                 <marker date="1520760819207" expanded="true" signature="2261:2341" ph=" DELETE statement (SANFRANCISCO)" />
                 <marker date="1520760819207" expanded="true" signature="2261:2369" ph=" DELETE statement (SANFRANCISCO)" />
@@ -83,29 +56,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/Tester.java">
+      <file leaf-file-name="LocationTag.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/LocationTag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="e#131#132#0" expanded="true" />
-                <element signature="e#182#183#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocationCleanser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-              <folding>
-                <marker date="1519599821893" expanded="true" signature="520:557" ph=" DELETE statement (SANFRANCISCO)" />
-                <marker date="1519599821893" expanded="true" signature="520:577" ph=" DELETE statement (SANFRANCISCO)" />
-                <marker date="1519599821893" expanded="true" signature="520:623" ph=" DELETE statement (SANFRANCISCO)" />
-              </folding>
+            <state relative-caret-position="-132">
+              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -307,6 +263,14 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
               <item name="ApplicationCommandLineRunner.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
@@ -919,7 +883,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517865776459</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Update Location Purger">
+      <created>1520804079750</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1520804079750</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -959,7 +930,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="44" width="1317" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -985,7 +955,7 @@
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.544137" sideWeight="0.67921567" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28235295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28235295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1073,7 +1043,8 @@
     <MESSAGE value="Pull accouts from another table" />
     <MESSAGE value="Fix build" />
     <MESSAGE value="Fix Update Location Endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Update Location Endpoint" />
+    <MESSAGE value="Update Location Purger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Location Purger" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1308,13 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/LocationTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="81" lean-forward="false" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/SanFranciscoTag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1414,28 +1378,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3337">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="5">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1520760819207" expanded="true" signature="1679:1787" ph=" DELETE statement (SANFRANCISCO)" />
-            <marker date="1520760819207" expanded="true" signature="2261:2341" ph=" DELETE statement (SANFRANCISCO)" />
-            <marker date="1520760819207" expanded="true" signature="2261:2369" ph=" DELETE statement (SANFRANCISCO)" />
-            <marker date="1520760819207" expanded="true" signature="10836:10926" ph=" INSERT statement (SANFRANCISCO)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="52" column="96" lean-forward="false" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1520803994703" expanded="true" signature="1740:1912" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1520803994703" expanded="true" signature="2212:2318" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1519599821893" expanded="true" signature="520:557" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1519599821893" expanded="true" signature="520:577" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1519599821893" expanded="true" signature="520:623" ph=" DELETE statement (SANFRANCISCO)" />
           </folding>
         </state>
       </provider>
@@ -1451,15 +1401,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        <state relative-caret-position="780">
+          <caret line="52" column="96" lean-forward="false" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
           <folding>
-            <marker date="1519599821893" expanded="true" signature="520:557" ph=" DELETE statement (SANFRANCISCO)" />
-            <marker date="1519599821893" expanded="true" signature="520:577" ph=" DELETE statement (SANFRANCISCO)" />
-            <marker date="1519599821893" expanded="true" signature="520:623" ph=" DELETE statement (SANFRANCISCO)" />
+            <element signature="imports" expanded="true" />
+            <marker date="1520803994703" expanded="true" signature="1740:1912" ph=" INSERT statement (SANFRANCISCO)" />
+            <marker date="1520803994703" expanded="true" signature="2212:2318" ph=" DELETE statement (SANFRANCISCO)" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding>
+            <marker date="1520760819207" expanded="true" signature="1679:1787" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1520760819207" expanded="true" signature="2261:2341" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1520760819207" expanded="true" signature="2261:2369" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1520760819207" expanded="true" signature="10836:10926" ph=" INSERT statement (SANFRANCISCO)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/LocationTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
