@@ -1,6 +1,5 @@
 package com.example.java.Services;
 
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +11,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 
 import static java.time.LocalDate.now;
 
@@ -50,7 +50,9 @@ public class LocationController {
         try {
             Connection connection = dataSource.getConnection();
             Statement locationStmt = connection.createStatement();
-            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < " + DateTime.now() +  " AND locality = 'University of San Francisco'";
+            String todayDate = LocalDate.now().toString();
+            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + todayDate +  "' ";
+                    //"AND locality = 'University of San Francisco'";
             locationStmt.executeUpdate(updateLocationSQL);
             connection.close();
         } catch (SQLException e) {
