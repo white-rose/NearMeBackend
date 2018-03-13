@@ -2,6 +2,7 @@ package com.example.java.Services;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import model.LocationTag;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -25,6 +26,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
+
+        dummyData();
 
 //        ScheduledExecutorService scheduler =
 //                newSingleThreadScheduledExecutor();
@@ -263,6 +266,25 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     }
 
+    private void dummyData() {
+
+        for (int i = 0; i < 100; i++) {
+            try (
+                    Connection connection = dataSource.getConnection()) {
+                    Statement createDummyData = connection.createStatement();
+                    String query = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
+                            + "'" + i + "',"
+                            + "'" + "855 Brannan Apartments" + "',"
+                            + "'" + DateTime.now() + "');";
+                    createDummyData.executeUpdate(query);
+
+            } catch (SQLException ex) {
+                System.out.println("Oops theres been an accident");
+            }
+        }
+
+    }
+
     public void insertLocationTag(LocationTag locationTag) {
 
         Random rand = new Random();
@@ -284,14 +306,14 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     }
 
-    public String randomSex() {
+    private String randomSex() {
         Sex[] sexes = {Sex.FEMALE, Sex.MALE};
         Random rand = new Random();
         return sexes[rand.nextInt(sexes.length)].toString();
     }
 
     // Returns random String
-    public String randomIdentifier() {
+    private String randomIdentifier() {
         // class variable
         final String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 

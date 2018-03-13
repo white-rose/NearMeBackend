@@ -11,9 +11,10 @@ import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.notnoop.apns.APNS;
-import com.notnoop.apns.ApnsService;
-import model.*;
+import model.DetailedResponse;
+import model.FriendRequest;
+import model.GooglePlaceResult;
+import model.UserAccount;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -214,24 +215,24 @@ public class AccountController {
     }
 
     //Send Push Notication to phone
-    @RequestMapping("/samplePush")
-    public Greeting notification(@RequestParam(value="token") String deviceToken) {
-        ApnsService service = APNS.newService()
-                .withCert("/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12", "Cabinboy23")
-                .withSandboxDestination()
-                .build();
-
-        String payload = APNS.newPayload()
-                .alertBody("Simple!")
-                .alertTitle("Test 123")
-                .build();
-
-        deviceToken = "c8ad4e8b7a96943039b3ea89a6a5508bc6426953fdbadfeae06c970b28a495c0";
-
-        service.push(deviceToken, payload);
-
-        return new Greeting(counter.incrementAndGet(), String.format(template, deviceToken));
-    }
+//    @RequestMapping("/samplePush")
+//    public Greeting notification(@RequestParam(value="token") String deviceToken) {
+//        ApnsService service = APNS.newService()
+//                .withCert("/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12", "Cabinboy23")
+//                .withSandboxDestination()
+//                .build();
+//
+//        String payload = APNS.newPayload()
+//                .alertBody("Simple!")
+//                .alertTitle("Test 123")
+//                .build();
+//
+//        deviceToken = "c8ad4e8b7a96943039b3ea89a6a5508bc6426953fdbadfeae06c970b28a495c0";
+//
+//        service.push(deviceToken, payload);
+//
+//        return new Greeting(counter.incrementAndGet(), String.format(template, deviceToken));
+//    }
 
     //API Key = AIzaSyBWdayUxe65RUQLv4QL6GcB_UXoxVlhaW0
     @RequestMapping("/pull")
