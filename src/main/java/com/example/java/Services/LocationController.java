@@ -51,7 +51,7 @@ public class LocationController {
             Connection connection = dataSource.getConnection();
             Statement locationStmt = connection.createStatement();
             String todayDate = LocalDate.now().toString();
-            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + todayDate +  "' " +
+            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + "2018-03-19" +  "' " +
                     "AND locality = '855 Brannan Apartments'";
             locationStmt.executeUpdate(updateLocationSQL);
             connection.close();
