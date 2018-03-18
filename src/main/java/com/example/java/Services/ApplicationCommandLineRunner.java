@@ -26,7 +26,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        dummyData();
+//        dummyData();
     }
 
     private void MondoDBPlayground () {
