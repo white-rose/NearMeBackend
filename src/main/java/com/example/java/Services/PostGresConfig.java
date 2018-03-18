@@ -2,19 +2,22 @@ package com.example.java.Services;
 
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.*;
 
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan(basePackages = "com.smalltalk.java.Services")
+@ComponentScan(basePackages = "com.example.java.Services")
 public class PostGresConfig {
 
+
     @Configuration
+    @PropertySource("classpath:application.properties")
     public class DatabaseConfig {
+
+//        @Value("${spring.datasource.url}")
+//        private String test;
+
         @Bean
         @Primary
         @ConfigurationProperties(prefix = "spring.datasource")

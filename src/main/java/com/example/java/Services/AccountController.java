@@ -57,17 +57,12 @@ public class AccountController {
 
     private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
     private static final String secretKey = "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";
-
     private static final String template = "The device token is , %s!";
     private final AtomicLong counter = new AtomicLong();
-
     static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
-
     static final String tableName = "accounts";
-
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
-
     private Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";

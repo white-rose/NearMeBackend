@@ -117,22 +117,17 @@
       </dependency>
 
        <!--https://mvnrepository.com/artifact/com.almworks.sqlite4java/sqlite4java-->
-      <!--<dependency>-->
-          <!--<groupId>com.almworks.sqlite4java</groupId>-->
-          <!--<artifactId>sqlite4java</artifactId>-->
-          <!--<version>1.0.392</version>-->
-          <!--<exclusions>-->
-              <!--<exclusion>-->
-                  <!--<groupId>com.almworks.sqlite4java</groupId>-->
-                  <!--<artifactId>libsqlite4java-linux-i386</artifactId>-->
-              <!--</exclusion>-->
-          <!--</exclusions>-->
-      <!--</dependency>-->
-
       <dependency>
-          <groupId>org.postgresql</groupId>
+          <groupId>com.almworks.sqlite4java</groupId>
+          <artifactId>sqlite4java</artifactId>
+          <version>1.0.392</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+      <dependency>
+          <groupId>postgresql</groupId>
           <artifactId>postgresql</artifactId>
-          <version>9.4-1203-jdbc42</version>
+          <version>9.1-901-1.jdbc4</version>
       </dependency>
 
       <dependency>
@@ -178,11 +173,11 @@
             <name>Spring Releases</name>
             <url>https://repo.spring.io/libs-release</url>
         </repository>
-        <!--<repository>-->
-            <!--<id>org.jboss.repository.releases</id>-->
-            <!--<name>JBoss Maven Release Repository</name>-->
-            <!--<url>https://repository.jboss.org/nexus/content/repositories/releases</url>-->
-        <!--</repository>-->
+        <repository>
+            <id>org.jboss.repository.releases</id>
+            <name>JBoss Maven Release Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+        </repository>
     </repositories>
 
   <build>
