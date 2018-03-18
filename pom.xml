@@ -47,17 +47,10 @@
 
   <dependencies>
 
-	
 <!--  <dependency>
           <groupId>org.springframework.cloud</groupId>
           <artifactId>spring-cloud-starter-sleuth</artifactId>
       </dependency> -->
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <version>1.4.4.RELEASE</version>
-    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -123,12 +116,18 @@
           <version>[1.11,2.0)</version>
       </dependency>
 
-      <!-- https://mvnrepository.com/artifact/com.almworks.sqlite4java/sqlite4java -->
-      <dependency>
-          <groupId>com.almworks.sqlite4java</groupId>
-          <artifactId>sqlite4java</artifactId>
-          <version>1.0.392</version>
-      </dependency>
+       <!--https://mvnrepository.com/artifact/com.almworks.sqlite4java/sqlite4java-->
+      <!--<dependency>-->
+          <!--<groupId>com.almworks.sqlite4java</groupId>-->
+          <!--<artifactId>sqlite4java</artifactId>-->
+          <!--<version>1.0.392</version>-->
+          <!--<exclusions>-->
+              <!--<exclusion>-->
+                  <!--<groupId>com.almworks.sqlite4java</groupId>-->
+                  <!--<artifactId>libsqlite4java-linux-i386</artifactId>-->
+              <!--</exclusion>-->
+          <!--</exclusions>-->
+      <!--</dependency>-->
 
       <dependency>
           <groupId>org.postgresql</groupId>
@@ -179,11 +178,11 @@
             <name>Spring Releases</name>
             <url>https://repo.spring.io/libs-release</url>
         </repository>
-        <repository>
-            <id>org.jboss.repository.releases</id>
-            <name>JBoss Maven Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-        </repository>
+        <!--<repository>-->
+            <!--<id>org.jboss.repository.releases</id>-->
+            <!--<name>JBoss Maven Release Repository</name>-->
+            <!--<url>https://repository.jboss.org/nexus/content/repositories/releases</url>-->
+        <!--</repository>-->
     </repositories>
 
   <build>
@@ -266,28 +265,28 @@
         <!-- This plugin adds all dependencies to JAR file during 'package' command.
 Pay EXTRA attention to the 'mainClass' tag.
 You have to set name of class with entry point to program ('main' method) -->
-        <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.5.3</version>
-            <configuration>
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-                <archive>
-                    <manifest>
-                        <mainClass>ScalaRunner</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+        <!--<plugin>-->
+            <!--<artifactId>maven-assembly-plugin</artifactId>-->
+            <!--<version>3.1.0</version>-->
+            <!--<configuration>-->
+                <!--<descriptorRefs>-->
+                    <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+                <!--</descriptorRefs>-->
+                <!--<archive>-->
+                    <!--<manifest>-->
+                        <!--<mainClass>ScalaRunner</mainClass>-->
+                    <!--</manifest>-->
+                <!--</archive>-->
+            <!--</configuration>-->
+            <!--<executions>-->
+                <!--<execution>-->
+                    <!--<phase>package</phase>-->
+                    <!--<goals>-->
+                        <!--<goal>single</goal>-->
+                    <!--</goals>-->
+                <!--</execution>-->
+            <!--</executions>-->
+        <!--</plugin>-->
     </plugins>
   </build>
 </project>
