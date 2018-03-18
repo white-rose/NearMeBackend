@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
     </list>
     <ignored path="helloworld-springboot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,15 +50,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LocationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+            <state relative-caret-position="885">
+              <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1521400730604" expanded="true" signature="1894:2066" ph=" INSERT statement (SANFRANCISCO)" />
-                <marker date="1521400730604" expanded="true" signature="2437:2560" ph=" DELETE statement (SANFRANCISCO)" />
+                <marker date="1521413066193" expanded="true" signature="1737:1909" ph=" INSERT statement (SANFRANCISCO)" />
+                <marker date="1521413066193" expanded="true" signature="2280:2403" ph=" DELETE statement (SANFRANCISCO)" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-459">
+              <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1520989533209" expanded="true" signature="4446:4550" ph=" SELECT statement (SANFRANCISCO)" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="22" />
+              <folding>
+                <marker date="1521413193724" expanded="true" signature="8253:8487" ph=" INSERT statement (SANFRANCISCO)" />
+                <marker date="1521413193724" expanded="true" signature="8795:8885" ph=" INSERT statement (SANFRANCISCO)" />
               </folding>
             </state>
           </provider>
@@ -184,11 +204,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
       </list>
     </option>
   </component>
@@ -1000,7 +1020,21 @@
       <option name="project" value="LOCAL" />
       <updated>1520970676887</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="DB Update">
+      <created>1521413072980</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1521413072980</updated>
+    </task>
+    <task id="LOCAL-00031" summary="removed dummy data">
+      <created>1521413220619</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1521413220620</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1040,7 +1074,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="264" width="1416" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1143,8 +1176,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Needed" />
-    <MESSAGE value="Local embedded and over http dynamo db" />
     <MESSAGE value="Run Local Dynamodb w/ Scan Queries" />
     <MESSAGE value="ReadMe Updated" />
     <MESSAGE value="Dynamodb Local and request mapping to pull Accounts from embedded DB" />
@@ -1168,7 +1199,9 @@
     <MESSAGE value="gitignore added" />
     <MESSAGE value="Class Files removed" />
     <MESSAGE value="Able to compile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Able to compile" />
+    <MESSAGE value="DB Update" />
+    <MESSAGE value="removed dummy data" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed dummy data" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1425,17 +1458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1520989533209" expanded="true" signature="4446:4550" ph=" SELECT statement (SANFRANCISCO)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/sql/DriverManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4245">
@@ -1469,17 +1491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1909">
-          <caret line="225" column="50" lean-forward="false" selection-start-line="225" selection-start-column="50" selection-end-line="225" selection-end-column="50" />
-          <folding>
-            <marker date="1521346411779" expanded="true" signature="8251:8485" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1521346411779" expanded="true" signature="8793:8883" ph=" INSERT statement (SANFRANCISCO)" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1564,12 +1575,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        <state relative-caret-position="885">
+          <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521400730604" expanded="true" signature="1894:2066" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1521400730604" expanded="true" signature="2437:2560" ph=" DELETE statement (SANFRANCISCO)" />
+            <marker date="1521413066193" expanded="true" signature="1737:1909" ph=" INSERT statement (SANFRANCISCO)" />
+            <marker date="1521413066193" expanded="true" signature="2280:2403" ph=" DELETE statement (SANFRANCISCO)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520989533209" expanded="true" signature="4446:4550" ph=" SELECT statement (SANFRANCISCO)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <marker date="1521413193724" expanded="true" signature="8253:8487" ph=" INSERT statement (SANFRANCISCO)" />
+            <marker date="1521413193724" expanded="true" signature="8795:8885" ph=" INSERT statement (SANFRANCISCO)" />
           </folding>
         </state>
       </provider>
