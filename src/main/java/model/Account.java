@@ -1,24 +1,24 @@
 package model;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-
-@DynamoDBTable(tableName = "Accounts")
+//@DynamoDBTable(tableName = "Accounts")
+//@Entity
 public class Account {
 
-    @DynamoDBHashKey(attributeName = "username")
+//    @DynamoDBHashKey(attributeName = "username")
+//    @Id
     private String username;
-    @DynamoDBHashKey(attributeName = "firstname")
+//    @DynamoDBHashKey(attributeName = "firstname")
     private String firstName;
-    @DynamoDBHashKey(attributeName = "lastname")
+//    @DynamoDBHashKey(attributeName = "lastname")
     private String lastName;
-    @DynamoDBHashKey(attributeName = "locality")
+//    @DynamoDBHashKey(attributeName = "locality")
     private String locality;
-    @DynamoDBHashKey(attributeName = "latitude")
+//    @DynamoDBHashKey(attributeName = "latitude")
     private Double latitude;
-    @DynamoDBHashKey(attributeName = "longitude")
+//    @DynamoDBHashKey(attributeName = "longitude")
     private Double longitude;
-    @DynamoDBHashKey(attributeName = "facebookId")
+//    @DynamoDBHashKey(attributeName = "facebookId")
+//    @Id
     private String facebookId;
 
     public String getUsername() {

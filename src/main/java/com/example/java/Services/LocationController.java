@@ -16,16 +16,23 @@ import java.time.LocalDate;
 import static java.time.LocalDate.now;
 
 @RestController
-public class LocationController {
+public class LocationController implements LocationCleanser {
 
     @Autowired
     DataSource dataSource;
+
+    @RequestMapping(
+            value = "/goOffline")
+    public void goOffline () {
+
+    }
 
     @RequestMapping(
             value = "/updateLocation",
             method = { RequestMethod.POST })
     public void updateLocation (@RequestBody model.Account userAccount) throws SQLException {
 
+        //AWS Dynamo DB
 //          ApplicationCommandLineRunner.accountsDDB.putItem(new PutItemRequest()
 //          .withTableName("Accounts")
 //          .withItem(new HashMap() {{
@@ -45,6 +52,7 @@ public class LocationController {
 
     }
 
+    @Override
     @Scheduled(fixedRate = 5000)
     public void cleanse() {
 
@@ -52,7 +60,7 @@ public class LocationController {
             Connection connection = dataSource.getConnection();
             Statement locationStmt = connection.createStatement();
             String todayDate = LocalDate.now().toString();
-            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + "03-24-2018" +  "' " +
+            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + todayDate +  "' " +
                     "AND locality = '855 Brannan Apartments'";
             locationStmt.executeUpdate(updateLocationSQL);
             connection.close();
@@ -60,5 +68,8 @@ public class LocationController {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void viewHistory(String location) {}
 
 }

@@ -75,10 +75,35 @@ public class AccountController {
             value = "/pullAccounts",
             method = RequestMethod.POST)
     public List<UserAccount> pullAccounts (@RequestBody UserAccount currentAccounts) throws SQLException {
-//      System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
-//
+
         List<UserAccount> userAccounts = new ArrayList<>();
 
+        long beginningTime = System.currentTimeMillis();
+        Statement stmt = dataSource.getConnection().createStatement();
+        ResultSet rs = stmt.executeQuery(
+                "SELECT DISTINCT accounts.firstname, accounts.facebookid " +
+                "FROM accounts " +
+                "inner join sanfrancisco " +
+                "on accounts.facebookid=sanfrancisco.facebookid " +
+                "WHERE locality = '" + currentAccounts.getLocality() +
+                "' AND time < '03-28-2018' " +
+                "AND ONLINE = true");
+
+        while (rs.next()) {
+            UserAccount userAccount = new UserAccount();
+            userAccount.setFacebookId(rs.getString("facebookid"));
+            userAccount.setFirstName(rs.getString("firstname"));
+            userAccounts.add(userAccount);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println((endTime - beginningTime));
+
+        return userAccounts;
+
+        //AWS Dynamo DB
+
+//      System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
 //        UserAccount[] newUser = new UserAccount[1];
 //        ScanResult allResults = ApplicationCommandLineRunner.accountsDDB.scan("Accounts"
 //                , Arrays.asList("username","FirstName","Locality","friendRequests","sex","friends","facebookId"));
@@ -95,21 +120,6 @@ public class AccountController {
 //            userAccount.setSex("MALE");
 //            userAccounts.add(userAccount);
 //        });
-
-        long beginningTime = System.currentTimeMillis();
-        Statement stmt = dataSource.getConnection().createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM sanfrancisco " +
-                "WHERE locality = '" + currentAccounts.getLocality() + "'");
-        while (rs.next()) {
-            UserAccount userAccount = new UserAccount();
-            userAccount.setFacebookId(rs.getString("facebookid"));
-            userAccounts.add(userAccount);
-        }
-
-        long endTime = System.currentTimeMillis();
-        System.out.println((endTime - beginningTime));
-
-        return userAccounts;
     }
 
     @RequestMapping(value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}")

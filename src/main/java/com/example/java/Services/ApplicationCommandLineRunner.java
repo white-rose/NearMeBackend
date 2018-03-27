@@ -26,8 +26,24 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-//        dummyData();
+
     }
+
+//    @Bean
+//    public CommandLineRunner demo(AccountRepository repository) {
+//        return (args -> {
+//            Account myAccount = new Account();
+//            myAccount.setFirstName("Buddy");
+//            myAccount.setFacebookId("123456789");
+//            repository.save(myAccount);
+//
+//            System.out.println("Customers found with foundAll():");
+//            System.out.println("-------------------------------");
+//            for (Account account : repository.findAll()) {
+//                System.out.println(account.getFacebookId());
+//            }
+//        });
+//    }
 
     private void MondoDBPlayground () {
     //Mongo DB Testing

@@ -30,7 +30,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target> <!-- REQUIRED -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <appengine.maven.plugin>1.0.0</appengine.maven.plugin>
-      <kotlin.version>1.1.60</kotlin.version>
+    <!--<kotlin.version>1.1.60</kotlin.version>-->
   </properties>
 
     <dependencyManagement>
@@ -47,10 +47,25 @@
 
   <dependencies>
 
-<!--  <dependency>
-          <groupId>org.springframework.cloud</groupId>
-          <artifactId>spring-cloud-starter-sleuth</artifactId>
-      </dependency> -->
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>spring-core</artifactId>-->
+          <!--<version>5.0.4.RELEASE</version>-->
+      <!--</dependency>-->
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
+      <!--<dependency>-->
+          <!--<groupId>org.springframework.boot</groupId>-->
+          <!--<artifactId>spring-boot-starter</artifactId>-->
+          <!--<version>2.0.0.RELEASE</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+          <version>1.5.8.RELEASE</version>
+      </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -58,6 +73,13 @@
       <version>1.4.4.RELEASE</version>
       <scope>test</scope>
     </dependency>
+
+      <!--&lt;!&ndash;https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa&ndash;&gt;-->
+      <!--<dependency>-->
+          <!--<groupId>org.springframework.boot</groupId>-->
+          <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+          <!--<version>2.0.0.RELEASE</version>-->
+      <!--</dependency>-->
 
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -89,12 +111,6 @@
       <groupId>org.springframework.social</groupId>
       <artifactId>spring-social-facebook</artifactId>
       <version>2.0.3.RELEASE</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <version>1.5.8.RELEASE</version>
     </dependency>
 
     <dependency>
