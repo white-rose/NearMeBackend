@@ -23,7 +23,9 @@ public class LocationController implements LocationCleanser {
 
     @RequestMapping(
             value = "/goOffline")
-    public void goOffline () {
+    public void goOffline (@RequestBody model.Account userAccount) {
+
+        String onlineSql = "update accounts set firstname = 'Nathan' where facebookid = '10215179647429020'";
 
     }
 
