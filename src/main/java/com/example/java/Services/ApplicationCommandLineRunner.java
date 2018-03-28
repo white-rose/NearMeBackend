@@ -251,11 +251,12 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
             try (
                     Connection connection = dataSource.getConnection()) {
                     Statement createDummyData = connection.createStatement();
-                    String query = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
+                    String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
+                    String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
                             + "'" + i + "',"
-                            + "'" + "855 Brannan Apartments" + "',"
-                            + "'" + "03-29-2018" + "');";
-                    createDummyData.executeUpdate(query);
+                            + "'" + "University of San Francisco" + "',"
+                            + "'" + "03-27-2018" + "');";
+                    createDummyData.executeUpdate(insertQuery);
 
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());

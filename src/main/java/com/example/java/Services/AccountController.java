@@ -97,6 +97,7 @@ public class AccountController {
             userAccounts.add(userAccount);
         }
 
+        //Print response time
         long endTime = System.currentTimeMillis();
         System.out.println((endTime - beginningTime));
 
