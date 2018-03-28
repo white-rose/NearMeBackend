@@ -46,6 +46,8 @@ public class LocationController implements LocationCleanser {
 //              put("friendRequests", new AttributeValue().withSS("none"));
 //          }}));
 
+
+
         Connection connection = dataSource.getConnection();
         Statement locationStmt = connection.createStatement();
         String updateLocationSQL = "INSERT INTO sanfrancisco (facebookid, locality, time)"
@@ -54,6 +56,7 @@ public class LocationController implements LocationCleanser {
 
     }
 
+    //TODO: delete day before today's date
     @Override
     @Scheduled(fixedRate = 5000)
     public void cleanse() {
@@ -62,6 +65,7 @@ public class LocationController implements LocationCleanser {
             Connection connection = dataSource.getConnection();
             Statement locationStmt = connection.createStatement();
             String todayDate = LocalDate.now().toString();
+
             String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + todayDate +  "' " +
                     "AND locality = '855 Brannan Apartments'";
             locationStmt.executeUpdate(updateLocationSQL);

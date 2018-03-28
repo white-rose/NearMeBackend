@@ -38,6 +38,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,7 +87,7 @@ public class AccountController {
                 "inner join sanfrancisco " +
                 "on accounts.facebookid=sanfrancisco.facebookid " +
                 "WHERE locality = '" + currentAccounts.getLocality() +
-                "' AND time < '03-28-2018' " +
+                "' AND time < '" + LocalDate.now() + "'" +
                 "AND ONLINE = true");
 
         while (rs.next()) {

@@ -2,7 +2,6 @@ package com.example.java.Services;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import model.LocationTag;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -26,7 +25,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-
+//        dummyAccountData();
+        dummyHistoryData();
     }
 
 //    @Bean
@@ -226,7 +226,26 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     */
     }
 
-    private void dummyData() {
+    private void dummyAccountData() {
+
+        for (int i = 0; i < 100; i++) {
+            try (
+                    Connection connection = dataSource.getConnection()) {
+                Statement createDummyData = connection.createStatement();
+                String insertQuery = "insert into accounts (username, lastname, firstname, facebookid, online) " +
+                        "VALUES ('" + randomIdentifier() + "', '"+  randomIdentifier() + "','" + randomIdentifier() + "', " + i + " , true);";
+                String deleteQuery = "delete from accounts where facebookid = '" + i + "'";
+                createDummyData.executeUpdate(insertQuery);
+
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    private void dummyHistoryData() {
+
 
         for (int i = 0; i < 100; i++) {
             try (
@@ -235,7 +254,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
                     String query = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
                             + "'" + i + "',"
                             + "'" + "855 Brannan Apartments" + "',"
-                            + "'" + DateTime.now() + "');";
+                            + "'" + "03-29-2018" + "');";
                     createDummyData.executeUpdate(query);
 
             } catch (SQLException ex) {
