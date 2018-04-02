@@ -26,7 +26,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 //        dummyAccountData();
-        dummyHistoryData();
+//        dummyHistoryData();
     }
 
 //    @Bean
@@ -44,6 +44,97 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 //            }
 //        });
 //    }
+
+    private void dummyAccountData() {
+
+        for (int i = 0; i < 100; i++) {
+            try (
+                    Connection connection = dataSource.getConnection()) {
+                Statement createDummyData = connection.createStatement();
+                String insertQuery = "insert into accounts (username, lastname, firstname, facebookid, online) " +
+                        "VALUES ('" + randomIdentifier() + "', '"+  randomIdentifier() + "','" + randomIdentifier() + "', " + i + " , true);";
+                String deleteQuery = "delete from accounts where facebookid = '" + i + "'";
+                createDummyData.executeUpdate(deleteQuery);
+
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    private void dummyHistoryData() {
+
+        final String BRANNAN_APARTMENTS = "855 Brannan Apartments";
+        final String UNIVERSITY_OF_SANFRACISCO = "Universty of San Francisco";
+
+        for (int i = 0; i < 100; i++) {
+            try (
+                    Connection connection = dataSource.getConnection()) {
+                    Statement createDummyData = connection.createStatement();
+                    String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
+                    String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
+                            + "'" + i + "',"
+                            + "'" + BRANNAN_APARTMENTS + "',"
+                            + "'" + "04-02-2018" + "');";
+                    createDummyData.executeUpdate(insertQuery);
+
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    public void insertLocationTag(LocationTag locationTag) {
+
+        Random rand = new Random();
+
+        String SQL = "INSERT INTO sanfrancisco (facebookid, locality, time)"
+                + "VALUES (?, ?, ?)";
+
+        long id = 0;
+
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+             pstmt.setString(1, locationTag.getFacebookId());
+             pstmt.setString(2, locationTag.getLocality());
+             pstmt.setString(3, locationTag.getTimestamp().toString());
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+
+    private String randomSex() {
+        Sex[] sexes = {Sex.FEMALE, Sex.MALE};
+        Random rand = new Random();
+        return sexes[rand.nextInt(sexes.length)].toString();
+    }
+
+    // Returns random String
+    private String randomIdentifier() {
+        // class variable
+        final String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        final java.util.Random rand = new java.util.Random();
+
+    // consider using a Map<String,Boolean> to say whether the identifier is being used or not
+        final Set<String> identifiers = new HashSet<>();
+
+        StringBuilder builder = new StringBuilder();
+        while(builder.toString().length() == 0) {
+            int length = rand.nextInt(5)+5;
+            for(int i = 0; i < length; i++) {
+                builder.append(lexicon.charAt(rand.nextInt(lexicon.length())));
+            }
+            if(identifiers.contains(builder.toString())) {
+                builder = new StringBuilder();
+            }
+        }
+        return builder.toString();
+    }
 
     private void MondoDBPlayground () {
     //Mongo DB Testing
@@ -226,94 +317,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     */
     }
 
-    private void dummyAccountData() {
-
-        for (int i = 0; i < 100; i++) {
-            try (
-                    Connection connection = dataSource.getConnection()) {
-                Statement createDummyData = connection.createStatement();
-                String insertQuery = "insert into accounts (username, lastname, firstname, facebookid, online) " +
-                        "VALUES ('" + randomIdentifier() + "', '"+  randomIdentifier() + "','" + randomIdentifier() + "', " + i + " , true);";
-                String deleteQuery = "delete from accounts where facebookid = '" + i + "'";
-                createDummyData.executeUpdate(insertQuery);
-
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-
-    }
-
-    private void dummyHistoryData() {
-
-
-        for (int i = 0; i < 100; i++) {
-            try (
-                    Connection connection = dataSource.getConnection()) {
-                    Statement createDummyData = connection.createStatement();
-                    String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
-                    String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
-                            + "'" + i + "',"
-                            + "'" + "University of San Francisco" + "',"
-                            + "'" + "03-27-2018" + "');";
-                    createDummyData.executeUpdate(insertQuery);
-
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-
-    }
-
-    public void insertLocationTag(LocationTag locationTag) {
-
-        Random rand = new Random();
-
-        String SQL = "INSERT INTO sanfrancisco (facebookid, locality, time)"
-                + "VALUES (?, ?, ?)";
-
-        long id = 0;
-
-
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement pstmt = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
-             pstmt.setString(1, locationTag.getFacebookId());
-             pstmt.setString(2, locationTag.getLocality());
-             pstmt.setString(3, locationTag.getTimestamp().toString());
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-    }
-
-    private String randomSex() {
-        Sex[] sexes = {Sex.FEMALE, Sex.MALE};
-        Random rand = new Random();
-        return sexes[rand.nextInt(sexes.length)].toString();
-    }
-
-    // Returns random String
-    private String randomIdentifier() {
-        // class variable
-        final String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        final java.util.Random rand = new java.util.Random();
-
-    // consider using a Map<String,Boolean> to say whether the identifier is being used or not
-        final Set<String> identifiers = new HashSet<>();
-
-        StringBuilder builder = new StringBuilder();
-        while(builder.toString().length() == 0) {
-            int length = rand.nextInt(5)+5;
-            for(int i = 0; i < length; i++) {
-                builder.append(lexicon.charAt(rand.nextInt(lexicon.length())));
-            }
-            if(identifiers.contains(builder.toString())) {
-                builder = new StringBuilder();
-            }
-        }
-        return builder.toString();
-    }
 
 }
 

@@ -1,4 +1,4 @@
-package com.example.java.Services;
+package LocationHandler;
 
 import org.springframework.scheduling.annotation.Scheduled;
 

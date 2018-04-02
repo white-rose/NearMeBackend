@@ -72,6 +72,7 @@ public class AccountController {
     // static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
     // static DynamoDB dynamoDB = new DynamoDB(client);
 
+    //TODO: How to handle more than one requests?
     @RequestMapping(
             value = "/pullAccounts",
             method = RequestMethod.POST)
@@ -87,7 +88,7 @@ public class AccountController {
                 "inner join sanfrancisco " +
                 "on accounts.facebookid=sanfrancisco.facebookid " +
                 "WHERE locality = '" + currentAccounts.getLocality() +
-                "' AND time < '" + LocalDate.now() + "'" +
+                "' AND time < '" + LocalDate.now() + "' " +
                 "AND ONLINE = true");
 
         while (rs.next()) {

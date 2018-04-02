@@ -1,4 +1,4 @@
-package com.example.java.Services;
+package LocationHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -64,10 +64,10 @@ public class LocationController implements LocationCleanser {
         try {
             Connection connection = dataSource.getConnection();
             Statement locationStmt = connection.createStatement();
-            String todayDate = LocalDate.now().toString();
+            LocalDate today = LocalDate.now();
+            String yesterday = today.minusDays(1).toString();
 
-            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + todayDate +  "' " +
-                    "AND locality = '855 Brannan Apartments'";
+            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + yesterday +  "'; ";
             locationStmt.executeUpdate(updateLocationSQL);
             connection.close();
         } catch (SQLException e) {
