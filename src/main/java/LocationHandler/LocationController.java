@@ -56,7 +56,6 @@ public class LocationController implements LocationCleanser {
 
     }
 
-    //TODO: delete day before today's date
     @Override
     @Scheduled(fixedRate = 5000)
     public void cleanse() {

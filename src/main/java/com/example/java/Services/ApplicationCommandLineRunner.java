@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 //        dummyAccountData();
-//        dummyHistoryData();
+          dummyHistoryData();
     }
 
 //    @Bean
@@ -66,7 +67,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     private void dummyHistoryData() {
 
         final String BRANNAN_APARTMENTS = "855 Brannan Apartments";
-        final String UNIVERSITY_OF_SANFRACISCO = "Universty of San Francisco";
+        final String UNIVERSITY_OF_SANFRACISCO = "University of San Francisco";
 
         for (int i = 0; i < 100; i++) {
             try (
@@ -75,8 +76,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
                     String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
                     String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
                             + "'" + i + "',"
-                            + "'" + BRANNAN_APARTMENTS + "',"
-                            + "'" + "04-02-2018" + "');";
+                            + "'" + UNIVERSITY_OF_SANFRACISCO + "',"
+                            + "'" + LocalDate.now().toString() + "');";
                     createDummyData.executeUpdate(insertQuery);
 
             } catch (SQLException ex) {

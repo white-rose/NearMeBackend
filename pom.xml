@@ -74,13 +74,6 @@
       <scope>test</scope>
     </dependency>
 
-      <!--&lt;!&ndash;https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa&ndash;&gt;-->
-      <!--<dependency>-->
-          <!--<groupId>org.springframework.boot</groupId>-->
-          <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-          <!--<version>2.0.0.RELEASE</version>-->
-      <!--</dependency>-->
-
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
@@ -169,11 +162,27 @@
           <artifactId>junit-jupiter-api</artifactId>
           <version>RELEASE</version>
       </dependency>
+
       <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
           <version>4.12</version>
       </dependency>
+
+      <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.liquibase/liquibase-maven-plugin &ndash;&gt;-->
+      <!--<dependency>-->
+          <!--<groupId>org.liquibase</groupId>-->
+          <!--<artifactId>liquibase-maven-plugin</artifactId>-->
+          <!--<version>3.5.5</version>-->
+      <!--</dependency>-->
+
+      <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa-->
+      <!--<dependency>-->
+      <!--<groupId>org.springframework.boot</groupId>-->
+      <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+      <!--<version>2.0.0.RELEASE</version>-->
+      <!--</dependency>-->
+
 
   </dependencies>
 

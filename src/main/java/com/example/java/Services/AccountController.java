@@ -88,7 +88,7 @@ public class AccountController {
                 "inner join sanfrancisco " +
                 "on accounts.facebookid=sanfrancisco.facebookid " +
                 "WHERE locality = '" + currentAccounts.getLocality() +
-                "' AND time < '" + LocalDate.now() + "' " +
+                "' AND time <= '" + LocalDate.now() + "' " +
                 "AND ONLINE = true");
 
         while (rs.next()) {
