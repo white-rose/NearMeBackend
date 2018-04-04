@@ -1,4 +1,4 @@
-package model;
+package com.SmallTalk.model;
 
 public class FriendRequest {
 

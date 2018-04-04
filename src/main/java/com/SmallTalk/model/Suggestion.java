@@ -1,4 +1,4 @@
-package model;
+package com.SmallTalk.model;
 
 /**
  * Created by mrrobot on 7/5/17.

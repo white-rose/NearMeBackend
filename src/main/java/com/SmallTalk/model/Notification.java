@@ -1,4 +1,4 @@
-package model;
+package com.SmallTalk.model;
 
 import java.util.HashMap;
 

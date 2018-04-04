@@ -1,17 +1,23 @@
-package model;
+package com.SmallTalk.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class UserAccount extends Profile {
+//@DynamoDBTable(tableName = "Accounts")
+//@Entity
+public class UserAccount extends Account {
 
+    //@DynamoDBHashKey(attributeName = "username")
+    //@Id
     @JsonProperty
     String facebookId;
     @JsonProperty
     String userName;
     @JsonProperty
     String firstName;
+    @JsonProperty
+    String lastName;
     @JsonProperty
     String locality;
     @JsonProperty
@@ -20,6 +26,16 @@ public class UserAccount extends Profile {
     List friends;
     @JsonProperty
     List friendRequests;
+    @JsonProperty
+    Boolean online;
+    @JsonProperty
+    String School;
+
+    public UserAccount(String facebookId, String firstName, String lastName) {
+        this.facebookId = facebookId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public String getUserName() {
         return userName;
@@ -75,5 +91,21 @@ public class UserAccount extends Profile {
 
     public void setFacebookId(String facebookId) {
         this.facebookId = facebookId;
+    }
+
+    public Boolean isOnline() {
+        return online;
+    }
+
+    public void setOnline(Boolean online) {
+        this.online = online;
+    }
+
+    public String getSchool() {
+        return School;
+    }
+
+    public void setSchool(String school) {
+        School = school;
     }
 }

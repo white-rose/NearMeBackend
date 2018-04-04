@@ -1,7 +1,12 @@
-package com.example.java.Services;
+package com.SmallTalk;
 
+import com.SmallTalk.model.LocationTag;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import model.LocationTag;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.async.Callback;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -15,6 +20,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @Component
 public class ApplicationCommandLineRunner implements CommandLineRunner {
@@ -27,24 +34,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 //        dummyAccountData();
-          dummyHistoryData();
+//        dummyHistoryData();
     }
-
-//    @Bean
-//    public CommandLineRunner demo(AccountRepository repository) {
-//        return (args -> {
-//            Account myAccount = new Account();
-//            myAccount.setFirstName("Buddy");
-//            myAccount.setFacebookId("123456789");
-//            repository.save(myAccount);
-//
-//            System.out.println("Customers found with foundAll():");
-//            System.out.println("-------------------------------");
-//            for (Account account : repository.findAll()) {
-//                System.out.println(account.getFacebookId());
-//            }
-//        });
-//    }
 
     private void dummyAccountData() {
 
@@ -68,6 +59,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
         final String BRANNAN_APARTMENTS = "855 Brannan Apartments";
         final String UNIVERSITY_OF_SANFRACISCO = "University of San Francisco";
+        final String UNION_SQUARE = "Union Square";
 
         for (int i = 0; i < 100; i++) {
             try (
@@ -76,7 +68,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
                     String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
                     String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
                             + "'" + i + "',"
-                            + "'" + UNIVERSITY_OF_SANFRACISCO + "',"
+                            + "'" + BRANNAN_APARTMENTS + "',"
                             + "'" + LocalDate.now().toString() + "');";
                     createDummyData.executeUpdate(insertQuery);
 
@@ -93,9 +85,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
         String SQL = "INSERT INTO sanfrancisco (facebookid, locality, time)"
                 + "VALUES (?, ?, ?)";
-
-        long id = 0;
-
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -282,11 +271,34 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     }
 
     private void multipleLocationUpdateRequests () {
+
+        Future<HttpResponse<JsonNode>> future = Unirest.post("localhost:8080/samplePush?token=c8ad4e8b7a96943039b3ea89a6a5508bc6426953fdbadfeae06c970b28a495c0")
+                .header("accept", "application/json")
+                .asJsonAsync(new Callback<JsonNode>() {
+                    @Override
+                    public void completed(HttpResponse<JsonNode> httpResponse) {
+                        System.out.print("Online status was able to update");
+                    }
+
+                    @Override
+                    public void failed(UnirestException e) {
+                        System.out.println("Online status update has failed");
+                    }
+
+                    @Override
+                    public void cancelled() {
+                        System.out.println("Online status update has cancelled");
+                    }
+                });
+
+        try {
+            future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
     /*
-    SanFranciscoTag sanFranciscoTag = new SanFranciscoTag(
-            "1",
-            "University of San Francisco",
-            now()
     );
     insertLocationTag(sanFranciscoTag);
 
@@ -296,28 +308,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     CloseableHttpAsyncClient client =
             HttpAsyncClients.custom().setConnectionManager(cm).build();
     client.start();
-
-
-    Future<HttpResponse<JsonNode>> future = Unirest.post("https://fathomless-gorge-73815.herokuapp.com/updateLocation")
-            .header("accept", "application/json")
-            .asJsonAsync(new Callback<JsonNode>() {
-                @Override
-                public void completed(HttpResponse<JsonNode> httpResponse) {
-
-                }
-
-                @Override
-                public void failed(UnirestException e) {
-
-                }
-
-                @Override
-                public void cancelled() {
-                }
-            });
     */
     }
-
 
 }
 

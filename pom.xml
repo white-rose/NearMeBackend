@@ -47,51 +47,37 @@
 
   <dependencies>
 
-      <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-      <!--<dependency>-->
-          <!--<groupId>org.springframework</groupId>-->
-          <!--<artifactId>spring-core</artifactId>-->
-          <!--<version>5.0.4.RELEASE</version>-->
-      <!--</dependency>-->
-
-      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
-      <!--<dependency>-->
-          <!--<groupId>org.springframework.boot</groupId>-->
-          <!--<artifactId>spring-boot-starter</artifactId>-->
-          <!--<version>2.0.0.RELEASE</version>-->
-      <!--</dependency>-->
-
       <dependency>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-web</artifactId>
           <version>1.5.8.RELEASE</version>
       </dependency>
 
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+          <version>1.4.4.RELEASE</version>
+          <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>RELEASE</version>
+     </dependency>
+
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <version>1.4.4.RELEASE</version>
-      <scope>test</scope>
+        <groupId>com.notnoop.apns</groupId>
+        <artifactId>apns</artifactId>
+        <version>1.0.0.Beta6</version>
     </dependency>
 
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>RELEASE</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.notnoop.apns</groupId>
-      <artifactId>apns</artifactId>
-      <version>1.0.0.Beta6</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-java-sdk-bom</artifactId>
-      <version>1.11.106</version>
-      <type>pom</type>
-      <scope>import</scope>
+         <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-bom</artifactId>
+        <version>1.11.106</version>
+        <type>pom</type>
+        <scope>import</scope>
     </dependency>
 
     <dependency>
@@ -151,12 +137,6 @@
           <version>2.11.7</version>
       </dependency>
 
-      <!--<dependency>-->
-          <!--<groupId>org.mongodb</groupId>-->
-          <!--<artifactId>mongodb-driver</artifactId>-->
-          <!--<version>3.6.2</version>-->
-      <!--</dependency>-->
-
       <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-api</artifactId>
@@ -168,6 +148,12 @@
           <artifactId>junit</artifactId>
           <version>4.12</version>
       </dependency>
+
+    <!--<dependency>-->
+          <!--<groupId>org.mongodb</groupId>-->
+          <!--<artifactId>mongodb-driver</artifactId>-->
+          <!--<version>3.6.2</version>-->
+      <!--</dependency>-->
 
       <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.liquibase/liquibase-maven-plugin &ndash;&gt;-->
       <!--<dependency>-->
@@ -182,7 +168,6 @@
       <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
       <!--<version>2.0.0.RELEASE</version>-->
       <!--</dependency>-->
-
 
   </dependencies>
 
@@ -217,11 +202,32 @@
               <goal>repackage</goal>
             </goals>
             <configuration>
-              <mainClass>com.example.java.Services.GCloud</mainClass>
+              <mainClass>com.SmallTalk.GCloud</mainClass>
             </configuration>
           </execution>
         </executions>
       </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>testCompile</id>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>testCompile</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 <!-- START plugin -->
       <plugin>
         <groupId>com.google.appengine</groupId>
@@ -259,32 +265,13 @@
                 <jvmTarget>1.8</jvmTarget>
             </configuration>
         </plugin> -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>compile</id>
-                    <phase>compile</phase>
-                    <goals>
-                        <goal>compile</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>testCompile</id>
-                    <phase>test-compile</phase>
-                    <goals>
-                        <goal>testCompile</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+
         <!-- END plugin -->
         <!-- This plugin compiles Scala files -->
 
         <!-- This plugin adds all dependencies to JAR file during 'package' command.
-Pay EXTRA attention to the 'mainClass' tag.
-You have to set name of class with entry point to program ('main' method) -->
+        Pay EXTRA attention to the 'mainClass' tag.
+        You have to set name of class with entry point to program ('main' method) -->
         <!--<plugin>-->
             <!--<artifactId>maven-assembly-plugin</artifactId>-->
             <!--<version>3.1.0</version>-->

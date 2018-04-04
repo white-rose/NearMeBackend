@@ -1,4 +1,4 @@
-package com.example.java.Services;
+package com.SmallTalk;
 
 public interface UserController {
 
