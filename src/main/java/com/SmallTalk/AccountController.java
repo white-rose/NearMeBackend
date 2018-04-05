@@ -74,26 +74,26 @@ public class AccountController {
     @RequestMapping(
             value = "/pullAccounts",
             method = RequestMethod.POST)
-    private List<UserAccount> pullAccounts (@RequestBody UserAccount currentAccounts) throws SQLException {
+    private List<UserAccount> pullAccounts (@RequestBody UserAccount currentAccount) throws SQLException {
 
         List<UserAccount> userAccounts = new ArrayList<>();
 
         long beginningTime = System.currentTimeMillis();
         Statement stmt = dataSource.getConnection().createStatement();
         ResultSet rs = stmt.executeQuery(
-                "SELECT DISTINCT accounts.firstname, accounts.facebookid " +
+                "SELECT DISTINCT accounts.firstname, accounts.lastname, accounts.facebookid " +
                 "FROM accounts " +
                 "inner join sanfrancisco " +
                 "on accounts.facebookid=sanfrancisco.facebookid " +
-                "WHERE locality = '" + currentAccounts.getLocality() +
+                "WHERE locality = '" + currentAccount.getLocality() +
                 "' AND time <= '" + LocalDate.now() + "' " +
                 "AND ONLINE = true");
 
         while (rs.next()) {
-            UserAccount userAccount = new UserAccount(
-            rs.getString("facebookid"),
-            rs.getString("firstname"),
-            rs.getString("lastName"));
+            UserAccount userAccount = new UserAccount();
+            userAccount.setFacebookId(rs.getString("facebookid"));
+            userAccount.setFirstName(rs.getString("firstname"));
+            userAccount.setLastName(rs.getString("lastname"));
             userAccounts.add(userAccount);
         }
 
@@ -109,11 +109,11 @@ public class AccountController {
             method = { RequestMethod.PUT })
     private void updateOnlineStatus (@RequestBody com.SmallTalk.model.UserAccount userAccount) throws SQLException {
 
-        System.out.println(!userAccount.isOnline());
+        System.out.println(!userAccount.getOnline());
 
         Connection connection = dataSource.getConnection();
         String updateOnlineStatusQuery = "UPDATE accounts " +
-                "SET online = '" + userAccount.isOnline() + "' " +
+                "SET online = '" + userAccount.getOnline() + "' " +
                 "WHERE facebookid = '" + userAccount.getFacebookId() + "';";
         Statement onlineStatement = connection.createStatement();
         onlineStatement.executeUpdate(updateOnlineStatusQuery);

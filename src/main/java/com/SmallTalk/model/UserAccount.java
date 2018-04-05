@@ -29,13 +29,13 @@ public class UserAccount extends Account {
     @JsonProperty
     Boolean online;
     @JsonProperty
-    String School;
+    String school;
 
-    public UserAccount(String facebookId, String firstName, String lastName) {
-        this.facebookId = facebookId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+//    public UserAccount(String facebookId, String firstName, String lastName) {
+//        this.facebookId = facebookId;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//    }
 
     public String getUserName() {
         return userName;
@@ -93,7 +93,7 @@ public class UserAccount extends Account {
         this.facebookId = facebookId;
     }
 
-    public Boolean isOnline() {
+    public Boolean getOnline() {
         return online;
     }
 
@@ -102,10 +102,18 @@ public class UserAccount extends Account {
     }
 
     public String getSchool() {
-        return School;
+        return school;
     }
 
     public void setSchool(String school) {
-        School = school;
+        this.school = school;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
