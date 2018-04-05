@@ -13,11 +13,13 @@ public class UserAccount extends Account {
     @JsonProperty
     String facebookId;
     @JsonProperty
-    String userName;
-    @JsonProperty
     String firstName;
     @JsonProperty
     String lastName;
+    @JsonProperty
+    String school;
+    @JsonProperty
+    String userName;
     @JsonProperty
     String locality;
     @JsonProperty
@@ -28,8 +30,6 @@ public class UserAccount extends Account {
     List friendRequests;
     @JsonProperty
     Boolean online;
-    @JsonProperty
-    String school;
 
 //    public UserAccount(String facebookId, String firstName, String lastName) {
 //        this.facebookId = facebookId;

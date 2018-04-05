@@ -81,7 +81,7 @@ public class AccountController {
         long beginningTime = System.currentTimeMillis();
         Statement stmt = dataSource.getConnection().createStatement();
         ResultSet rs = stmt.executeQuery(
-                "SELECT DISTINCT accounts.firstname, accounts.lastname, accounts.facebookid " +
+                "SELECT DISTINCT accounts.firstname, accounts.lastname, accounts.facebookid, accounts.school " +
                 "FROM accounts " +
                 "inner join sanfrancisco " +
                 "on accounts.facebookid=sanfrancisco.facebookid " +
@@ -94,6 +94,7 @@ public class AccountController {
             userAccount.setFacebookId(rs.getString("facebookid"));
             userAccount.setFirstName(rs.getString("firstname"));
             userAccount.setLastName(rs.getString("lastname"));
+            userAccount.setSchool(rs.getString("school"));
             userAccounts.add(userAccount);
         }
 

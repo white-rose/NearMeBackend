@@ -43,10 +43,10 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
             try (
                     Connection connection = dataSource.getConnection()) {
                 Statement createDummyData = connection.createStatement();
-                String insertQuery = "insert into accounts (username, lastname, firstname, facebookid, online) " +
-                        "VALUES ('" + randomIdentifier() + "', '"+  randomIdentifier() + "','" + randomIdentifier() + "', " + i + " , true);";
+                String insertQuery = "insert into accounts (username, lastname, firstname, facebookid, online, school) " +
+                        "VALUES ('" + randomIdentifier() + "', '"+  randomIdentifier() + "','" + randomIdentifier() + "', " + i + " , true, 'University of Sanfrancisco');";
                 String deleteQuery = "delete from accounts where facebookid = '" + i + "'";
-                createDummyData.executeUpdate(deleteQuery);
+                createDummyData.executeUpdate(insertQuery);
 
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
@@ -66,7 +66,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
                     Connection connection = dataSource.getConnection()) {
                     Statement createDummyData = connection.createStatement();
                     String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
-                    String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time) VALUES ("
+                    String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time, school) VALUES ("
                             + "'" + i + "',"
                             + "'" + BRANNAN_APARTMENTS + "',"
                             + "'" + LocalDate.now().toString() + "');";
