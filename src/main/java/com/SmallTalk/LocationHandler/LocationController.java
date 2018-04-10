@@ -1,6 +1,7 @@
 package com.SmallTalk.LocationHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -16,7 +17,7 @@ public class LocationController implements LocationCleanser {
     DataSource dataSource;
 
     @Override
-//    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 5000)
     public void cleanse() {
 
         try {
@@ -27,25 +28,10 @@ public class LocationController implements LocationCleanser {
 
             String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + yesterday +  "'; ";
             locationStmt.executeUpdate(updateLocationSQL);
-//            connection.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    private void AWSDynamoDBQuery() {
-
-//          ApplicationCommandLineRunner.accountsDDB.putItem(new PutItemRequest()
-//          .withTableName("Accounts")
-//          .withItem(new HashMap() {{
-//              put("FirstName", new AttributeValue().withS(userAccount.getFirstName()));
-//              put("Locality", new AttributeValue().withS(userAccount.getLocality()));
-//              put("username", new AttributeValue().withS(userAccount.getUsername()));
-//              put("facebookid", new AttributeValue().withS(userAccount.getFacebookId()));
-//              put("friends", new AttributeValue().withSS("Nathan", "Billy"));
-//              put("friendRequests", new AttributeValue().withSS("none"));
-//          }}));
-
     }
 
 }

@@ -11,13 +11,6 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class APIStressTest {
 
-    @Test
-    public void testAddPullOfAccounts() {
-
-
-
-    }
-
     /* Testing Facebook API to get facebook photo */
     @Test
     public void testFacebookPhotoCall () {
