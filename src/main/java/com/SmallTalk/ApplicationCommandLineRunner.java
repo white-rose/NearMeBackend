@@ -1,6 +1,7 @@
 package com.SmallTalk;
 
-import com.SmallTalk.model.LocationTag;
+import com.SmallTalk.model.Location.LocationTag;
+import com.SmallTalk.model.User.User;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -12,11 +13,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -33,15 +32,94 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
+
+        User user = new User();
+        user.setFirstName("Iron");
+        user.setLastName("Man");
+        user.setUserName("tester");
+        user.setFacebookId("10001");
+        user.setEmail("test@gmail.com");
+        user.setSchool("Harvard");
+
+        user.create(user);
+
 //        dummyAccountData();
 //        dummyHistoryData();
+//        getStats();
+    }
+
+    private void create (User account) throws SQLException {
+
+        Connection connection = dataSource.getConnection();
+        Statement createAccount = connection.createStatement();
+
+        String createAccountQuery =
+                "INSERT INTO accounts (firstname, lastname, username, facebookid, email, school) VALUES ("
+                        + "'" + account.getFirstName() + "',"
+                        + "'" + account.getLastName() + "',"
+                        + "'" + account.getUserName() + "',"
+                        + "'" + account.getFacebookId() + "',"
+                        + "'" + account.getEmail() + "',"
+                        + "'" + account.getSchool() + "');";
+
+        createAccount.executeUpdate(createAccountQuery);
+
+    }
+
+    private void getStats () throws SQLException {
+
+        HashMap<String, Integer> locations = new HashMap<>();
+
+        Connection connection = dataSource.getConnection();
+        Statement pullStatement = connection.createStatement();
+        String pullAll = "select * from sanfrancisco";
+        ResultSet rs = pullStatement.executeQuery(pullAll);
+
+        int capacitiy = 1;
+        while (rs.next()) {
+            String location = rs.getString("locality");
+            if (locations.containsKey(location)) {
+                capacitiy = locations.get(location).intValue();
+                capacitiy += 1;
+                locations.put(location, capacitiy++);
+            }
+            else {
+                locations.put(location, capacitiy);
+            }
+        }
+
+        System.out.println(locations);
+
+    }
+
+    // Returns random String
+    private String randomIdentifier() {
+        // class variable
+        final String lexicon = "abcdefghijklmnopqrstuvwxyz";
+
+        final java.util.Random rand = new java.util.Random();
+
+        // consider using a Map<String,Boolean> to say whether the identifier is being used or not
+        final Set<String> identifiers = new HashSet<>();
+
+        StringBuilder builder = new StringBuilder();
+        while(builder.toString().length() == 0) {
+            int length = rand.nextInt(5)+5;
+            for(int i = 0; i < length; i++) {
+                builder.append(lexicon.charAt(rand.nextInt(lexicon.length())));
+            }
+            if(identifiers.contains(builder.toString())) {
+                builder = new StringBuilder();
+            }
+        }
+        return builder.toString();
     }
 
     private void dummyAccountData() {
 
         for (int i = 0; i < 100; i++) {
             try (
-                    Connection connection = dataSource.getConnection()) {
+                Connection connection = dataSource.getConnection()) {
                 Statement createDummyData = connection.createStatement();
                 String insertQuery = "insert into accounts (username, lastname, firstname, facebookid, online, school) " +
                         "VALUES ('" + randomIdentifier() + "', '"+  randomIdentifier() + "','" + randomIdentifier() + "', " + i + " , true, 'University of Sanfrancisco');";
@@ -66,9 +144,9 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
                     Connection connection = dataSource.getConnection()) {
                     Statement createDummyData = connection.createStatement();
                     String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
-                    String insertQuery = "INSERT INTO sanfrancisco (facebookid, locality, time, school) VALUES ("
+                    String insertQuery = "INSERT INTO SANFRANCISCO (facebookid, locality, time) VALUES ("
                             + "'" + i + "',"
-                            + "'" + BRANNAN_APARTMENTS + "',"
+                            + "'" + UNION_SQUARE + "',"
                             + "'" + LocalDate.now().toString() + "');";
                     createDummyData.executeUpdate(insertQuery);
 
@@ -77,6 +155,53 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
             }
         }
 
+    }
+
+    private String randomSex() {
+        Sex[] sexes = {Sex.FEMALE, Sex.MALE};
+        Random rand = new Random();
+        return sexes[rand.nextInt(sexes.length)].toString();
+    }
+
+    private void multipleLocationUpdateRequests () {
+
+        Future<HttpResponse<JsonNode>> future = Unirest.post("localhost:8080/samplePush?token=c8ad4e8b7a96943039b3ea89a6a5508bc6426953fdbadfeae06c970b28a495c0")
+                .header("accept", "application/json")
+                .asJsonAsync(new Callback<JsonNode>() {
+                    @Override
+                    public void completed(HttpResponse<JsonNode> httpResponse) {
+                        System.out.print("Online status was able to update");
+                    }
+
+                    @Override
+                    public void failed(UnirestException e) {
+                        System.out.println("Online status update has failed");
+                    }
+
+                    @Override
+                    public void cancelled() {
+                        System.out.println("Online status update has cancelled");
+                    }
+                });
+
+        try {
+            future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+    /*
+    );
+    insertLocationTag(sanFranciscoTag);
+
+    ConnectingIOReactor ioReactor = new DefaultConnectingIOReactor();
+    PoolingNHttpClientConnectionManager cm =
+            new PoolingNHttpClientConnectionManager(ioReactor);
+    CloseableHttpAsyncClient client =
+            HttpAsyncClients.custom().setConnectionManager(cm).build();
+    client.start();
+    */
     }
 
     public void insertLocationTag(LocationTag locationTag) {
@@ -95,35 +220,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
             System.out.println(ex.getMessage());
         }
 
-    }
-
-    private String randomSex() {
-        Sex[] sexes = {Sex.FEMALE, Sex.MALE};
-        Random rand = new Random();
-        return sexes[rand.nextInt(sexes.length)].toString();
-    }
-
-    // Returns random String
-    private String randomIdentifier() {
-        // class variable
-        final String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        final java.util.Random rand = new java.util.Random();
-
-    // consider using a Map<String,Boolean> to say whether the identifier is being used or not
-        final Set<String> identifiers = new HashSet<>();
-
-        StringBuilder builder = new StringBuilder();
-        while(builder.toString().length() == 0) {
-            int length = rand.nextInt(5)+5;
-            for(int i = 0; i < length; i++) {
-                builder.append(lexicon.charAt(rand.nextInt(lexicon.length())));
-            }
-            if(identifiers.contains(builder.toString())) {
-                builder = new StringBuilder();
-            }
-        }
-        return builder.toString();
     }
 
     private void MondoDBPlayground () {
@@ -268,47 +364,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
                 put("")
             }}));
             */
-    }
-
-    private void multipleLocationUpdateRequests () {
-
-        Future<HttpResponse<JsonNode>> future = Unirest.post("localhost:8080/samplePush?token=c8ad4e8b7a96943039b3ea89a6a5508bc6426953fdbadfeae06c970b28a495c0")
-                .header("accept", "application/json")
-                .asJsonAsync(new Callback<JsonNode>() {
-                    @Override
-                    public void completed(HttpResponse<JsonNode> httpResponse) {
-                        System.out.print("Online status was able to update");
-                    }
-
-                    @Override
-                    public void failed(UnirestException e) {
-                        System.out.println("Online status update has failed");
-                    }
-
-                    @Override
-                    public void cancelled() {
-                        System.out.println("Online status update has cancelled");
-                    }
-                });
-
-        try {
-            future.get();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
-
-    /*
-    );
-    insertLocationTag(sanFranciscoTag);
-
-    ConnectingIOReactor ioReactor = new DefaultConnectingIOReactor();
-    PoolingNHttpClientConnectionManager cm =
-            new PoolingNHttpClientConnectionManager(ioReactor);
-    CloseableHttpAsyncClient client =
-            HttpAsyncClients.custom().setConnectionManager(cm).build();
-    client.start();
-    */
     }
 
 }

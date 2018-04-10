@@ -1,8 +1,9 @@
 package com.SmallTalk;
 
 import com.SmallTalk.model.FriendRequest;
-import com.SmallTalk.model.GooglePlaceResult;
-import com.SmallTalk.model.UserAccount;
+import com.SmallTalk.model.Location.Building;
+import com.SmallTalk.model.Location.GooglePlaceResult;
+import com.SmallTalk.model.User.User;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.AttributeValueUpdate;
@@ -59,11 +60,11 @@ public class AccountController {
     //Google API key
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
 
+    private Facebook facebook;
+
     // Client for AWS DynamoDB production
     // static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion("us-east-1").build();
     // static DynamoDB dynamoDB = new DynamoDB(client);
-
-    private Facebook facebook;
 
     //Heroku Tables
     static final String accounts = "accounts";
@@ -71,12 +72,29 @@ public class AccountController {
 
     private ConnectionRepository connectionRepository;
 
+    public void create (User account) throws SQLException {
+
+        Connection connection = dataSource.getConnection();
+        Statement createAccount = connection.createStatement();
+
+        String createAccountQuery =
+                "INSERT INTO accounts (firstname, lastname, facebookid, email, school) VALUES ("
+                        + "'" + account.getFirstName() + "',"
+                        + "'" + account.getLastName() + "',"
+                        + "'" + account.getFacebookId() + "',"
+                        + "'" + account.getEmail() + "',"
+                        + "'" + account.getSchool() + "');";
+
+        createAccount.executeUpdate(createAccountQuery);
+
+    }
+
     @RequestMapping(
             value = "/pullAccounts",
             method = RequestMethod.POST)
-    private List<UserAccount> pullAccounts (@RequestBody UserAccount currentAccount) throws SQLException {
+    private List<User> pullNearbyUsers (@RequestBody User currentAccount) throws SQLException {
 
-        List<UserAccount> userAccounts = new ArrayList<>();
+        List<User> users = new ArrayList<>();
 
         long beginningTime = System.currentTimeMillis();
         Statement stmt = dataSource.getConnection().createStatement();
@@ -90,32 +108,39 @@ public class AccountController {
                 "AND ONLINE = true");
 
         while (rs.next()) {
-            UserAccount userAccount = new UserAccount();
-            userAccount.setFacebookId(rs.getString("facebookid"));
-            userAccount.setFirstName(rs.getString("firstname"));
-            userAccount.setLastName(rs.getString("lastname"));
-            userAccount.setSchool(rs.getString("school"));
-            userAccounts.add(userAccount);
+            User user = new User();
+            user.setFacebookId(rs.getString("facebookid"));
+            user.setFirstName(rs.getString("firstname"));
+            user.setLastName(rs.getString("lastname"));
+            user.setSchool(rs.getString("school"));
+            users.add(user);
         }
 
-        long endTime = System.currentTimeMillis();
-        System.out.println((endTime - beginningTime));
+        Building userBuilding = currentAccount.getBuildingOccupied();
 
-        return userAccounts;
+        if (users.size() > userBuilding.maxCapacity)
+            System.out.println(userBuilding.name + " has exceeded maximum capacity");
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("Time to pull nearby users " + (endTime - beginningTime) + " milliseconds");
+
+        logger.info(users.size() + " are occupying " + currentAccount.getLocality());
+
+        return users;
 
     }
 
     @RequestMapping(
             value = "/updateOnlineStatus",
             method = { RequestMethod.PUT })
-    private void updateOnlineStatus (@RequestBody com.SmallTalk.model.UserAccount userAccount) throws SQLException {
+    private void updateOnlineStatus (@RequestBody User user) throws SQLException {
 
-        System.out.println(!userAccount.getOnline());
+        System.out.println(!user.getOnline());
 
         Connection connection = dataSource.getConnection();
         String updateOnlineStatusQuery = "UPDATE accounts " +
-                "SET online = '" + userAccount.getOnline() + "' " +
-                "WHERE facebookid = '" + userAccount.getFacebookId() + "';";
+                "SET online = '" + user.getOnline() + "' " +
+                "WHERE facebookid = '" + user.getFacebookId() + "';";
         Statement onlineStatement = connection.createStatement();
         onlineStatement.executeUpdate(updateOnlineStatusQuery);
     }
@@ -250,20 +275,16 @@ public class AccountController {
     private void AWSDyamoDBQueries () {
 
 //      System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
-//        UserAccount[] newUser = new UserAccount[1];
+//        User[] newUser = new User[1];
 //        ScanResult allResults = ApplicationCommandLineRunner.accountsDDB.scan("Accounts"
 //                , Arrays.asList("username","FirstName","Locality","friendRequests","sex","friends","facebookId"));
 //        allResults.getItems().stream().forEach(item -> {
-//            UserAccount userAccount = new UserAccount();
+//            User userAccount = new User();
 //            userAccount.setFirstName(item.get("FirstName").getS());
-//            userAccount.setLocality(item.get("Locality").getS());
-//            userAccount.setUserName(item.get("username").getS());
 ////            userAccount.setFriendRequests(item.get("friendRequests").getSS());
 //            if (item.get("facebookId") != null) {
 //                userAccount.setFacebookId(item.get("facebookId").getS());
 //            }
-//            userAccount.setFriends(item.get("friends").getSS());
-//            userAccount.setSex("MALE");
 //            userAccounts.add(userAccount);
 //        });
 

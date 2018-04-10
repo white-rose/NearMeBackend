@@ -1,4 +1,4 @@
-package com.SmallTalk.model;
+package com.SmallTalk.model.Location;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -7,7 +7,6 @@ public class Location {
 
     private long latitude;
     private long longitutde;
-
 
     public Location() {
 

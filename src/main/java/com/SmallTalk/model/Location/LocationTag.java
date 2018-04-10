@@ -1,4 +1,4 @@
-package com.SmallTalk.model;
+package com.SmallTalk.model.Location;
 
 import java.sql.Timestamp;
 

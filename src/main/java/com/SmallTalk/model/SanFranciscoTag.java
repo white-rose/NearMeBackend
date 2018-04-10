@@ -1,5 +1,7 @@
 package com.SmallTalk.model;
 
+import com.SmallTalk.model.Location.LocationTag;
+
 import java.sql.Timestamp;
 
 public class SanFranciscoTag extends LocationTag {

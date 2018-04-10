@@ -1,6 +1,6 @@
 package com.SmallTalk;
 
-import com.SmallTalk.model.Greeting;
+import com.SmallTalk.model.Location.Greeting;
 import com.notnoop.apns.APNS;
 import com.notnoop.apns.ApnsService;
 import org.springframework.web.bind.annotation.RequestMapping;

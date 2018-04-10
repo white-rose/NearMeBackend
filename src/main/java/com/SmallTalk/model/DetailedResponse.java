@@ -1,5 +1,6 @@
 package com.SmallTalk.model;
 
+import com.SmallTalk.model.Location.GooglePlaceResult;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
