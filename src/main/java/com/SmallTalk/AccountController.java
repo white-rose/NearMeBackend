@@ -92,7 +92,7 @@ public class AccountController {
     @RequestMapping(
             value = "/pullAccounts",
             method = RequestMethod.POST)
-    private List<User> pullNearbyUsers (@RequestBody User currentAccount) throws SQLException {
+    private List<User> pullAllNearbyUsers (@RequestBody User currentAccount) throws SQLException {
 
         List<User> users = new ArrayList<>();
 
