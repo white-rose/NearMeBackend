@@ -78,12 +78,11 @@ public class AccountController {
         Statement createAccount = connection.createStatement();
 
         String createAccountQuery =
-                "INSERT INTO accounts (firstname, lastname, facebookid, email, school) VALUES ("
+                "INSERT INTO accounts (firstname, lastname, username, password) VALUES ("
                         + "'" + account.getFirstName() + "',"
                         + "'" + account.getLastName() + "',"
-                        + "'" + account.getFacebookId() + "',"
-                        + "'" + account.getEmail() + "',"
-                        + "'" + account.getSchool() + "');";
+                        + "'" + account.getPassword() + "',"
+                        + "'" + account.getUserName() + "');";
 
         createAccount.executeUpdate(createAccountQuery);
 

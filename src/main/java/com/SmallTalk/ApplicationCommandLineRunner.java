@@ -1,7 +1,6 @@
 package com.SmallTalk;
 
 import com.SmallTalk.model.Location.LocationTag;
-import com.SmallTalk.model.User.User;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -33,37 +32,19 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 
-        User user = new User();
-        user.setFirstName("Iron");
-        user.setLastName("Man");
-        user.setUserName("tester");
-        user.setFacebookId("10001");
-        user.setEmail("test@gmail.com");
-        user.setSchool("Harvard");
-
-        user.create(user);
+//        User user = new User();
+//        user.setFirstName("Iron");
+//        user.setLastName("Man");
+//        user.setUserName("tester");
+//        user.setFacebookId("10001");
+//        user.setEmail("test@gmail.com");
+//        user.setSchool("Harvard");
+//
+//        user.create(user);
 
 //        dummyAccountData();
 //        dummyHistoryData();
 //        getStats();
-    }
-
-    private void create (User account) throws SQLException {
-
-        Connection connection = dataSource.getConnection();
-        Statement createAccount = connection.createStatement();
-
-        String createAccountQuery =
-                "INSERT INTO accounts (firstname, lastname, username, facebookid, email, school) VALUES ("
-                        + "'" + account.getFirstName() + "',"
-                        + "'" + account.getLastName() + "',"
-                        + "'" + account.getUserName() + "',"
-                        + "'" + account.getFacebookId() + "',"
-                        + "'" + account.getEmail() + "',"
-                        + "'" + account.getSchool() + "');";
-
-        createAccount.executeUpdate(createAccountQuery);
-
     }
 
     private void getStats () throws SQLException {

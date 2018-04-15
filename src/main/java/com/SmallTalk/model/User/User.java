@@ -4,12 +4,16 @@ import com.SmallTalk.model.Location.Building;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.List;
 
 //@DynamoDBTable(tableName = "Accounts")
@@ -41,7 +45,10 @@ public class User {
     private String email;
     @JsonProperty
     private Boolean online;
+    @JsonProperty
+    private String password;
 
+    private Date birthday;
     private Building buildingOccupied;
 
     @Autowired
@@ -57,19 +64,22 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void create (User account) throws SQLException {
+    @RequestMapping (
+            value = "/createAccount",
+            method = RequestMethod.POST
+    )
+    public void create (@RequestBody User account) throws SQLException {
 
         Connection connection = dataSource.getConnection();
         Statement createAccount = connection.createStatement();
 
         String createAccountQuery =
-                "INSERT INTO accounts (firstname, lastname, username, facebookid, email, school) VALUES ("
+                "INSERT INTO accounts (username, firstname, lastname, password) VALUES ("
+
+                        + "'" + account.getUserName() + "',"
                         + "'" + account.getFirstName() + "',"
                         + "'" + account.getLastName() + "',"
-                        + "'" + account.getUserName() + "',"
-                        + "'" + account.getFacebookId() + "',"
-                        + "'" + account.getEmail() + "',"
-                        + "'" + account.getSchool() + "');";
+                        + "'" + account.getPassword() + "');";
 
         createAccount.executeUpdate(createAccountQuery);
 
@@ -170,4 +180,13 @@ public class User {
     public void setBuildingOccupied(Building buildingOccupied) {
         this.buildingOccupied = buildingOccupied;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }
