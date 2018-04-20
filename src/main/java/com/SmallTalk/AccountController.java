@@ -1,45 +1,26 @@
 package com.SmallTalk;
 
-import com.SmallTalk.model.FriendRequest;
 import com.SmallTalk.model.Location.Building;
-import com.SmallTalk.model.Location.GooglePlaceResult;
 import com.SmallTalk.model.User.User;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.AttributeValueUpdate;
-import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
-import com.amazonaws.services.dynamodbv2.model.UpdateItemRequest;
-import com.google.gson.Gson;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.PagedList;
-import org.springframework.social.facebook.api.Post;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import javax.sql.DataSource;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -89,20 +70,22 @@ public class AccountController {
     }
 
     @RequestMapping(
-            value = "/pullAccounts",
+            value = "/pullNearbyUsers",
             method = RequestMethod.POST)
-    private List<User> pullAllNearbyUsers (@RequestBody User currentAccount) throws SQLException {
+    private List<User> pullNearbyUsers (@RequestBody User currentUser) {
 
         List<User> users = new ArrayList<>();
 
         long beginningTime = System.currentTimeMillis();
+
+        try {
         Statement stmt = dataSource.getConnection().createStatement();
         ResultSet rs = stmt.executeQuery(
-                "SELECT DISTINCT accounts.firstname, accounts.lastname, accounts.facebookid, accounts.school " +
-                "FROM accounts " +
+                "SELECT DISTINCT users.firstname, users.lastname, users.facebookid, users.school " +
+                "FROM users " +
                 "inner join sanfrancisco " +
                 "on accounts.facebookid=sanfrancisco.facebookid " +
-                "WHERE locality = '" + currentAccount.getLocality() +
+                "WHERE locality = '" + currentUser.getLocality() +
                 "' AND time <= '" + LocalDate.now() + "' " +
                 "AND ONLINE = true");
 
@@ -114,8 +97,11 @@ public class AccountController {
             user.setSchool(rs.getString("school"));
             users.add(user);
         }
+        } catch (SQLException ex) {
+            System.out.println("Error from postgre database msg: " + ex.getMessage() );
+        }
 
-        Building userBuilding = currentAccount.getBuildingOccupied();
+        Building userBuilding = currentUser.getBuildingOccupied();
 
         if (users.size() > userBuilding.maxCapacity)
             System.out.println(userBuilding.name + " has exceeded maximum capacity");
@@ -123,7 +109,7 @@ public class AccountController {
         long endTime = System.currentTimeMillis();
         System.out.println("Time to pull nearby users " + (endTime - beginningTime) + " milliseconds");
 
-        logger.info(users.size() + " are occupying " + currentAccount.getLocality());
+        logger.info(users.size() + " are occupying " + currentUser.getLocality());
 
         return users;
 
@@ -144,18 +130,7 @@ public class AccountController {
         onlineStatement.executeUpdate(updateOnlineStatusQuery);
     }
 
-    @RequestMapping(
-            value = "/createAccount/firstname/{firstname}/lastname/{lastname}/password/{password}",
-            method = { RequestMethod.POST })
-    private void createAccount (@PathVariable String firstname, @PathVariable String lastname, @PathVariable String password) throws SQLException {
-
-        Connection connection = dataSource.getConnection();
-        String createAccountQuery = "insert into " + accounts + "(username, lastname, online, facebookid, lastlocation, firstname)"
-                + "VALUES (" ;
-
-
-    }
-
+    /*
     private void checkin () {}
 
     @RequestMapping(
@@ -300,5 +275,6 @@ public class AccountController {
 //        }
 
     }
+    */
 
 }

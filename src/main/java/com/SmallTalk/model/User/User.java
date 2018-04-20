@@ -2,23 +2,12 @@ package com.SmallTalk.model.User;
 
 import com.SmallTalk.model.Location.Building;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 
 //@DynamoDBTable(tableName = "Accounts")
-@RestController
-@Component
 public class User {
 
     //@DynamoDBHashKey(attributeName = "username")
@@ -51,10 +40,24 @@ public class User {
     private Date birthday;
     private Building buildingOccupied;
 
-    @Autowired
-    DataSource dataSource;
-
     public User() {
+    }
+
+    public User(String facebookId, String firstName, String lastName, String school, String userName, String locality, String sex, List friends, List friendRequests, String email, Boolean online, String password, Date birthday, Building buildingOccupied, DataSource dataSource) {
+        this.facebookId = facebookId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.school = school;
+        this.userName = userName;
+        this.locality = locality;
+        this.sex = sex;
+        this.friends = friends;
+        this.friendRequests = friendRequests;
+        this.email = email;
+        this.online = online;
+        this.password = password;
+        this.birthday = birthday;
+        this.buildingOccupied = buildingOccupied;
     }
 
     public User(String facebookId, String firstName, String lastName) {
@@ -62,27 +65,6 @@ public class User {
         this.facebookId = facebookId;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    @RequestMapping (
-            value = "/createAccount",
-            method = RequestMethod.POST
-    )
-    public void create (@RequestBody User account) throws SQLException {
-
-        Connection connection = dataSource.getConnection();
-        Statement createAccount = connection.createStatement();
-
-        String createAccountQuery =
-                "INSERT INTO accounts (username, firstname, lastname, password) VALUES ("
-
-                        + "'" + account.getUserName() + "',"
-                        + "'" + account.getFirstName() + "',"
-                        + "'" + account.getLastName() + "',"
-                        + "'" + account.getPassword() + "');";
-
-        createAccount.executeUpdate(createAccountQuery);
-
     }
 
     public String getUserName() {
@@ -189,4 +171,23 @@ public class User {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "facebookId='" + facebookId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", school='" + school + '\'' +
+                ", userName='" + userName + '\'' +
+                ", locality='" + locality + '\'' +
+                ", sex='" + sex + '\'' +
+                ", friends=" + friends +
+                ", friendRequests=" + friendRequests +
+                ", email='" + email + '\'' +
+                ", online=" + online +
+                ", password='" + password + '\'' +
+                ", birthday=" + birthday +
+                ", buildingOccupied=" + buildingOccupied +
+                '}';
+    }
 }

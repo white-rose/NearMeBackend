@@ -2,11 +2,15 @@ package com.SmallTalk.JPARepository;
 
 import com.SmallTalk.model.User.User;
 
-import java.util.List;
-
 //@Repository
-public interface AccountRepository /* extends CrudRepository<User, Long> */ {
+public interface AccountRepository /*extends Repository<User, Long>*/ {
 
-    List<User> findByLocation(String Location);
+    /**
+     *
+     * @param user
+     * @param <S>
+     * @return
+     */
+   <S extends User> S save(S user);
 
 }

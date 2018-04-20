@@ -14,12 +14,8 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.*;
+import java.util.concurrent.*;
 
 @Component
 public class ApplicationCommandLineRunner implements CommandLineRunner {
@@ -31,16 +27,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-
-//        User user = new User();
-//        user.setFirstName("Iron");
-//        user.setLastName("Man");
-//        user.setUserName("tester");
-//        user.setFacebookId("10001");
-//        user.setEmail("test@gmail.com");
-//        user.setSchool("Harvard");
-//
-//        user.create(user);
 
 //        dummyAccountData();
 //        dummyHistoryData();
@@ -96,6 +82,31 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
         return builder.toString();
     }
 
+    private void deletion () throws SQLException{
+
+        Connection connection = dataSource.getConnection();
+        Statement deleteStatement = connection.createStatement();
+        String deleteQuery = "delete from accounts where facebookid = '" + 1 + "'";
+
+        ExecutorService executor = Executors.newWorkStealingPool();
+
+        //Delete from table at the same time and see what happens
+        List<Callable<?>> callableList = Arrays.asList(
+                () -> {/*delete record from table*/ return null;},
+                () -> {/*delete record from table*/ return null;},
+                () -> {/*delete record from table*/ return null;}
+        );
+
+        for (Callable callable : callableList) {
+            try {
+                callable.call();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
     private void dummyAccountData() {
 
         for (int i = 0; i < 100; i++) {
@@ -136,12 +147,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
             }
         }
 
-    }
-
-    private String randomSex() {
-        Sex[] sexes = {Sex.FEMALE, Sex.MALE};
-        Random rand = new Random();
-        return sexes[rand.nextInt(sexes.length)].toString();
     }
 
     private void multipleLocationUpdateRequests () {
@@ -347,8 +352,4 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
             */
     }
 
-}
-
-enum Sex {
-    MALE, FEMALE;
 }
