@@ -84,7 +84,7 @@ public class AccountController {
                 "SELECT DISTINCT users.firstname, users.lastname, users.facebookid, users.school " +
                 "FROM users " +
                 "inner join sanfrancisco " +
-                "on accounts.facebookid=sanfrancisco.facebookid " +
+                "on users.facebookid=sanfrancisco.facebookid " +
                 "WHERE locality = '" + currentUser.getLocality() +
                 "' AND time <= '" + LocalDate.now() + "' " +
                 "AND ONLINE = true");
