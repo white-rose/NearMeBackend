@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="code cleanup">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" />
     </list>
     <ignored path="helloworld-springboot.iws" />
@@ -42,7 +42,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -56,10 +56,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="APIStressTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-55">
+            <state relative-caret-position="465">
               <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -232,7 +244,6 @@
         <option value="$PROJECT_DIR$/src/test/java/InMemoryDBTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/Student.java" />
         <option value="$PROJECT_DIR$/src/test/java/StudentRepository.java" />
-        <option value="$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/JpaTest/Java8IntegrationTests.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/JPARepository/AccountRepository.java" />
@@ -244,6 +255,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/Utility.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java" />
       </list>
     </option>
   </component>
@@ -337,81 +349,6 @@
               <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="SmallTalk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="SmallTalk" type="462c0819:PsiDirectoryNode" />
-              <item name="JPARepository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="SmallTalk" type="462c0819:PsiDirectoryNode" />
-              <item name="LocationHandler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="SmallTalk" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="SmallTalk" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="Location" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="SmallTalk" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -428,13 +365,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="APITest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1224,7 +1154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523812698397</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="code cleanup">
+      <created>1524333298000</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1524333298000</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1420,13 +1357,13 @@
     <MESSAGE value="Change Location Cleanser to delete day before" />
     <MESSAGE value="Change query to accept less than or equal to for dates" />
     <MESSAGE value="Last Name Added&#10;Cleanup" />
-    <MESSAGE value="code cleanup" />
     <MESSAGE value="&#10;School has been added to accounts" />
     <MESSAGE value="Development" />
     <MESSAGE value="Clean Release" />
     <MESSAGE value="Test PR" />
     <MESSAGE value="&#10;Create Account option added" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;Create Account option added" />
+    <MESSAGE value="code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanup" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1695,14 +1632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ActuatorController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1733,26 +1662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-55">
-          <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#multipleLocationUpdateRequests#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="class#5660:6285" expanded="false" />
-            <element signature="method#completed#0;class#5660:6285" expanded="false" />
-            <element signature="method#insertLocationTag#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#MondoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <element signature="method#AWSDynamoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
-            <marker date="1524251902113" expanded="true" signature="1260:1286" ph=" SELECT statement (SANFRANCISCO)" />
-            <marker date="1524251902113" expanded="true" signature="3804:4059" ph=" INSERT statement (ACCOUNTS)" />
-            <marker date="1524251902113" expanded="true" signature="4931:5165" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1524251902113" expanded="true" signature="6984:7074" ph=" INSERT statement (SANFRANCISCO)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1779,6 +1688,36 @@
             <marker date="1524333277802" expanded="true" signature="2226:2543" ph=" INSERT statement (ACCOUNTS)" />
             <marker date="1524333277802" expanded="true" signature="3037:3425" ph=" SELECT statement (SANFRANCISCO, USERS)" />
             <marker date="1524333277802" expanded="true" signature="4714:4862" ph=" UPDATE statement (ACCOUNTS)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#multipleLocationUpdateRequests#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="class#5660:6285" expanded="false" />
+            <element signature="method#completed#0;class#5660:6285" expanded="false" />
+            <element signature="method#insertLocationTag#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#MondoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#AWSDynamoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <marker date="1524251902113" expanded="true" signature="1260:1286" ph=" SELECT statement (SANFRANCISCO)" />
+            <marker date="1524251902113" expanded="true" signature="3804:4059" ph=" INSERT statement (ACCOUNTS)" />
+            <marker date="1524251902113" expanded="true" signature="4931:5165" ph=" INSERT statement (SANFRANCISCO)" />
+            <marker date="1524251902113" expanded="true" signature="6984:7074" ph=" INSERT statement (SANFRANCISCO)" />
           </folding>
         </state>
       </provider>

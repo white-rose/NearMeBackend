@@ -29,7 +29,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     public void run(String... strings) throws Exception {
 
 //        dummyAccountData();
-//        dummyHistoryData();
+        dummyHistoryData();
 //        getStats();
     }
 
