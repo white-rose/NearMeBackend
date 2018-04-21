@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties( ignoreUnknown = true )
 public class Location {
 
+    private String locality;
     private long latitude;
     private long longitutde;
 
@@ -27,4 +28,5 @@ public class Location {
     public void setLongitutde(long longitutde) {
         this.longitutde = longitutde;
     }
+
 }

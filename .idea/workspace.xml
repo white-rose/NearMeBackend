@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="">
+    <list default="true" id="9af8c4bc-191c-4faf-838d-a0820484ae55" name="Default" comment="code cleanup">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Account.java" afterPath="$PROJECT_DIR$/src/main/java/model/Account.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/UserAccount.java" afterPath="$PROJECT_DIR$/src/main/java/model/UserAccount.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" />
     </list>
     <ignored path="helloworld-springboot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,24 +42,102 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Heroku Postgres" pinned="false" current-in-tab="false">
-        <entry file="db://4a53c100-048e-41c6-8942-df983f0040a8/console#Heroku Postgres">
-          <provider selected="true" editor-type-id="0.CONSOLE">
-            <state line="17" column="78" selection-start="477" selection-end="477" vertical-scroll-proportion="-7.3448277" current-schema="public" session-id="MAIN">
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="86" column="25" lean-forward="false" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+              <folding>
+                <marker date="1524333277802" expanded="true" signature="2226:2543" ph=" INSERT statement (ACCOUNTS)" />
+                <marker date="1524333277802" expanded="true" signature="3037:3425" ph=" SELECT statement (SANFRANCISCO, USERS)" />
+                <marker date="1524333277802" expanded="true" signature="4714:4862" ph=" UPDATE statement (ACCOUNTS)" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="APIStressTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationCommandLineRunner.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#multipleLocationUpdateRequests#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <element signature="class#5660:6285" expanded="false" />
+                <element signature="method#completed#0;class#5660:6285" expanded="false" />
+                <element signature="method#insertLocationTag#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <element signature="method#MondoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <element signature="method#AWSDynamoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+                <marker date="1524251902113" expanded="true" signature="1260:1286" ph=" SELECT statement (SANFRANCISCO)" />
+                <marker date="1524251902113" expanded="true" signature="3804:4059" ph=" INSERT statement (ACCOUNTS)" />
+                <marker date="1524251902113" expanded="true" signature="4931:5165" ph=" INSERT statement (SANFRANCISCO)" />
+                <marker date="1524251902113" expanded="true" signature="6984:7074" ph=" INSERT statement (SANFRANCISCO)" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Account.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+              <folding>
+                <marker date="1524251879151" expanded="true" signature="1278:1596" ph=" INSERT statement (ACCOUNTS)" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/JPARepository/AccountService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-              <folding>
-                <marker date="1522118209153" expanded="true" signature="1891:2063" ph=" INSERT statement (SANFRANCISCO)" />
-                <marker date="1522118209153" expanded="true" signature="2449:2572" ph=" DELETE statement (SANFRANCISCO)" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GCloud.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/GCloud.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActuatorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ActuatorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,9 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tablename</find>
-      <find>keySchema</find>
-      <find>attributeDefinitions</find>
       <find>describe</find>
       <find>updateloca</find>
       <find>updatelocation</find>
@@ -113,10 +184,18 @@
       <find>actu</find>
       <find>kotlin</find>
       <find>core</find>
+      <find>pullacco</find>
+      <find>jpa</find>
+      <find>account</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -126,57 +205,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/appengine/app.yaml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloworldApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/DetailedResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Tester.kt" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.scala" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/HelloWorldApplication.java" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/FriendRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/FriendRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/placePhoto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/DataSource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/DatabaseConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/MainConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/NearMeApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smalltalk/java/Services/MainConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/config/PostGresConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smalltalk/java/Services/ActuatorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smalltalk/java/Services/PostGresConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smalltalk/java/Services/AccountController.java" />
-        <option value="$PROJECT_DIR$/src/main/scala/HelloWorld.scala" />
-        <option value="$PROJECT_DIR$/ScalaTester/src/main/Tester.scala" />
-        <option value="$PROJECT_DIR$/ScalaTester/src/main/scala/package.scala" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/TestInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/TesterImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/AsyncTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/GetThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/AsyncTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/config/RestConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/SanFranciscoTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/LocationTag.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/SanFranciscoTag.java" />
-        <option value="$PROJECT_DIR$/manifest.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/Tester.java" />
-        <option value="$PROJECT_DIR$/ScalaTester/src/main/package.scala" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationCleanser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/UserAccount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/JPARepository/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/JPARepository/AccountRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Account.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="[Heroku Postgres]consoles/Heroku Postgres" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/LocationHandler/LocationThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/LocationHandler/LocationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/LocationHandler/LocationCleanser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Profile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/JPARepository/AccountRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/UserAccount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/model/LocationTag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/LocationTag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/UserAccount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Building.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/UserAccount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Employer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/EmployedUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/LocationTag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Group.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Event.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/Building.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/LocationHandler/LocationController.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/persistence-student.properties" />
+        <option value="[Postgres Heorku]consoles/Postgres Heorku" />
+        <option value="[Heroku Postgres]consoles/Heroku Postgres" />
+        <option value="$PROJECT_DIR$/src/test/java/InMemoryDBTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Student.java" />
+        <option value="$PROJECT_DIR$/src/test/java/StudentRepository.java" />
+        <option value="$PROJECT_DIR$/src/test/java/JpaTest/Java8IntegrationTests.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/JPARepository/AccountRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/JPARepository/LocationRespository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/Location.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ChaosMonkey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/Utility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java" />
       </list>
     </option>
   </component>
@@ -233,10 +312,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="48" />
+    <option name="x" value="13" />
     <option name="y" value="23" />
-    <option name="width" value="1416" />
-    <option name="height" value="877" />
+    <option name="width" value="1273" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -254,9 +333,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,65 +349,30 @@
               <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="appengine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="JPARepository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NearMeBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NearMeBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="APITest" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,19 +406,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GCloud">
-    <configuration name="AsyncTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.SmallTalk">
+    <configuration name="APIStressTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.example.java.Services.*" />
+          <option name="PATTERN" value="APITest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="NearMe" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.example.java.Services" />
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.AsyncTest" />
+      <option name="PACKAGE_NAME" value="APITest" />
+      <option name="MAIN_CLASS_NAME" value="APITest.APIStressTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -391,19 +432,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="AsyncTest.testAsynchronousCalls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="APIStressTest.testAddPullOfAccounts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.example.java.Services.*" />
+          <option name="PATTERN" value="APITest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="NearMe" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.example.java.Services" />
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.AsyncTest" />
-      <option name="METHOD_NAME" value="testAsynchronousCalls" />
+      <option name="PACKAGE_NAME" value="APITest" />
+      <option name="MAIN_CLASS_NAME" value="APITest.APIStressTest" />
+      <option name="METHOD_NAME" value="testAddPullOfAccounts" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -416,24 +457,55 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GCloud" type="Application" factoryName="Application" temporary="true">
+    <configuration name="APIStressTest.testDummy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.example.java.Services.*" />
+          <option name="PATTERN" value="APITest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.GCloud" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <module name="NearMe" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="APITest" />
+      <option name="MAIN_CLASS_NAME" value="APITest.APIStressTest" />
+      <option name="METHOD_NAME" value="testDummy" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="NearMe" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
+    </configuration>
+    <configuration name="APIStressTest.testFacebookPhotoCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="APITest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="NearMe" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="APITest" />
+      <option name="MAIN_CLASS_NAME" value="APITest.APIStressTest" />
+      <option name="METHOD_NAME" value="testFacebookPhotoCall" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration name="Google App Engine Deployment" type="gcp-app-engine-deploy" factoryName="Google App Engine Deployment">
       <deployment type="maven-build-source" name="NearMe">
@@ -443,17 +515,17 @@
         <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="package" />
       </method>
     </configuration>
-    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="SmallTalk" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.example.java.Services.*" />
+          <option name="PATTERN" value="com.SmallTalk.model.User.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Services.Tester" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="MAIN_CLASS_NAME" value="com.SmallTalk.GCloud" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -461,6 +533,9 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="NearMe" />
       <envs />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -471,10 +546,10 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -713,35 +788,21 @@
       <setting name="rowsRange" value="" />
       <method />
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ScalaTester" />
-      <envs />
-    </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Google App Engine Deployment.Google App Engine Deployment" />
-      <item index="1" class="java.lang.String" itemvalue="Application.main" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AsyncTest.testAsynchronousCalls" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AsyncTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.GCloud" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Tester" />
+      <item index="1" class="java.lang.String" itemvalue="Application.SmallTalk" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.APIStressTest.testDummy" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.APIStressTest.testFacebookPhotoCall" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.APIStressTest.testAddPullOfAccounts" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.APIStressTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.GCloud" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Tester" />
-        <item index="2" class="java.lang.String" itemvalue="Application.main" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AsyncTest.testAsynchronousCalls" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AsyncTest" />
+        <item index="0" class="java.lang.String" itemvalue="Application.SmallTalk" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.APIStressTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.APIStressTest.testAddPullOfAccounts" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.APIStressTest.testFacebookPhotoCall" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.APIStressTest.testDummy" />
       </list>
     </recent_temporary>
   </component>
@@ -1002,15 +1063,119 @@
       <option name="project" value="LOCAL" />
       <updated>1521862473427</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Query Update to account for is the user online">
+      <created>1522118295393</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1522118295393</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Interface Added">
+      <created>1522118581129</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1522118581129</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Location cleansing query updated">
+      <created>1522203660482</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1522203660482</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Update Pull Accounts Mapping">
+      <created>1522269475492</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1522269475492</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Change Location Cleanser to delete day before">
+      <created>1522638442813</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1522638442813</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Change query to accept less than or equal to for dates">
+      <created>1522700801795</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1522700801795</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Last Name Added&#10;Cleanup">
+      <created>1522885922758</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1522885922758</updated>
+    </task>
+    <task id="LOCAL-00042" summary="code cleanup">
+      <created>1522887076494</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1522887076494</updated>
+    </task>
+    <task id="LOCAL-00043" summary="&#10;School has been added to accounts">
+      <created>1522889603544</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1522889603544</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Development">
+      <created>1523390300768</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1523390300769</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Clean Release">
+      <created>1523390865809</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1523390865809</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Test PR">
+      <created>1523391060054</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1523391060054</updated>
+    </task>
+    <task id="LOCAL-00047" summary="&#10;Create Account option added">
+      <created>1523812698397</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1523812698397</updated>
+    </task>
+    <task id="LOCAL-00048" summary="code cleanup">
+      <created>1524333298000</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1524333298000</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AsyncTest - 2018.02.08 at 11h 41m 07s.xml">
-      <configuration name="AsyncTest" configurationId="JUnit" />
+    <history-entry file="APIStressTest - 2018.04.18 at 18h 16m 44s.xml">
+      <configuration name="APIStressTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AsyncTest - 2018.02.08 at 11h 43m 06s.xml">
-      <configuration name="AsyncTest" configurationId="JUnit" />
+    <history-entry file="APIStressTest_testAddPullOfAccounts - 2018.04.14 at 22h 52m 33s.xml">
+      <configuration name="APIStressTest.testAddPullOfAccounts" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="APIStressTest_testAddPullOfAccounts - 2018.04.14 at 22h 57m 43s.xml">
+      <configuration name="APIStressTest.testAddPullOfAccounts" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="APIStressTest_testAddPullOfAccounts - 2018.04.15 at 09h 55m 41s.xml">
+      <configuration name="APIStressTest.testAddPullOfAccounts" configurationId="JUnit" />
     </history-entry>
     <history-entry file="AsyncTest - 2018.02.08 at 16h 13m 33s.xml">
       <configuration name="AsyncTest" configurationId="JUnit" />
@@ -1041,49 +1206,77 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="23" width="1416" height="877" extended-state="0" />
+    <frame x="13" y="23" width="1273" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39973083" sideWeight="0.5320233" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39973083" sideWeight="0.46797672" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16812228" sideWeight="0.46412557" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39783493" sideWeight="0.64094234" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28687415" sideWeight="0.36555645" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07067425" sideWeight="0.46412557" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Job" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2510917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39494833" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26198083" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33243608" sideWeight="0.6157205" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11135371" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.110648915" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3301759" sideWeight="0.56458163" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.47962153" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20087336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23801787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3176312" sideWeight="0.58879185" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37415883" sideWeight="0.6448326" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.48852223" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.48497155" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28687415" sideWeight="0.6344435" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33647376" sideWeight="0.78165936" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33558863" sideWeight="0.7766044" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15793304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29000813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287858" sideWeight="0.4908836" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SFDX" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Amazon EC2" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39783493" sideWeight="0.64094234" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28687415" sideWeight="0.36149472" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07067425" sideWeight="0.46412557" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Job" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39494833" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26198083" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3301759" sideWeight="0.56458163" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.110648915" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.47962153" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23801787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31529093" sideWeight="0.56620634" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13100436" sideWeight="0.5358744" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28822732" sideWeight="0.6385053" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.48497155" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33558863" sideWeight="0.7766044" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29000813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32746956" sideWeight="0.4752234" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Log Manager" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1145,19 +1338,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dynamodb Local and request mapping to pull Accounts from embedded DB" />
-    <MESSAGE value="Heroku Deployment" />
-    <MESSAGE value="Added missing files" />
-    <MESSAGE value="Heroku PostGres" />
-    <MESSAGE value="Add Config" />
-    <MESSAGE value="Add mapping for Datasource" />
-    <MESSAGE value="Heroku Config" />
-    <MESSAGE value="Moved Credentials to property files and env variables" />
-    <MESSAGE value="Test" />
-    <MESSAGE value="Point to dev database" />
-    <MESSAGE value="Account Structure updated" />
-    <MESSAGE value="Cleanup" />
-    <MESSAGE value="Buildable" />
     <MESSAGE value="Pull accouts from another table" />
     <MESSAGE value="Fix build" />
     <MESSAGE value="Fix Update Location Endpoint" />
@@ -1170,23 +1350,28 @@
     <MESSAGE value="removed dummy data" />
     <MESSAGE value="update date" />
     <MESSAGE value="Update Query" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Query" />
+    <MESSAGE value="Query Update to account for is the user online" />
+    <MESSAGE value="Interface Added" />
+    <MESSAGE value="Location cleansing query updated" />
+    <MESSAGE value="Update Pull Accounts Mapping" />
+    <MESSAGE value="Change Location Cleanser to delete day before" />
+    <MESSAGE value="Change query to accept less than or equal to for dates" />
+    <MESSAGE value="Last Name Added&#10;Cleanup" />
+    <MESSAGE value="&#10;School has been added to accounts" />
+    <MESSAGE value="Development" />
+    <MESSAGE value="Clean Release" />
+    <MESSAGE value="Test PR" />
+    <MESSAGE value="&#10;Create Account option added" />
+    <MESSAGE value="code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanup" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java</url>
-          <line>95</line>
-          <properties />
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="168" />
+      <option name="time" value="187" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1195,111 +1380,171 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ActuatorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/LocationHandler/LocationThread.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/DetailedResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Profile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/FriendRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/UserAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="32" column="15" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-          <folding>
-            <element signature="e#599#600#0" expanded="false" />
-            <element signature="e#631#632#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
-          <folding>
-            <marker date="1522102203078" expanded="true" signature="3373:3603" ph=" SELECT statement (SANFRANCISCO, ACCOUNTS)" />
-            <marker date="1522102203078" expanded="true" signature="3373:3616" ph=" SELECT statement (SANFRANCISCO, ACCOUNTS)" />
-            <marker date="1522102203078" expanded="true" signature="3373:3733" ph=" SELECT statement (SANFRANCISCO, ACCOUNTS)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/LinkedHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="683" column="0" lean-forward="false" selection-start-line="683" selection-start-column="0" selection-end-line="683" selection-end-column="0" />
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/ApplicationCommandLineRunner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2709">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding>
-            <marker date="1522105259711" expanded="true" signature="8948:9182" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1522105259711" expanded="true" signature="9490:9580" ph=" INSERT statement (SANFRANCISCO)" />
-          </folding>
+        <state relative-caret-position="12">
+          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/JPARepository/AccountService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/Geometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/GooglePlaceResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/Greeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/LocationTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/placePhoto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Employer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8988">
+          <caret line="110" column="17" lean-forward="false" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/Building.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.11.1.RELEASE/spring-data-jpa-1.11.1.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
+    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
+    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
+    <entry file="db://[Postgres Heorku]consoles/Postgres Heorku" />
+    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.6.RELEASE/spring-data-commons-2.0.6.RELEASE.jar!/org/springframework/data/repository/Repository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/InMemoryDBTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/resources/persistence-student.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/StudentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/JpaTest/Java8IntegrationTests.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
@@ -1307,77 +1552,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/JPARepository/AccountRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/Tester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="79" lean-forward="false" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10485">
-          <caret line="762" column="0" lean-forward="false" selection-start-line="762" selection-start-column="0" selection-end-line="762" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/GCloud.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/SanFranciscoTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/PostGresConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/GetThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/GCloud.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.8.RELEASE/spring-boot-1.5.8.RELEASE.jar!/org/springframework/boot/SpringApplication.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="464" column="0" lean-forward="false" selection-start-line="464" selection-start-column="0" selection-end-line="464" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/Location/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ChaosMonkey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/LocationHandler/LocationCleanser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1072">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ActuatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/LocationHandler/LocationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/JPARepository/LocationRespository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/JPARepository/AccountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/model/User/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding>
-            <element signature="e#373#374#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
+            <marker date="1524251879151" expanded="true" signature="1278:1596" ph=" INSERT statement (ACCOUNTS)" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/PostGresConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/JPARepository/AccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="86" column="25" lean-forward="false" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+          <folding>
+            <marker date="1524333277802" expanded="true" signature="2226:2543" ph=" INSERT statement (ACCOUNTS)" />
+            <marker date="1524333277802" expanded="true" signature="3037:3425" ph=" SELECT statement (SANFRANCISCO, USERS)" />
+            <marker date="1524333277802" expanded="true" signature="4714:4862" ph=" UPDATE statement (ACCOUNTS)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/APITest/APIStressTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+        <state relative-caret-position="465">
+          <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding>
-            <marker date="1522113163483" expanded="true" signature="349:393" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-353">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="81" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="db://[Heroku Postgres]consoles/Heroku Postgres">
-      <provider selected="true" editor-type-id="0.CONSOLE">
-        <state line="17" column="78" selection-start="477" selection-end="477" vertical-scroll-proportion="-7.3448277" current-schema="public" session-id="MAIN">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/java/Services/LocationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding>
-            <marker date="1522118209153" expanded="true" signature="1891:2063" ph=" INSERT statement (SANFRANCISCO)" />
-            <marker date="1522118209153" expanded="true" signature="2449:2572" ph=" DELETE statement (SANFRANCISCO)" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#multipleLocationUpdateRequests#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="class#5660:6285" expanded="false" />
+            <element signature="method#completed#0;class#5660:6285" expanded="false" />
+            <element signature="method#insertLocationTag#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#MondoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <element signature="method#AWSDynamoDBPlayground#0;class#ApplicationCommandLineRunner#0" expanded="false" />
+            <marker date="1524251902113" expanded="true" signature="1260:1286" ph=" SELECT statement (SANFRANCISCO)" />
+            <marker date="1524251902113" expanded="true" signature="3804:4059" ph=" INSERT statement (ACCOUNTS)" />
+            <marker date="1524251902113" expanded="true" signature="4931:5165" ph=" INSERT statement (SANFRANCISCO)" />
+            <marker date="1524251902113" expanded="true" signature="6984:7074" ph=" INSERT statement (SANFRANCISCO)" />
           </folding>
         </state>
       </provider>
