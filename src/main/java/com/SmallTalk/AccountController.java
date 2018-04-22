@@ -1,6 +1,5 @@
 package com.SmallTalk;
 
-import com.SmallTalk.model.Location.Building;
 import com.SmallTalk.model.User.User;
 import com.amazonaws.auth.BasicAWSCredentials;
 import org.slf4j.Logger;
@@ -84,7 +83,7 @@ public class AccountController {
                 "SELECT DISTINCT users.firstname, users.lastname, users.facebookid, users.school " +
                 "FROM users " +
                 "inner join sanfrancisco " +
-                "on users.facebookid=sanfrancisco.facebookid " +
+                "on users.username=sanfrancisco.username " +
                 "WHERE locality = '" + currentUser.getLocality() +
                 "' AND time <= '" + LocalDate.now() + "' " +
                 "AND ONLINE = true");
@@ -101,10 +100,10 @@ public class AccountController {
             System.out.println("Error from postgre database msg: " + ex.getMessage() );
         }
 
-        Building userBuilding = currentUser.getBuildingOccupied();
+//        Building userBuilding = currentUser.getBuildingOccupied();
 
-        if (users.size() > userBuilding.maxCapacity)
-            System.out.println(userBuilding.name + " has exceeded maximum capacity");
+//        if (users.size() > userBuilding.maxCapacity)
+//            System.out.println(userBuilding.name + " has exceeded maximum capacity");
 
         long endTime = System.currentTimeMillis();
         System.out.println("Time to pull nearby users " + (endTime - beginningTime) + " milliseconds");
