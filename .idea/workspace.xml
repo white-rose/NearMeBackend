@@ -5,10 +5,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/SmallTalk/PostgresConfig.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/SmallTalk/PostGresConfig.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/SmallTalk/AccountController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/SmallTalk/ApplicationCommandLineRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/SmallTalk/LocationHandler/LocationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/SmallTalk/LocationHandler/LocationController.java" />
     </list>
     <ignored path="helloworld-springboot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -812,13 +808,6 @@
       <option name="presentableId" value="Default" />
       <updated>1499201219280</updated>
     </task>
-    <task id="LOCAL-00001" summary="Service connected to GCloud">
-      <created>1510117751541</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1510117751541</updated>
-    </task>
     <task id="LOCAL-00002" summary="Needed">
       <created>1512617867386</created>
       <option name="number" value="00002" />
@@ -1155,7 +1144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524357798429</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Build Passed">
+      <created>1527033898283</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1527033898283</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TestHistory">
