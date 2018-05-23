@@ -1,5 +1,6 @@
 package com.SmallTalk;
 
+import com.SmallTalk.model.User.Account;
 import com.SmallTalk.model.User.User;
 import com.amazonaws.auth.BasicAWSCredentials;
 import org.slf4j.Logger;
@@ -52,7 +53,7 @@ public class AccountController {
 
     private ConnectionRepository connectionRepository;
 
-    public void create (User account) throws SQLException {
+    public void create(User account) throws SQLException {
 
         Connection connection = dataSource.getConnection();
         Statement createAccount = connection.createStatement();
@@ -71,33 +72,33 @@ public class AccountController {
     @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
-    private List<User> pullNearbyUsers (@RequestBody User currentUser) {
+    private List<User> pullNearbyUsers(@RequestBody User currentUser) {
 
         List<User> users = new ArrayList<>();
 
         long beginningTime = System.currentTimeMillis();
 
         try {
-        Statement stmt = dataSource.getConnection().createStatement();
-        ResultSet rs = stmt.executeQuery(
-                "SELECT DISTINCT users.firstname, users.lastname, users.facebookid, users.school " +
-                "FROM users " +
-                "inner join sanfrancisco " +
-                "on users.username=sanfrancisco.username " +
-                "WHERE locality = '" + currentUser.getLocality() +
-                "' AND time <= '" + LocalDate.now() + "' " +
-                "AND ONLINE = true");
+            Statement stmt = dataSource.getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(
+                    "SELECT DISTINCT users.firstname, users.lastname, users.facebookid, users.school " +
+                            "FROM users " +
+                            "inner join sanfrancisco " +
+                            "on users.username=sanfrancisco.username " +
+                            "WHERE locality = '" + currentUser.getLocality() +
+                            "' AND time <= '" + LocalDate.now() + "' " +
+                            "AND ONLINE = true");
 
             while (rs.next()) {
-                 User user = new User();
+                User user = new User();
                 user.setFirstName(rs.getString("firstname"));
                 user.setLastName(rs.getString("lastname"));
                 user.setFacebookId(rs.getString("facebookid"));
                 user.setSchool(rs.getString("school"));
                 users.add(user);
-           }
+            }
         } catch (SQLException ex) {
-            System.out.println("Error from postgre database msg: " + ex.getMessage() );
+            System.out.println("Error from postgre database msg: " + ex.getMessage());
         }
 
 //        Building userBuilding = currentUser.getBuildingOccupied();
@@ -116,8 +117,8 @@ public class AccountController {
 
     @RequestMapping(
             value = "/updateOnlineStatus",
-            method = { RequestMethod.PUT })
-    private void updateOnlineStatus (@RequestBody User user) throws SQLException {
+            method = {RequestMethod.PUT})
+    private void updateOnlineStatus(@RequestBody User user) throws SQLException {
 
         System.out.println(!user.getOnline());
 
@@ -127,6 +128,20 @@ public class AccountController {
                 "WHERE facebookid = '" + user.getFacebookId() + "';";
         Statement onlineStatement = connection.createStatement();
         onlineStatement.executeUpdate(updateOnlineStatusQuery);
+    }
+
+    @RequestMapping(
+            value = "/createAccount",
+            method = {RequestMethod.POST
+            })
+    private void createAccount(@RequestBody User user) throws SQLException {
+        Connection connection = dataSource.getConnection();
+        String insertUser = "INSERT into users(username, firstname, lastname) " +
+                "VALUES('" + user.getUserName() + "','" +
+                user.getFirstName() + "','" +
+                user.getLastName() + "');";
+        Statement createUserStatement = connection.createStatement();
+        createUserStatement.executeUpdate(insertUser);
     }
 
     /*
