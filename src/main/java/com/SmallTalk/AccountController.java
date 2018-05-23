@@ -140,8 +140,18 @@ public class AccountController {
                     + "'" + LocalDate.now().toString() + "');";
             createDummyData.executeUpdate(insertQuery);
 
+            updateOnlinePresence(user);
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+
+    private void updateOnlinePresence(User user) throws SQLException{
+        try (Connection connection = dataSource.getConnection()) {
+            Statement updateOnlineStmt = connection.createStatement();
+            String onlineUpdate = "UPDATE users set online = true where facebookId = '" + user.getFacebookId() + "'";
+            updateOnlineStmt.executeUpdate(onlineUpdate);
         }
     }
 
