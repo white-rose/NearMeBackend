@@ -88,14 +88,14 @@ public class AccountController {
                 "' AND time <= '" + LocalDate.now() + "' " +
                 "AND ONLINE = true");
 
-        while (rs.next()) {
-            User user = new User();
-            user.setFacebookId(rs.getString("facebookid"));
-            user.setFirstName(rs.getString("firstname"));
-            user.setLastName(rs.getString("lastname"));
-            user.setSchool(rs.getString("school"));
-            users.add(user);
-        }
+            while (rs.next()) {
+                 User user = new User();
+                user.setFirstName(rs.getString("firstname"));
+                user.setLastName(rs.getString("lastname"));
+                user.setFacebookId(rs.getString("facebookid"));
+                user.setSchool(rs.getString("school"));
+                users.add(user);
+           }
         } catch (SQLException ex) {
             System.out.println("Error from postgre database msg: " + ex.getMessage() );
         }

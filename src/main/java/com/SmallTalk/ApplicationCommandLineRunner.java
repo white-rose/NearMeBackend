@@ -1,7 +1,6 @@
 package com.SmallTalk;
 
 import com.SmallTalk.model.Location.LocationTag;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -20,8 +19,6 @@ import java.util.concurrent.*;
 @Component
 public class ApplicationCommandLineRunner implements CommandLineRunner {
 
-    public static AmazonDynamoDB accountsDDB;
-
     @Autowired
     DataSource dataSource;
 
@@ -29,7 +26,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     public void run(String... strings) throws Exception {
 
 //        dummyAccountData();
-        dummyHistoryData();
+//        dummyHistoryData();
 //        getStats();
     }
 
@@ -109,9 +106,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     private void dummyAccountData() {
 
-        for (int i = 0; i < 100; i++) {
-            try (
-                Connection connection = dataSource.getConnection()) {
+            for (int i = 0; i < 100; i++) {
+            try (Connection connection = dataSource.getConnection()) {
                 Statement createDummyData = connection.createStatement();
                 String insertQuery = "insert into accounts (username, lastname, firstname, facebookid, online, school) " +
                         "VALUES ('" + randomIdentifier() + "', '"+  randomIdentifier() + "','" + randomIdentifier() + "', " + i + " , true, 'University of Sanfrancisco');";
@@ -125,27 +121,46 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     }
 
-    private void dummyHistoryData() {
+    private void dummyHistoryData()  {
 
         final String BRANNAN_APARTMENTS = "855 Brannan Apartments";
         final String UNIVERSITY_OF_SANFRACISCO = "University of San Francisco";
         final String UNION_SQUARE = "Union Square";
 
-        for (int i = 0; i < 100; i++) {
-            try (
-                    Connection connection = dataSource.getConnection()) {
-                    Statement createDummyData = connection.createStatement();
-                    String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
-                    String insertQuery = "INSERT INTO SANFRANCISCO (facebookid, locality, time) VALUES ("
-                            + "'" + i + "',"
-                            + "'" + UNION_SQUARE + "',"
-                            + "'" + LocalDate.now().toString() + "');";
-                    createDummyData.executeUpdate(insertQuery);
+        List<String> allUsernames;
 
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+        try (Connection connection = dataSource.getConnection()) {
+            Statement trackLocationStatement = connection.createStatement();
+            allUsernames = getAllUserNames();
+            for (String username : allUsernames) {
+                String insertQuery = "INSERT INTO sanfrancisco (username, locality, time) VALUES ("
+                        + "'" + username + "',"
+                        + "'" + UNION_SQUARE + "',"
+                        + "'" + LocalDate.now().toString() + "');";
+                trackLocationStatement.executeUpdate(insertQuery);
             }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
+
+
+    }
+
+    public List getAllUserNames () throws SQLException {
+
+        Connection connection = dataSource.getConnection();
+        String pullAllUsernamesQuery = "select * from users";
+        Statement usernameStatement = connection.createStatement();
+        ResultSet result = usernameStatement.executeQuery(pullAllUsernamesQuery);
+
+        ArrayList<String> allUsernames = new ArrayList();
+
+        while (result.next()) {
+            allUsernames.add(result.getString("username"));
+        }
+
+        return allUsernames;
 
     }
 

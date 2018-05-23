@@ -14,183 +14,171 @@
 ~ permissions and limitations under the License.
 -->
 <project>
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.crystal</groupId>
-  <artifactId>NearMe</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <groupId>com.crystal</groupId>
+    <artifactId>NearMe</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-  <name>NearMe</name>
-  <description>Backend for IOS application</description>
+    <name>NearMe</name>
+    <description>Backend for IOS application</description>
 
-  <properties>
-    <java.version>1.8</java.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source> <!-- REQUIRED -->
-    <maven.compiler.target>${java.version}</maven.compiler.target> <!-- REQUIRED -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <appengine.maven.plugin>1.0.0</appengine.maven.plugin>
-    <!--<kotlin.version>1.1.60</kotlin.version>-->
-  </properties>
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source> <!-- REQUIRED -->
+        <maven.compiler.target>${java.version}</maven.compiler.target> <!-- REQUIRED -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <appengine.maven.plugin>1.0.0</appengine.maven.plugin>
+        <!--<kotlin.version>1.1.60</kotlin.version>-->
+    </properties>
 
-    <dependencyManagement>
-        <dependencies>
-<!--        <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-sleuth</artifactId>
-                <version>2.0.0.M6</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency> -->
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
 
-  <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.5.8.RELEASE</version>
+        </dependency>
 
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-        <version>1.5.8.RELEASE</version>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.4.4.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <version>1.4.4.RELEASE</version>
-        <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>RELEASE</version>
+        </dependency>
 
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>RELEASE</version>
-    </dependency>
+        <dependency>
+            <groupId>com.notnoop.apns</groupId>
+            <artifactId>apns</artifactId>
+            <version>1.0.0.Beta6</version>
+        </dependency>
 
-    <dependency>
-        <groupId>com.notnoop.apns</groupId>
-        <artifactId>apns</artifactId>
-        <version>1.0.0.Beta6</version>
-    </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-bom</artifactId>
+            <version>1.11.106</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
 
-    <dependency>
-        <groupId>com.amazonaws</groupId>
-        <artifactId>aws-java-sdk-bom</artifactId>
-        <version>1.11.106</version>
-        <type>pom</type>
-        <scope>import</scope>
-    </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.179</version>
+        </dependency>
 
-    <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-java-sdk-dynamodb</artifactId>
-      <version>1.11.179</version>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-facebook</artifactId>
+            <version>2.0.3.RELEASE</version>
+        </dependency>
 
-    <dependency>
-      <groupId>org.springframework.social</groupId>
-      <artifactId>spring-social-facebook</artifactId>
-      <version>2.0.3.RELEASE</version>
-    </dependency>
+        <dependency>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>1.4.9</version>
+        </dependency>
 
-    <dependency>
-    <groupId>com.mashape.unirest</groupId>
-    <artifactId>unirest-java</artifactId>
-    <version>1.4.9</version>
-    </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.0</version>
+        </dependency>
 
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.8.0</version>
-    </dependency>
+        <!--Dependency:-->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>DynamoDBLocal</artifactId>
+            <version>[1.11,2.0)</version>
+        </dependency>
 
-      <!--Dependency:-->
-      <dependency>
-          <groupId>com.amazonaws</groupId>
-          <artifactId>DynamoDBLocal</artifactId>
-          <version>[1.11,2.0)</version>
-      </dependency>
+        <!--https://mvnrepository.com/artifact/com.almworks.sqlite4java/sqlite4java-->
+        <dependency>
+            <groupId>com.almworks.sqlite4java</groupId>
+            <artifactId>sqlite4java</artifactId>
+            <version>1.0.392</version>
+        </dependency>
 
-       <!--https://mvnrepository.com/artifact/com.almworks.sqlite4java/sqlite4java-->
-      <dependency>
-          <groupId>com.almworks.sqlite4java</groupId>
-          <artifactId>sqlite4java</artifactId>
-          <version>1.0.392</version>
-      </dependency>
+        <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
 
-      <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
-      <dependency>
-          <groupId>postgresql</groupId>
-          <artifactId>postgresql</artifactId>
-          <version>9.1-901-1.jdbc4</version>
-      </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
 
-      <dependency>
-          <groupId>commons-dbcp</groupId>
-          <artifactId>commons-dbcp</artifactId>
-          <version>1.4</version>
-      </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.7</version>
+        </dependency>
 
-      <dependency>
-          <groupId>org.scala-lang</groupId>
-          <artifactId>scala-library</artifactId>
-          <version>2.11.7</version>
-      </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
 
-      <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-api</artifactId>
-          <version>RELEASE</version>
-      </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
 
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.12</version>
-      </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-test</artifactId>-->
+        <!--<version>4.3.7.RELEASE</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.data</groupId>-->
+        <!--<artifactId>spring-data-jpa</artifactId>-->
+        <!--<version>1.11.1.RELEASE</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>com.h2database</groupId>-->
+        <!--<artifactId>h2</artifactId>-->
+        <!--<version>1.4.194</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.hibernate</groupId>-->
+        <!--<artifactId>hibernate-entitymanager</artifactId>-->
+        <!--<version>5.2.9.Final</version>-->
+        <!--</dependency>-->
 
-      <!--<dependency>-->
-          <!--<groupId>org.springframework</groupId>-->
-          <!--<artifactId>spring-test</artifactId>-->
-          <!--<version>4.3.7.RELEASE</version>-->
-      <!--</dependency>-->
-      <!--<dependency>-->
-          <!--<groupId>org.springframework.data</groupId>-->
-          <!--<artifactId>spring-data-jpa</artifactId>-->
-          <!--<version>1.11.1.RELEASE</version>-->
-      <!--</dependency>-->
-      <!--<dependency>-->
-          <!--<groupId>com.h2database</groupId>-->
-          <!--<artifactId>h2</artifactId>-->
-          <!--<version>1.4.194</version>-->
-      <!--</dependency>-->
-      <!--<dependency>-->
-          <!--<groupId>org.hibernate</groupId>-->
-          <!--<artifactId>hibernate-entitymanager</artifactId>-->
-          <!--<version>5.2.9.Final</version>-->
-      <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.mongodb</groupId>-->
+        <!--<artifactId>mongodb-driver</artifactId>-->
+        <!--<version>3.6.2</version>-->
+        <!--</dependency>-->
 
-    <!--<dependency>-->
-          <!--<groupId>org.mongodb</groupId>-->
-          <!--<artifactId>mongodb-driver</artifactId>-->
-          <!--<version>3.6.2</version>-->
-      <!--</dependency>-->
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.liquibase/liquibase-maven-plugin &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--<groupId>org.liquibase</groupId>-->
+        <!--<artifactId>liquibase-maven-plugin</artifactId>-->
+        <!--<version>3.5.5</version>-->
+        <!--</dependency>-->
 
-      <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.liquibase/liquibase-maven-plugin &ndash;&gt;-->
-      <!--<dependency>-->
-          <!--<groupId>org.liquibase</groupId>-->
-          <!--<artifactId>liquibase-maven-plugin</artifactId>-->
-          <!--<version>3.5.5</version>-->
-      <!--</dependency>-->
+        <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+        <!--<version>2.0.0.RELEASE</version>-->
+        <!--</dependency>-->
 
-      <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa-->
-      <!--<dependency>-->
-      <!--<groupId>org.springframework.boot</groupId>-->
-      <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-      <!--<version>2.0.0.RELEASE</version>-->
-      <!--</dependency>-->
-
-  </dependencies>
+    </dependencies>
 
     <!--Custom repository:-->
     <repositories>
@@ -211,110 +199,110 @@
         </repository>
     </repositories>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>1.3.3.RELEASE</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-            <configuration>
-              <mainClass>com.SmallTalk.GCloud</mainClass>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.3.3.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>com.SmallTalk.GCloud</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>compile</id>
-                    <phase>compile</phase>
-                    <goals>
-                        <goal>compile</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>testCompile</id>
-                    <phase>test-compile</phase>
-                    <goals>
-                        <goal>testCompile</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-<!-- START plugin -->
-      <plugin>
-        <groupId>com.google.appengine</groupId>
-        <artifactId>gcloud-maven-plugin</artifactId>
-        <version>2.0.9.121.v20160815</version>
-        <configuration>
-          <gcloud_directory>/Users/nathannguyen/Documents/Code/google-cloud-sdk</gcloud_directory>
-          <!--<verbosity>debug</verbosity>-->
-          <!--<version>specific_version</version>-->
-          <!--<log_level>info</log_level>-->
-          <!--<max_module_instances>2</max_module_instances>-->
-        </configuration>
-      </plugin>
-<!--  <plugin>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-maven-plugin</artifactId>
-            <version>${kotlin.version}</version>
-            <executions>
-                <execution>
-                    <id>compile</id>
-                    <phase>compile</phase>
-                    <goals>
-                        <goal>compile</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>test-compile</id>
-                    <phase>test-compile</phase>
-                    <goals>
-                        <goal>test-compile</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <jvmTarget>1.8</jvmTarget>
-            </configuration>
-        </plugin> -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>testCompile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- START plugin -->
+            <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>gcloud-maven-plugin</artifactId>
+                <version>2.0.9.121.v20160815</version>
+                <configuration>
+                    <gcloud_directory>/Users/nathannguyen/Documents/Code/google-cloud-sdk</gcloud_directory>
+                    <!--<verbosity>debug</verbosity>-->
+                    <!--<version>specific_version</version>-->
+                    <!--<log_level>info</log_level>-->
+                    <!--<max_module_instances>2</max_module_instances>-->
+                </configuration>
+            </plugin>
+            <!--  <plugin>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-plugin</artifactId>
+                        <version>${kotlin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>compile</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>compile</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>test-compile</id>
+                                <phase>test-compile</phase>
+                                <goals>
+                                    <goal>test-compile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <jvmTarget>1.8</jvmTarget>
+                        </configuration>
+                    </plugin> -->
 
-        <!-- END plugin -->
-        <!-- This plugin compiles Scala files -->
+            <!-- END plugin -->
+            <!-- This plugin compiles Scala files -->
 
-        <!-- This plugin adds all dependencies to JAR file during 'package' command.
-        Pay EXTRA attention to the 'mainClass' tag.
-        You have to set name of class with entry point to program ('main' method) -->
-        <!--<plugin>-->
+            <!-- This plugin adds all dependencies to JAR file during 'package' command.
+            Pay EXTRA attention to the 'mainClass' tag.
+            You have to set name of class with entry point to program ('main' method) -->
+            <!--<plugin>-->
             <!--<artifactId>maven-assembly-plugin</artifactId>-->
             <!--<version>3.1.0</version>-->
             <!--<configuration>-->
-                <!--<descriptorRefs>-->
-                    <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
-                <!--</descriptorRefs>-->
-                <!--<archive>-->
-                    <!--<manifest>-->
-                        <!--<mainClass>ScalaRunner</mainClass>-->
-                    <!--</manifest>-->
-                <!--</archive>-->
+            <!--<descriptorRefs>-->
+            <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+            <!--</descriptorRefs>-->
+            <!--<archive>-->
+            <!--<manifest>-->
+            <!--<mainClass>ScalaRunner</mainClass>-->
+            <!--</manifest>-->
+            <!--</archive>-->
             <!--</configuration>-->
             <!--<executions>-->
-                <!--<execution>-->
-                    <!--<phase>package</phase>-->
-                    <!--<goals>-->
-                        <!--<goal>single</goal>-->
-                    <!--</goals>-->
-                <!--</execution>-->
+            <!--<execution>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+            <!--<goal>single</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
             <!--</executions>-->
-        <!--</plugin>-->
-    </plugins>
-  </build>
+            <!--</plugin>-->
+        </plugins>
+    </build>
 </project>
