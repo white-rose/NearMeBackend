@@ -53,22 +53,6 @@ public class AccountController {
 
     private ConnectionRepository connectionRepository;
 
-    public void create(User account) throws SQLException {
-
-        Connection connection = dataSource.getConnection();
-        Statement createAccount = connection.createStatement();
-
-        String createAccountQuery =
-                "INSERT INTO accounts (firstname, lastname, username, password) VALUES ("
-                        + "'" + account.getFirstName() + "',"
-                        + "'" + account.getLastName() + "',"
-                        + "'" + account.getPassword() + "',"
-                        + "'" + account.getUserName() + "');";
-
-        createAccount.executeUpdate(createAccountQuery);
-
-    }
-
     @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
@@ -132,8 +116,7 @@ public class AccountController {
 
     @RequestMapping(
             value = "/createAccount",
-            method = {RequestMethod.POST
-            })
+            method = {RequestMethod.POST})
     private void createAccount(@RequestBody User user) throws SQLException {
         Connection connection = dataSource.getConnection();
         String insertUser = "INSERT into users(username, firstname, lastname) " +
@@ -162,10 +145,26 @@ public class AccountController {
         }
     }
 
+    @RequestMapping(
+            value = "/sync",
+            method = {RequestMethod.POST})
+    public String pullDetails(@RequestBody User user) {
+        String username = "";
+        try (Connection connection = dataSource.getConnection()) {
+            Statement createDummyData = connection.createStatement();
+            String SelectFBQuery = "SELECT username FROM users where facebookId = '" + user.getFacebookId() + "';";
+            ResultSet rs = createDummyData.executeQuery(SelectFBQuery);
+            while (rs.next()) {
+                username = rs.getString("username");
+            }
+            System.out.println(username);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return username;
+    }
 
     /*
-    private void checkin () {}
-
     @RequestMapping(
             value = "/getFriendRequests/{user}",
             method = { RequestMethod.GET }
