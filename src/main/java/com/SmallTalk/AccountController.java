@@ -144,6 +144,25 @@ public class AccountController {
         createUserStatement.executeUpdate(insertUser);
     }
 
+    @RequestMapping(
+            value = "/updateLocation",
+            method = {RequestMethod.POST})
+    private void updateLocation(@RequestBody User user) throws SQLException {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement createDummyData = connection.createStatement();
+            //String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
+            String insertQuery = "INSERT INTO SANFRANCISCO (username, locality, time) VALUES ("
+                    + "'" + user.getUserName() + "',"
+                    + "'" + user.getLocality() + "',"
+                    + "'" + LocalDate.now().toString() + "');";
+            createDummyData.executeUpdate(insertQuery);
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
     /*
     private void checkin () {}
 
