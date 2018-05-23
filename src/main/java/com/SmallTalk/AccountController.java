@@ -141,9 +141,21 @@ public class AccountController {
             createDummyData.executeUpdate(insertQuery);
 
             updateOnlinePresence(user);
+            updateLastLocation(user);
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+
+    //Can't update location with quotes 
+    private void updateLastLocation(User user) throws SQLException {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement updateOnlineStmt = connection.createStatement();
+            String onlineUpdate = "UPDATE users set lastLocation = '"
+                    + user.getLocality()
+                    + "'where facebookId = '" + user.getFacebookId() + "'";
+            updateOnlineStmt.executeUpdate(onlineUpdate);
         }
     }
 
