@@ -54,6 +54,19 @@ public class AccountController {
     private ConnectionRepository connectionRepository;
 
     @RequestMapping(
+            value = "/createAccount",
+            method = {RequestMethod.POST})
+    private void createAccount(@RequestBody User user) throws SQLException {
+        Connection connection = dataSource.getConnection();
+        String insertUser = "INSERT into users(username, firstname, lastname) " +
+                "VALUES('" + user.getUserName() + "','" +
+                user.getFirstName() + "','" +
+                user.getLastName() + "');";
+        Statement createUserStatement = connection.createStatement();
+        createUserStatement.executeUpdate(insertUser);
+    }
+
+    @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
     private List<User> pullNearbyUsers(@RequestBody User currentUser) {
@@ -101,30 +114,17 @@ public class AccountController {
 
     @RequestMapping(
             value = "/updateOnlineStatus",
-            method = {RequestMethod.PUT})
+            method = {RequestMethod.POST})
     private void updateOnlineStatus(@RequestBody User user) throws SQLException {
 
         System.out.println(!user.getOnline());
 
         Connection connection = dataSource.getConnection();
-        String updateOnlineStatusQuery = "UPDATE accounts " +
+        String updateOnlineStatusQuery = "UPDATE users " +
                 "SET online = '" + user.getOnline() + "' " +
                 "WHERE facebookid = '" + user.getFacebookId() + "';";
         Statement onlineStatement = connection.createStatement();
         onlineStatement.executeUpdate(updateOnlineStatusQuery);
-    }
-
-    @RequestMapping(
-            value = "/createAccount",
-            method = {RequestMethod.POST})
-    private void createAccount(@RequestBody User user) throws SQLException {
-        Connection connection = dataSource.getConnection();
-        String insertUser = "INSERT into users(username, firstname, lastname) " +
-                "VALUES('" + user.getUserName() + "','" +
-                user.getFirstName() + "','" +
-                user.getLastName() + "');";
-        Statement createUserStatement = connection.createStatement();
-        createUserStatement.executeUpdate(insertUser);
     }
 
     @RequestMapping(
@@ -159,7 +159,7 @@ public class AccountController {
         }
     }
 
-    private void updateOnlinePresence(User user) throws SQLException{
+    private void updateOnlinePresence(User user) throws SQLException {
         try (Connection connection = dataSource.getConnection()) {
             Statement updateOnlineStmt = connection.createStatement();
             String onlineUpdate = "UPDATE users set online = true where facebookId = '" + user.getFacebookId() + "'";
@@ -185,6 +185,7 @@ public class AccountController {
         }
         return username;
     }
+}
 
     /*
     @RequestMapping(
@@ -299,36 +300,4 @@ public class AccountController {
             throw new RuntimeException(e);
         }
     }
-
-    private void AWSDyamoDBQueries () {
-
-//      System.setProperty("sqlite4java.library.path", "/Users/nathannguyen/Documents/Code/sqlite4java");
-//        User[] newUser = new User[1];
-//        ScanResult allResults = ApplicationCommandLineRunner.accountsDDB.scan("Accounts"
-//                , Arrays.asList("username","FirstName","Locality","friendRequests","sex","friends","facebookId"));
-//        allResults.getItems().stream().forEach(item -> {
-//            User userAccount = new User();
-//            userAccount.setFirstName(item.get("FirstName").getS());
-////            userAccount.setFriendRequests(item.get("friendRequests").getSS());
-//            if (item.get("facebookId") != null) {
-//                userAccount.setFacebookId(item.get("facebookId").getS());
-//            }
-//            userAccounts.add(userAccount);
-//        });
-
-        //        Table table = dynamoDB.getTable("accounts");
-//        try {
-//            Item item = new Item().withPrimaryKey("username", firstname)
-//                    .withString("firstName", firstname)
-//                    .withString("lastName", lastname)
-//                    .withString("password", password);
-//            table.putItem(item);
-//        } catch (Exception e) {
-//            System.err.println("Create items failed.");
-//            System.err.println(e.getMessage());
-//        }
-
-    }
-    */
-
-}
+*/
