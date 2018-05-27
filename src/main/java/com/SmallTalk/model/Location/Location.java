@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @JsonIgnoreProperties( ignoreUnknown = true )
 public class Location {
 
+    private String name;
     private long latitude;
     private long longitutde;
     private String city;
