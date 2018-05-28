@@ -37,7 +37,7 @@ public class Account {
             value = "/createAccount",
             method = RequestMethod.POST
     )
-    public void createAccount (@RequestBody User account) throws SQLException {
+    public void createAccount(@RequestBody User account) throws SQLException {
 
         Connection connection = dataSource.getConnection();
         Statement createAccount = connection.createStatement();
@@ -47,8 +47,7 @@ public class Account {
 
                         + "'" + account.getUserName() + "',"
                         + "'" + account.getFirstName() + "',"
-                        + "'" + account.getLastName() + "',"
-                        + "'" + account.getPassword() + "');";
+                        + "'" + account.getLastName() + "');";
 
         createAccount.executeUpdate(createAccountQuery);
 

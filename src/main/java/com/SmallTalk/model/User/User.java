@@ -13,17 +13,17 @@ public class User {
     //@DynamoDBHashKey(attributeName = "username")
     //@Id
     @JsonProperty
+    private String userName;
+    @JsonProperty
     private String facebookId;
     @JsonProperty
     private String firstName;
     @JsonProperty
     private String lastName;
     @JsonProperty
-    private String school;
-    @JsonProperty
-    private String userName;
-    @JsonProperty
     private String locality;
+    @JsonProperty
+    private String school;
     @JsonProperty
     private String sex;
     @JsonProperty
@@ -34,8 +34,6 @@ public class User {
     private String email;
     @JsonProperty
     private Boolean online;
-    @JsonProperty
-    private String password;
 
     private Date birthday;
     private Building buildingOccupied;
@@ -43,7 +41,7 @@ public class User {
     public User() {
     }
 
-    public User(String facebookId, String firstName, String lastName, String school, String userName, String locality, String sex, List friends, List friendRequests, String email, Boolean online, String password, Date birthday, Building buildingOccupied, DataSource dataSource) {
+    public User(String facebookId, String firstName, String lastName, String school, String userName, String locality, String sex, List friends, List friendRequests, String email, Boolean online, Date birthday, Building buildingOccupied, DataSource dataSource) {
         this.facebookId = facebookId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -55,7 +53,6 @@ public class User {
         this.friendRequests = friendRequests;
         this.email = email;
         this.online = online;
-        this.password = password;
         this.birthday = birthday;
         this.buildingOccupied = buildingOccupied;
     }
@@ -163,14 +160,6 @@ public class User {
         this.buildingOccupied = buildingOccupied;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -185,7 +174,6 @@ public class User {
                 ", friendRequests=" + friendRequests +
                 ", email='" + email + '\'' +
                 ", online=" + online +
-                ", password='" + password + '\'' +
                 ", birthday=" + birthday +
                 ", buildingOccupied=" + buildingOccupied +
                 '}';

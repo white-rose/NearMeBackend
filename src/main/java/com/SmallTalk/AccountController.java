@@ -1,6 +1,7 @@
 package com.SmallTalk;
 
 import com.SmallTalk.model.User.Account;
+import com.SmallTalk.model.User.Employee;
 import com.SmallTalk.model.User.User;
 import com.amazonaws.auth.BasicAWSCredentials;
 import org.slf4j.Logger;
@@ -20,8 +21,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 @RestController
 @Component
@@ -69,7 +73,7 @@ public class AccountController {
     @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
-    private List<User> pullNearbyUsers(@RequestBody User currentUser) {
+    private Set<User> pullNearbyUsers(@RequestBody User currentUser) {
 
         List<User> users = new ArrayList<>();
 
@@ -78,12 +82,13 @@ public class AccountController {
         try {
             Statement stmt = dataSource.getConnection().createStatement();
             ResultSet rs = stmt.executeQuery(
-                    "SELECT DISTINCT users.firstname, users.lastname, users.facebookid, users.school " +
+                    "SELECT users.firstname, users.lastname, users.facebookid, users.school, users.lastlocation " +
                             "FROM users " +
                             "inner join sanfrancisco " +
                             "on users.username=sanfrancisco.username " +
-                            "WHERE locality = '" + currentUser.getLocality() +
-                            "' AND time <= '" + LocalDate.now() + "' " +
+//                            "WHERE locality = '" + currentUser.getLocality() +
+//                            "' AND " +
+                            "WHERE time <= '" + LocalDate.now() + "' " +
                             "AND ONLINE = true");
 
             while (rs.next()) {
@@ -92,11 +97,20 @@ public class AccountController {
                 user.setLastName(rs.getString("lastname"));
                 user.setFacebookId(rs.getString("facebookid"));
                 user.setSchool(rs.getString("school"));
+                user.setLocality(rs.getString("lastlocation"));
                 users.add(user);
             }
+
         } catch (SQLException ex) {
             System.out.println("Error from postgre database msg: " + ex.getMessage());
         }
+
+        Set<User> userSet = users.stream()
+                .filter(user -> user.getLocality().equals(currentUser.getLocality()))
+                .collect(toCollection(() -> new TreeSet<>
+                        (Comparator.comparing(User::getFacebookId))));
+
+        System.out.print(userSet);
 
 //        Building userBuilding = currentUser.getBuildingOccupied();
 
@@ -106,9 +120,9 @@ public class AccountController {
         long endTime = System.currentTimeMillis();
         System.out.println("Time to pull nearby users " + (endTime - beginningTime) + " milliseconds");
 
-        logger.info(users.size() + " are occupying " + currentUser.getLocality());
+        logger.info(userSet.size() + " are occupying " + currentUser.getLocality());
 
-        return users;
+        return userSet;
 
     }
 

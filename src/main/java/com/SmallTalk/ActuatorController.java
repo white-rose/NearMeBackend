@@ -27,7 +27,7 @@ public class ActuatorController {
 
   //Send Push Notication to phone
   @RequestMapping("/samplePush")
-  public Greeting notification(@RequestParam(value="token") String deviceToken) {
+  public void notification(@RequestParam(value="token") String deviceToken) {
     ApnsService service = APNS.newService()
             .withCert("/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12", "Cabinboy23")
             .withSandboxDestination()
@@ -42,7 +42,6 @@ public class ActuatorController {
 
     service.push(deviceToken, payload);
 
-    return new Greeting(counter.incrementAndGet(), String.format(template, deviceToken));
   }
 
 }
