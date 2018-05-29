@@ -70,6 +70,7 @@ public class AccountController {
         createUserStatement.executeUpdate(insertUser);
     }
 
+    //TODO: Response time beloow 500ms
     @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
