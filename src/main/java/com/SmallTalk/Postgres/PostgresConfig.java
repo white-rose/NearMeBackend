@@ -1,4 +1,4 @@
-package com.SmallTalk;
+package com.SmallTalk.Postgres;
 
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 
 @Configuration
 public class PostgresConfig {
-
 
     @Configuration
     @PropertySource("classpath:application.properties")
