@@ -1,9 +1,6 @@
 package com.SmallTalk;
 
-import com.SmallTalk.model.User.Account;
-import com.SmallTalk.model.User.Employee;
 import com.SmallTalk.model.User.User;
-import com.amazonaws.auth.BasicAWSCredentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +19,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toCollection;
 
+/*
 @RestController
 @Component
 public class AccountController {
@@ -40,7 +36,7 @@ public class AccountController {
     //AWS Credentials
     private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
     private static final String secretKey = "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";
-    static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
+//    static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
 
     //Google API key
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
@@ -316,3 +312,4 @@ public class AccountController {
         }
     }
 */
+

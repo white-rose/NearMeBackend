@@ -1,25 +1,58 @@
 package com.SmallTalk.model.Location;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
-public abstract class LocationTag {
+@Entity
+@Table(name = "sanfrancisco")
+public class LocationTag {
 
-    String facebookId;
+    @Id
+    String username;
+    @Column
     String locality;
+    @Column
+    Double longitude;
+    @Column
+    Double latitude;
+    @Column
     Timestamp timestamp;
 
-    public LocationTag(String facebookId, String locality, Timestamp timestamp) {
-        this.facebookId = facebookId;
+    public LocationTag() {}
+
+    public LocationTag(String username, String locality, Timestamp timestamp, Double longitude, Double latitude) {
+        this.username = username;
         this.locality = locality;
         this.timestamp = timestamp;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
-    public String getFacebookId() {
-        return facebookId;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setFacebookId(String facebookId) {
-        this.facebookId = facebookId;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getLocality() {
