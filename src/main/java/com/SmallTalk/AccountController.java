@@ -28,6 +28,9 @@ import static java.util.stream.Collectors.toCollection;
 public class AccountController {
 
     @Autowired
+    PostgresUtil postgresUtil;
+
+    @Autowired
     DataSource dataSource;
 
     private Logger logger = LoggerFactory.getLogger(AccountController.class);
@@ -66,7 +69,7 @@ public class AccountController {
         createUserStatement.executeUpdate(insertUser);
     }
 
-    //TODO: Response time beloow 500ms
+    //TODO: Response time below 500ms
     @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
@@ -77,7 +80,7 @@ public class AccountController {
         long beginningTime = System.currentTimeMillis();
 
         try {
-            Statement stmt = dataSource.getConnection().createStatement();
+            Statement stmt = postgresUtil.openPostgresReference();
             ResultSet rs = stmt.executeQuery(
                     "SELECT users.firstname, users.lastname, users.facebookid, users.school, users.lastlocation " +
                             "FROM users " +
@@ -119,6 +122,13 @@ public class AccountController {
 
         logger.info(userSet.size() + " are occupying " + currentUser.getLocality());
 
+        //Add when 503 is handled
+        User nobodyAround = new User();
+        nobodyAround.setFirstName("Nobody");
+        nobodyAround.setLastName("Around");
+        nobodyAround.setFacebookId("12345678");
+
+        //Return Nobody around if 503 Try and catch
         return userSet;
 
     }

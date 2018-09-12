@@ -1,4 +1,4 @@
-package com.SmallTalk;
+package com.SmallTalk.Postgres;
 
 //import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -25,5 +25,6 @@ public class PostgresConfig {
 //            return ds;
 //        }
 //    }
+
 
 }
