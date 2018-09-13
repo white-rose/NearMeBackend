@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 @Table(name = "sanfrancisco")
 public class LocationTag {
 
-    @Id
+    @Column
     String username;
     @Column
     String locality;
@@ -18,12 +18,12 @@ public class LocationTag {
     Double longitude;
     @Column
     Double latitude;
-    @Column
+    @Id
     Timestamp timestamp;
 
     public LocationTag() {}
 
-    public LocationTag(String username, String locality, Timestamp timestamp, Double longitude, Double latitude) {
+    public LocationTag(String username, String locality, Double longitude, Double latitude, Timestamp timestamp) {
         this.username = username;
         this.locality = locality;
         this.timestamp = timestamp;

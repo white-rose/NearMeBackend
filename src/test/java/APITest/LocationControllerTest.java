@@ -45,7 +45,7 @@ public class LocationControllerTest {
     @Test
     public void trackLocation() throws Exception {
 
-      System.out.println(mockMvc.perform(get("/track?longitude=253.0225&latitude=487.2552?locality=area"))
+      System.out.println(mockMvc.perform(get("/track?longitude=253.0225&latitude=487.2552"))
               .andDo(print())
               .andExpect(status().isOk()));
 

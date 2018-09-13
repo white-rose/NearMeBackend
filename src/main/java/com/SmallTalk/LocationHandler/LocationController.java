@@ -1,43 +1,37 @@
 package com.SmallTalk.LocationHandler;
 
-import com.SmallTalk.model.Location.LocationTag;
 import com.SmallTalk.model.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.nio.charset.Charset;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.util.Random;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class LocationController implements LocationCleanser {
+public class LocationController implements LocationControllerDefinition{
 
     @Autowired
-    LocationRepository locationRepository;
+    private LocationService locationService;
 
-    @RequestMapping("/track")
+    @RequestMapping(value = "/track",
+                    method = RequestMethod.POST,
+                    consumes = MediaType.APPLICATION_JSON_VALUE)
     public void trackLocation(@RequestParam Double longitude,
                               @RequestParam Double latitude,
-                              @RequestParam String locality) {
+                              @RequestBody User user) {
 
-        byte[] array = new byte[7];
-        new Random().nextBytes(array);
-        String generatedString = new String(array, Charset.forName("UTF-8"));
+        /*
+        User user = new User();
+        user.setLocality("random");
+        user.setUserName("username");
+        */
 
-        LocationTag locationTag
-                = new LocationTag(generatedString, locality, Timestamp.from(Instant.now()), longitude, latitude);
 
-        locationRepository.save(locationTag);
+        locationService.trackLocation(user, longitude, latitude);
 
     }
 
-    @Override
+    //@Override
 //    @Scheduled(fixedRate = 5000)
-    public void cleanse() {
+    //public void cleanse() {
 
 //        try {
 //            Connection connection = dataSource.getConnection();
@@ -52,6 +46,6 @@ public class LocationController implements LocationCleanser {
 //            e.printStackTrace();
 //        }
 
-    }
+    //}
 
 }
