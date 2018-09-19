@@ -13,7 +13,8 @@ public class LocationController implements LocationControllerDefinition{
 
     @RequestMapping(value = "/track",
                     method = RequestMethod.POST,
-                    consumes = MediaType.APPLICATION_JSON_VALUE)
+                    consumes = { MediaType.APPLICATION_JSON_UTF8_VALUE,
+                                 MediaType.APPLICATION_JSON_VALUE } )
     public void trackLocation(@RequestParam Double longitude,
                               @RequestParam Double latitude,
                               @RequestBody User user) {
@@ -23,7 +24,6 @@ public class LocationController implements LocationControllerDefinition{
         user.setLocality("random");
         user.setUserName("username");
         */
-
 
         locationService.trackLocation(user, longitude, latitude);
 
