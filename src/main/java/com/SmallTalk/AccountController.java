@@ -22,7 +22,6 @@ import java.util.*;
 
 import static java.util.stream.Collectors.toCollection;
 
-/*
 @RestController
 @Component
 public class AccountController {
@@ -88,7 +87,7 @@ public class AccountController {
                             "on users.username=sanfrancisco.username " +
 //                            "WHERE locality = '" + currentUser.getLocality() +
 //                            "' AND " +
-                            "WHERE time <= '" + LocalDate.now() + "' " +
+//                            "WHERE timestamp <= '" + LocalDate.now() + "' " +
                             "AND ONLINE = true");
 
             while (rs.next()) {
@@ -106,7 +105,7 @@ public class AccountController {
         }
 
         Set<User> userSet = users.stream()
-                .filter(user -> user.getLocality().equals(currentUser.getLocality()))
+             //   .filter(user -> user.getLocality().equals(currentUser.getLocality()))
                 .collect(toCollection(() -> new TreeSet<>
                         (Comparator.comparing(User::getFacebookId))));
 
