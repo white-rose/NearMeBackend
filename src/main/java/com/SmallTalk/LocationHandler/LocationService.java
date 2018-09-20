@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class LocationService {
@@ -25,6 +26,12 @@ public class LocationService {
 
 
         locationRepository.save(locationTag);
+
+    }
+
+    public List pullNearbyUsers() {
+
+        return locationRepository.findAll();
 
     }
 

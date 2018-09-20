@@ -1,75 +1,87 @@
 package com.SmallTalk.model.User;
 
-import com.SmallTalk.model.Location.Building;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.sql.DataSource;
-import java.util.Date;
-import java.util.List;
+import javax.persistence.*;
 
-//@DynamoDBTable(tableName = "Accounts")
+@Entity
+@Table(name = "users")
 public class User {
 
-    //@DynamoDBHashKey(attributeName = "username")
-    //@Id
+
     @JsonProperty
-    private String userName;
+    @Column
+    @Id
+    private String username;
+
+    @Column
     @JsonProperty
-    private String facebookId;
+    private String facebookid;
+
+    @Column
     @JsonProperty
     private String firstName;
+
+    @Column
     @JsonProperty
     private String lastName;
-    @JsonProperty
-    private String locality;
+
+    @Column
+    private String lastLocation;
+
+    @Column
     @JsonProperty
     private String school;
+
+    @Column
     @JsonProperty
     private String sex;
-    @JsonProperty
-    private List friends;
-    @JsonProperty
-    private List friendRequests;
+
+    @Column
     @JsonProperty
     private String email;
+
+    @Column
     @JsonProperty
     private Boolean online;
 
-    private Date birthday;
-    private Building buildingOccupied;
+    @Column
+    @JsonProperty
+    private String locality;
+
+//    private Date birthday;
+//    private Building buildingOccupied;
 
     public User() {
     }
 
-    public User(String facebookId, String firstName, String lastName, String school, String userName, String locality, String sex, List friends, List friendRequests, String email, Boolean online, Date birthday, Building buildingOccupied, DataSource dataSource) {
-        this.facebookId = facebookId;
+    public User(String facebookId, String firstName, String lastName, String school, String userName, String locality, String sex, String email, Boolean online) {
+        this.facebookid = facebookId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.school = school;
-        this.userName = userName;
+        this.username = userName;
         this.locality = locality;
         this.sex = sex;
-        this.friends = friends;
-        this.friendRequests = friendRequests;
         this.email = email;
         this.online = online;
-        this.birthday = birthday;
-        this.buildingOccupied = buildingOccupied;
+//        this.birthday = birthday;
+//        this.buildingOccupied = buildingOccupied;
     }
 
     public User(String facebookId, String firstName, String lastName) {
 
-        this.facebookId = facebookId;
+        this.facebookid = facebookId;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getFirstName() {
@@ -88,22 +100,6 @@ public class User {
         this.locality = locality;
     }
 
-    public List getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List friends) {
-        this.friends = friends;
-    }
-
-    public List getFriendRequests() {
-        return friendRequests;
-    }
-
-    public void setFriendRequests(List friendRequests) {
-        this.friendRequests = friendRequests;
-    }
-
     public String getSex() {
         return sex;
     }
@@ -113,11 +109,11 @@ public class User {
     }
 
     public String getFacebookId() {
-        return facebookId;
+        return facebookid;
     }
 
     public void setFacebookId(String facebookId) {
-        this.facebookId = facebookId;
+        this.facebookid = facebookId;
     }
 
     public Boolean getOnline() {
@@ -152,30 +148,36 @@ public class User {
         this.email = email;
     }
 
-    public Building getBuildingOccupied() {
-        return buildingOccupied;
+//    public Building getBuildingOccupied() {
+//        return buildingOccupied;
+//    }
+//
+//    public void setBuildingOccupied(Building buildingOccupied) {
+//        this.buildingOccupied = buildingOccupied;
+//    }
+
+    public String getLastLocation() {
+        return lastLocation;
     }
 
-    public void setBuildingOccupied(Building buildingOccupied) {
-        this.buildingOccupied = buildingOccupied;
+    public void setLastLocation(String lastLocation) {
+        this.lastLocation = lastLocation;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "facebookId='" + facebookId + '\'' +
+                "facebookId='" + facebookid + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", school='" + school + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", locality='" + locality + '\'' +
                 ", sex='" + sex + '\'' +
-                ", friends=" + friends +
-                ", friendRequests=" + friendRequests +
                 ", email='" + email + '\'' +
                 ", online=" + online +
-                ", birthday=" + birthday +
-                ", buildingOccupied=" + buildingOccupied +
+//                ", birthday=" + birthday +
+//                ", buildingOccupied=" + buildingOccupied +
                 '}';
     }
 }
