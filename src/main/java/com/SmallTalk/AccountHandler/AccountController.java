@@ -1,5 +1,9 @@
-package com.SmallTalk;
+package com.SmallTalk.AccountHandler;
 
+import com.SmallTalk.LocationHandler.LocationService;
+import com.SmallTalk.PostgresUtil;
+import com.SmallTalk.model.Location.LocationTag;
+import com.SmallTalk.model.SanFranciscoTag;
 import com.SmallTalk.model.User.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +29,12 @@ import static java.util.stream.Collectors.toCollection;
 @RestController
 @Component
 public class AccountController {
+
+    @Autowired
+    AccountService accountService;
+
+    @Autowired
+    LocationService locationService;
 
     @Autowired
     PostgresUtil postgresUtil;
@@ -78,38 +88,48 @@ public class AccountController {
 
         long beginningTime = System.currentTimeMillis();
 
-        try {
-            Statement stmt = postgresUtil.openPostgresReference();
-            ResultSet rs = stmt.executeQuery(
-                    "SELECT users.firstname, users.lastname, users.facebookid, users.school, users.lastlocation " +
-                            "FROM users " +
-                            "inner join sanfrancisco " +
-                            "on users.username=sanfrancisco.username " +
-//                            "WHERE locality = '" + currentUser.getLocality() +
-//                            "' AND " +
-//                            "WHERE timestamp <= '" + LocalDate.now() + "' " +
-                            "AND ONLINE = true");
+        List<User> allUsers = accountService.pullNearbyUsers();
+        List<LocationTag> usersNearby = locationService.pullNearbyUsers();
 
-            while (rs.next()) {
-                User user = new User();
-                user.setFirstName(rs.getString("firstname"));
-                user.setLastName(rs.getString("lastname"));
-                user.setFacebookId(rs.getString("facebookid"));
-                user.setSchool(rs.getString("school"));
-                user.setLocality(rs.getString("lastlocation"));
-                users.add(user);
-            }
+        final Set<User> userSet = new TreeSet<>((o1, o2) -> {
+            if (o1.getUserName().equals(o2.getUserName()))
+                return 0;
+            else
+                return 1;
+        });
 
-        } catch (SQLException ex) {
-            System.out.println("Error from postgre database msg: " + ex.getMessage());
-        }
+        usersNearby
+                .forEach(tag -> allUsers.forEach(user -> {
+                    if (tag.getUsername().equals(user.getUserName())) {
+                        userSet.add(user);
+                    }
+                }));
 
-        Set<User> userSet = users.stream()
-             //   .filter(user -> user.getLocality().equals(currentUser.getLocality()))
-                .collect(toCollection(() -> new TreeSet<>
-                        (Comparator.comparing(User::getFacebookId))));
-
-        System.out.print(userSet);
+//        try {
+//            Statement stmt = postgresUtil.openPostgresReference();
+//            ResultSet rs = stmt.executeQuery(
+//                    "SELECT users.firstname, users.lastname, users.facebookid, users.school, users.lastlocation " +
+//                            "FROM users " +
+//                            "inner join sanfrancisco " +
+//                            "on users.username=sanfrancisco.username " +
+////                            "WHERE locality = '" + currentUser.getLocality() +
+////                            "' AND " +
+////                            "WHERE timestamp <= '" + LocalDate.now() + "' " +
+//                            "AND ONLINE = true");
+//
+//            while (rs.next()) {
+//                User user = new User();
+//                user.setFirstName(rs.getString("firstname"));
+//                user.setLastName(rs.getString("lastname"));
+//                user.setFacebookId(rs.getString("facebookid"));
+//                user.setSchool(rs.getString("school"));
+//                user.setLocality(rs.getString("lastlocation"));
+//                users.add(user);
+//            }
+//
+//        } catch (SQLException ex) {
+//            System.out.println("Error from postgre database msg: " + ex.getMessage());
+//        }
 
 //        Building userBuilding = currentUser.getBuildingOccupied();
 
@@ -120,12 +140,6 @@ public class AccountController {
         System.out.println("Time to pull nearby users " + (endTime - beginningTime) + " milliseconds");
 
         logger.info(userSet.size() + " are occupying " + currentUser.getLocality());
-
-        //Add when 503 is handled
-        User nobodyAround = new User();
-        nobodyAround.setFirstName("Nobody");
-        nobodyAround.setLastName("Around");
-        nobodyAround.setFacebookId("12345678");
 
         //Return Nobody around if 503 Try and catch
         return userSet;

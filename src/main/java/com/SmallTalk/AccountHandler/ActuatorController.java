@@ -1,4 +1,4 @@
-package com.SmallTalk;
+package com.SmallTalk.AccountHandler;
 
 import com.notnoop.apns.APNS;
 import com.notnoop.apns.ApnsService;

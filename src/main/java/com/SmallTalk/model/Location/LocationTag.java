@@ -1,9 +1,8 @@
 package com.SmallTalk.model.Location;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.SmallTalk.model.User.User;
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -70,6 +69,5 @@ public class LocationTag {
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
-
 
 }
