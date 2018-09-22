@@ -1,9 +1,7 @@
 package com.SmallTalk.AccountHandler;
 
 import com.SmallTalk.LocationHandler.LocationService;
-import com.SmallTalk.PostgresUtil;
 import com.SmallTalk.model.Location.LocationTag;
-import com.SmallTalk.model.SanFranciscoTag;
 import com.SmallTalk.model.User.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -22,9 +17,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.*;
-
-import static java.util.stream.Collectors.toCollection;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @RestController
 @Component
@@ -36,8 +32,8 @@ public class AccountController {
     @Autowired
     LocationService locationService;
 
-    @Autowired
-    PostgresUtil postgresUtil;
+//    @Autowired
+//    PostgresUtil postgresUtil;
 
     @Autowired
     DataSource dataSource;
@@ -61,9 +57,11 @@ public class AccountController {
 
     //Heroku Tables
     static final String accounts = "accounts";
-    static final String sanfrancisco = "sanfrancisco";
+    static final String sanfrancisco = "SanFrancisco";
 
     private ConnectionRepository connectionRepository;
+
+    //TODO: Target response times below 500ms
 
     @RequestMapping(
             value = "/createAccount",
@@ -71,65 +69,34 @@ public class AccountController {
     private void createAccount(@RequestBody User user) throws SQLException {
         Connection connection = dataSource.getConnection();
         String insertUser = "INSERT into users(username, firstname, lastname) " +
-                "VALUES('" + user.getUserName() + "','" +
-                user.getFirstName() + "','" +
-                user.getLastName() + "');";
+                "VALUES('" + user.getusername() + "','" +
+                user.getFirstname() + "','" +
+                user.getLastname() + "');";
         Statement createUserStatement = connection.createStatement();
         createUserStatement.executeUpdate(insertUser);
     }
 
-    //TODO: Response time below 500ms
     @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
-    private Set<User> pullNearbyUsers(@RequestBody User currentUser) {
-
-        List<User> users = new ArrayList<>();
+    private Set<User> pullNearbyUsers(@RequestParam String locality) {
 
         long beginningTime = System.currentTimeMillis();
 
-        List<User> allUsers = accountService.pullNearbyUsers();
-        List<LocationTag> usersNearby = locationService.pullNearbyUsers();
-
-        final Set<User> userSet = new TreeSet<>((o1, o2) -> {
-            if (o1.getUserName().equals(o2.getUserName()))
+        List<LocationTag> usersNearby = new ArrayList<>();
+        final Set<User> nearbyUsers = new TreeSet<>((o1, o2) -> {
+            if (o1.getusername().equals(o2.getusername()))
                 return 0;
             else
                 return 1;
         });
+        
+        if (locality.equals(sanfrancisco))
+            usersNearby = locationService.pullNearbyUsers();
 
-        usersNearby
-                .forEach(tag -> allUsers.forEach(user -> {
-                    if (tag.getUsername().equals(user.getUserName())) {
-                        userSet.add(user);
-                    }
-                }));
-
-//        try {
-//            Statement stmt = postgresUtil.openPostgresReference();
-//            ResultSet rs = stmt.executeQuery(
-//                    "SELECT users.firstname, users.lastname, users.facebookid, users.school, users.lastlocation " +
-//                            "FROM users " +
-//                            "inner join sanfrancisco " +
-//                            "on users.username=sanfrancisco.username " +
-////                            "WHERE locality = '" + currentUser.getLocality() +
-////                            "' AND " +
-////                            "WHERE timestamp <= '" + LocalDate.now() + "' " +
-//                            "AND ONLINE = true");
-//
-//            while (rs.next()) {
-//                User user = new User();
-//                user.setFirstName(rs.getString("firstname"));
-//                user.setLastName(rs.getString("lastname"));
-//                user.setFacebookId(rs.getString("facebookid"));
-//                user.setSchool(rs.getString("school"));
-//                user.setLocality(rs.getString("lastlocation"));
-//                users.add(user);
-//            }
-//
-//        } catch (SQLException ex) {
-//            System.out.println("Error from postgre database msg: " + ex.getMessage());
-//        }
+        usersNearby.forEach(tag -> {
+                    nearbyUsers.addAll(accountService.findByUsername(tag.getUsername()));
+                });
 
 //        Building userBuilding = currentUser.getBuildingOccupied();
 
@@ -138,11 +105,9 @@ public class AccountController {
 
         long endTime = System.currentTimeMillis();
         System.out.println("Time to pull nearby users " + (endTime - beginningTime) + " milliseconds");
+        logger.info(nearbyUsers.size() + " are occupying " + locality);
 
-        logger.info(userSet.size() + " are occupying " + currentUser.getLocality());
-
-        //Return Nobody around if 503 Try and catch
-        return userSet;
+        return nearbyUsers;
 
     }
 
@@ -169,7 +134,7 @@ public class AccountController {
             Statement createDummyData = connection.createStatement();
             //String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
             String insertQuery = "INSERT INTO SANFRANCISCO (username, locality, time) VALUES ("
-                    + "'" + user.getUserName() + "',"
+                    + "'" + user.getusername() + "',"
                     + "'" + user.getLocality() + "',"
                     + "'" + LocalDate.now().toString() + "');";
             createDummyData.executeUpdate(insertQuery);

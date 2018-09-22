@@ -18,7 +18,7 @@ public class LocationService {
     public void trackLocation(User user, Double longitude, Double latitude) {
 
         LocationTag locationTag
-                    = new LocationTag(user.getUserName(),
+                    = new LocationTag(user.getusername(),
                     user.getLocality(),
                     longitude,
                     latitude,

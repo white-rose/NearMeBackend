@@ -1,5 +1,6 @@
 package com.SmallTalk.AccountHandler;
 
+import com.SmallTalk.model.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +18,10 @@ public class AccountService {
         return accountRepository.findAll();
 
     }
+
+    public List<User> findByUsername(String username) {
+        return accountRepository.findByUsername(username);
+    }
+
 
 }
