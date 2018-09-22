@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -47,9 +45,9 @@ public class Account {
         String createAccountQuery =
                 "INSERT INTO accounts (username, firstname, lastname, password) VALUES ("
 
-                        + "'" + account.getUserName() + "',"
-                        + "'" + account.getFirstName() + "',"
-                        + "'" + account.getLastName() + "');";
+                        + "'" + account.getusername() + "',"
+                        + "'" + account.getFirstname() + "',"
+                        + "'" + account.getLastname() + "');";
 
         createAccount.executeUpdate(createAccountQuery);
 

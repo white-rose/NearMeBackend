@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-
     @JsonProperty
     @Column
     @Id
@@ -20,11 +19,11 @@ public class User {
 
     @Column
     @JsonProperty
-    private String firstName;
+    private String firstname;
 
     @Column
     @JsonProperty
-    private String lastName;
+    private String lastname;
 
     @Column
     private String lastLocation;
@@ -52,15 +51,14 @@ public class User {
 //    private Date birthday;
 //    private Building buildingOccupied;
 
-    public User() {
-    }
+    public User() {}
 
-    public User(String facebookId, String firstName, String lastName, String school, String userName, String locality, String sex, String email, Boolean online) {
+    public User(String facebookId, String firstname, String lastname, String school, String username, String locality, String sex, String email, Boolean online) {
         this.facebookid = facebookId;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.school = school;
-        this.username = userName;
+        this.username = username;
         this.locality = locality;
         this.sex = sex;
         this.email = email;
@@ -69,27 +67,27 @@ public class User {
 //        this.buildingOccupied = buildingOccupied;
     }
 
-    public User(String facebookId, String firstName, String lastName) {
+    public User(String facebookId, String firstname, String lastname) {
 
         this.facebookid = facebookId;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
-    public String getUserName() {
+    public String getusername() {
         return username;
     }
 
-    public void setUserName(String userName) {
-        this.username = userName;
+    public void setusername(String username) {
+        this.username = username;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLocality() {
@@ -132,12 +130,12 @@ public class User {
         this.school = school;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
@@ -168,8 +166,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "facebookId='" + facebookid + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", school='" + school + '\'' +
                 ", userName='" + username + '\'' +
                 ", locality='" + locality + '\'' +

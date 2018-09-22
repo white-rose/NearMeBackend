@@ -15,9 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -35,7 +33,7 @@ public class LocationControllerUnitTest {
     public void testTrackLocation() throws Exception {
 
         User user = new User();
-        user.setUserName("User1");
+        user.setusername("User1");
         user.setLocality("Random");
         Double longitude = 11.1111, latitude = 12.121212;
 
