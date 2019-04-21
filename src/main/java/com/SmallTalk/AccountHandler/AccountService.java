@@ -13,7 +13,7 @@ public class AccountService {
     AccountRepository accountRepository;
 
 
-    public List pullNearbyUsers() {
+    public List<User> pullNearbyUsers() {
 
         return accountRepository.findAll();
 

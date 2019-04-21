@@ -13,3 +13,5 @@ target/*
 *.idea/*
 *.xml
 .idea/
+.idea
+.idea/libraries/*
