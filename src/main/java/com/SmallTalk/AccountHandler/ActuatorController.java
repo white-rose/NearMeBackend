@@ -21,7 +21,7 @@ public class ActuatorController {
   @RequestMapping("/health")
   public String healthy() {
     // Message body required though ignored
-    return "Still surviving.";
+    return "Still surviving baby.";
   }
 
 
