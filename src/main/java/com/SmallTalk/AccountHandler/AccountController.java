@@ -17,10 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @Component
@@ -94,9 +92,7 @@ public class AccountController {
         if (locality.equals(sanfrancisco))
             usersNearby = locationService.pullNearbyUsers();
 
-        usersNearby.forEach(tag -> {
-                    nearbyUsers.addAll(accountService.findByUsername(tag.getUsername()));
-                });
+        usersNearby.forEach(user -> nearbyUsers.addAll(accountService.findByUsername(user.getUsername())));
 
 //        Building userBuilding = currentUser.getBuildingOccupied();
 
@@ -109,6 +105,13 @@ public class AccountController {
 
         return nearbyUsers;
 
+    }
+
+    @RequestMapping(
+            value  = "/pullAllUsers",
+            method = RequestMethod.GET)
+    private Set<User> getAllUsers() {
+        return new HashSet<>(accountService.pullNearbyUsers());
     }
 
     @RequestMapping(
