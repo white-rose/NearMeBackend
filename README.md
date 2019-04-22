@@ -1,7 +1,6 @@
 # NearMe Backend services
 
 ## Stack
-Heroku CI/CD + Heroku hobby db 
+Heroku CI/CD + Heroku Postgres db 
 Spring Boot
 
-Services powered by Spring
