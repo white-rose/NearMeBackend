@@ -133,7 +133,7 @@ public class AccountController {
         try (Connection connection = dataSource.getConnection()) {
             Statement createDummyData = connection.createStatement();
 
-            logger.info("Updating location for user: ", user);
+            logger.info(user.toString());
 
             String insertQuery = "INSERT INTO SANFRANCISCO (username, locality, time) VALUES ("
                     + "'" + user.getusername() + "',"
