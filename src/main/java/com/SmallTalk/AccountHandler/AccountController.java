@@ -135,7 +135,9 @@ public class AccountController {
     private void updateLocation(@RequestBody User user) throws SQLException {
         try (Connection connection = dataSource.getConnection()) {
             Statement createDummyData = connection.createStatement();
-            //String deleteQuery = "delete from sanfrancisco where facebookid='" + i + "';";
+
+            logger.info("Updating location for user: ", user);
+
             String insertQuery = "INSERT INTO SANFRANCISCO (username, locality, time) VALUES ("
                     + "'" + user.getusername() + "',"
                     + "'" + user.getLocality() + "',"
