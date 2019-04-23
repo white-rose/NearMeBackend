@@ -138,7 +138,7 @@ public class AccountController {
 
             logger.info(user.toString());
 
-            String insertQuery = "INSERT INTO SANFRANCISCO (username, locality, time) VALUES ("
+            String insertQuery = "INSERT INTO SANFRANCISCO (username, locality, timestamp) VALUES ("
                     + "'" + user.getusername() + "',"
                     + "'" + user.getLocality() + "',"
                     + "'" + LocalDate.now().toString() + "');";
