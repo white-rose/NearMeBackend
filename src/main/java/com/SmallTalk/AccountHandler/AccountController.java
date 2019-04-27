@@ -94,14 +94,24 @@ public class AccountController {
         if (locality.equals(sanfrancisco))
             usersNearby = locationService.pullNearbyUsers();
 
-        usersNearby.forEach(tag -> {
-                    nearbyUsers.addAll(accountService.findByUsername(tag.getUsername()));
-                });
+        usersNearby.forEach(tag -> nearbyUsers.addAll(accountService.findByUsername(tag.getUsername())));
 
-//        Building userBuilding = currentUser.getBuildingOccupied();
+        User loggedInUser = new User();
+        loggedInUser.setSchool("Stanford");
+        loggedInUser.setEmployer("Airbnb");
 
-//        if (users.size() > userBuilding.maxCapacity)
-//            System.out.println(userBuilding.name + " has exceeded maximum capacity");
+        RankingEngine rankingEngine = new RankingEngine();
+        rankingEngine.rankByRelevance(loggedInUser, nearbyUsers);
+
+        // Order by School
+        // Building userBuilding = currentUser.getBuildingOccupied();
+
+        // if (users.size() > userBuilding.maxCapacity)
+        // System.out.println(userBuilding.name + " has exceeded maximum capacity");
+
+        // Order by Work
+
+        // Order by Club
 
         long endTime = System.currentTimeMillis();
         System.out.println("Time to pull nearby users " + (endTime - beginningTime) + " milliseconds");
@@ -110,6 +120,7 @@ public class AccountController {
         return nearbyUsers;
 
     }
+
 
     @RequestMapping(
             value = "/updateOnlineStatus",

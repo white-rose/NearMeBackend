@@ -48,6 +48,12 @@ public class User {
     @JsonProperty
     private String locality;
 
+    @JsonProperty
+    private String occupation;
+
+    @JsonProperty
+    private String employer;
+
 //    private Date birthday;
 //    private Building buildingOccupied;
 
@@ -160,6 +166,14 @@ public class User {
 
     public void setLastLocation(String lastLocation) {
         this.lastLocation = lastLocation;
+    }
+
+    public String getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(String employer) {
+        this.employer = employer;
     }
 
     @Override
