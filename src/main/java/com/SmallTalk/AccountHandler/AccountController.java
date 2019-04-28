@@ -75,6 +75,26 @@ public class AccountController {
     }
 
     @RequestMapping(
+            value = "/account",
+            method = {RequestMethod.GET})
+    private User getAccount(@RequestParam String facebookId) throws SQLException {
+        Connection connection = dataSource.getConnection();
+        String getUserSQL = "Select * from users where facebookid = '" + facebookId + "'";
+        Statement getUserStatement = connection.createStatement();
+        ResultSet resultSet = getUserStatement.executeQuery(getUserSQL);
+        User retrievedUser = new User();
+        while (resultSet.next()) {
+            retrievedUser.setusername(resultSet.getString("username"));
+            retrievedUser.setFirstname(resultSet.getString("firstname"));
+            retrievedUser.setLastname(resultSet.getString("lastname"));
+            retrievedUser.setFacebookId(resultSet.getString("facebook_id"));
+            retrievedUser.setSchool(resultSet.getString("school"));
+        }
+        return retrievedUser;
+
+    }
+
+    @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
     private Set<User> pullNearbyUsers(@RequestParam String locality) {
@@ -193,6 +213,7 @@ public class AccountController {
         }
         return username;
     }
+
 }
 
     /*
