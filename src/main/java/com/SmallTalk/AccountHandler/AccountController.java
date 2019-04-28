@@ -110,8 +110,12 @@ public class AccountController {
     @RequestMapping(
             value  = "/pullAllUsers",
             method = RequestMethod.GET)
-    private Set<User> getAllUsers() {
-        return new HashSet<>(accountService.pullNearbyUsers());
+    private List<User> getAllUsers() {
+        Set<User> users = new HashSet<>(accountService.pullNearbyUsers());
+        RankingEngine rankingEngine = new RankingEngine();
+        User loggedInUser = new User();
+        loggedInUser.setSchool("Stanford");
+        return rankingEngine.rankByRelevance(loggedInUser, users);
     }
 
     @RequestMapping(
