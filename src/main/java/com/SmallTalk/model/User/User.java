@@ -48,6 +48,10 @@ public class User {
     @JsonProperty
     private String locality;
 
+    @Column
+    @JsonProperty
+    private String employer;
+
 //    private Date birthday;
 //    private Building buildingOccupied;
 
@@ -146,7 +150,15 @@ public class User {
         this.email = email;
     }
 
-//    public Building getBuildingOccupied() {
+    public String getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(String employer) {
+        this.employer = employer;
+    }
+
+    //    public Building getBuildingOccupied() {
 //        return buildingOccupied;
 //    }
 //
