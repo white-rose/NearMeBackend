@@ -18,7 +18,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @Component
@@ -202,8 +201,8 @@ public class AccountController {
         String username = "";
         try (Connection connection = dataSource.getConnection()) {
             Statement createDummyData = connection.createStatement();
-            String SelectFBQuery = "SELECT username FROM users where facebookId = '" + user.getFacebookId() + "';";
-            ResultSet rs = createDummyData.executeQuery(SelectFBQuery);
+            String selectFBQuery = "SELECT username FROM users where facebookId = '" + user.getFacebookId() + "';";
+            ResultSet rs = createDummyData.executeQuery(selectFBQuery);
             while (rs.next()) {
                 username = rs.getString("username");
             }
@@ -212,6 +211,21 @@ public class AccountController {
             System.out.println(ex.getMessage());
         }
         return username;
+    }
+
+    @RequestMapping(
+            value = "/account",
+            method = {RequestMethod.PUT})
+    public void updateAccount(@RequestBody User user) {
+
+        try (Connection connection = dataSource.getConnection()) {
+            Statement updateUserStatement = connection.createStatement();
+            String updateUserSQL = "UPDATE users set firstName = '" + user.getFirstname() + "' where facebookid = '" + user.getFacebookId() + "'";
+            updateUserStatement.executeQuery(updateUserSQL);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
 
 }
