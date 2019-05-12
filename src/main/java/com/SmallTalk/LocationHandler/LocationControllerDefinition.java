@@ -6,5 +6,6 @@ public interface LocationControllerDefinition {
 
     public void trackLocation(Double longitude,
                               Double latitude,
+                              int zipCode,
                               User user);
 }
