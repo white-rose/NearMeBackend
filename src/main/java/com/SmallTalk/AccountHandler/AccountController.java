@@ -18,7 +18,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @Component
@@ -30,8 +29,8 @@ public class AccountController {
     @Autowired
     LocationService locationService;
 
-//    @Autowired
-//    PostgresUtil postgresUtil;
+//  @Autowired
+//  PostgresUtil postgresUtil;
 
     @Autowired
     DataSource dataSource;
@@ -42,7 +41,7 @@ public class AccountController {
     //AWS Credentials
     private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
     private static final String secretKey = "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";
-//    static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
+    // static BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
 
     //Google API key
     private final static String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
@@ -66,10 +65,10 @@ public class AccountController {
             method = {RequestMethod.POST})
     private void createAccount(@RequestBody User user) throws SQLException {
         Connection connection = dataSource.getConnection();
-        String insertUser = "INSERT into users(username, firstname, lastname) " +
-                "VALUES('" + user.getusername() + "','" +
-                user.getFirstname() + "','" +
-                user.getLastname() + "');";
+        String insertUser = "INSERT into users(username, firstname, lastname) "
+                + "VALUES('" + user.getusername() + "','"
+                + user.getFirstname() + "','"
+                + user.getLastname() + "');";
         Statement createUserStatement = connection.createStatement();
         createUserStatement.executeUpdate(insertUser);
     }
@@ -91,7 +90,17 @@ public class AccountController {
             retrievedUser.setSchool(resultSet.getString("school"));
         }
         return retrievedUser;
+    }
 
+    @RequestMapping(
+            value  = "/pullAllUsers",
+            method = RequestMethod.GET)
+    private List<User> getAllUsers() {
+        Set<User> users = new HashSet<>(accountService.pullNearbyUsers());
+        RankingEngine rankingEngine = new RankingEngine();
+        User loggedInUser = new User();
+        loggedInUser.setSchool("Stanford");
+        return rankingEngine.rankByRelevance(loggedInUser, users);
     }
 
     @RequestMapping(
@@ -125,17 +134,6 @@ public class AccountController {
 
         return nearbyUsers;
 
-    }
-
-    @RequestMapping(
-            value  = "/pullAllUsers",
-            method = RequestMethod.GET)
-    private List<User> getAllUsers() {
-        Set<User> users = new HashSet<>(accountService.pullNearbyUsers());
-        RankingEngine rankingEngine = new RankingEngine();
-        User loggedInUser = new User();
-        loggedInUser.setSchool("Stanford");
-        return rankingEngine.rankByRelevance(loggedInUser, users);
     }
 
     @RequestMapping(
@@ -176,7 +174,7 @@ public class AccountController {
         }
     }
 
-    //Can't update location with quotes 
+    // Can't update location with quotes
     private void updateLastLocation(User user) throws SQLException {
         try (Connection connection = dataSource.getConnection()) {
             Statement updateOnlineStmt = connection.createStatement();
@@ -202,8 +200,8 @@ public class AccountController {
         String username = "";
         try (Connection connection = dataSource.getConnection()) {
             Statement createDummyData = connection.createStatement();
-            String SelectFBQuery = "SELECT username FROM users where facebookId = '" + user.getFacebookId() + "';";
-            ResultSet rs = createDummyData.executeQuery(SelectFBQuery);
+            String selectFBQuery = "SELECT username FROM users where facebookId = '" + user.getFacebookId() + "';";
+            ResultSet rs = createDummyData.executeQuery(selectFBQuery);
             while (rs.next()) {
                 username = rs.getString("username");
             }
@@ -212,6 +210,21 @@ public class AccountController {
             System.out.println(ex.getMessage());
         }
         return username;
+    }
+
+    @RequestMapping(
+            value = "/account",
+            method = {RequestMethod.PUT})
+    public void updateAccount(@RequestBody User user) {
+
+        try (Connection connection = dataSource.getConnection()) {
+            Statement updateUserStatement = connection.createStatement();
+            String updateUserSQL = "UPDATE users set firstName = '" + user.getFirstname() + "' where facebookid = '" + user.getFacebookId() + "'";
+            updateUserStatement.executeQuery(updateUserSQL);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
 
 }
@@ -329,5 +342,5 @@ public class AccountController {
             throw new RuntimeException(e);
         }
     }
-*/
+    */
 

@@ -17,6 +17,7 @@ public class LocationController implements LocationControllerDefinition{
                                  MediaType.APPLICATION_JSON_VALUE } )
     public void trackLocation(@RequestParam Double longitude,
                               @RequestParam Double latitude,
+                              @RequestParam int zipCode,
                               @RequestBody User user) {
 
         /*
@@ -25,7 +26,7 @@ public class LocationController implements LocationControllerDefinition{
         user.setUserName("username");
         */
 
-        locationService.trackLocation(user, longitude, latitude);
+        locationService.trackLocation(user, longitude, latitude, zipCode);
 
     }
 
