@@ -27,7 +27,8 @@ public class LocationService {
                     user.getLocality(),
                     longitude,
                     latitude,
-                    Timestamp.from(Instant.now()));
+                    Timestamp.from(Instant.now()),
+                    zipCode);
 
         logger.info("Tracking Location for user: ", user);
 
