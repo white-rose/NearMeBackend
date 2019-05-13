@@ -73,11 +73,11 @@ public LocationTag(String username, String locality, Double longitude, Double la
         this.timestamp = timestamp;
     }
 
-    public int getZipCode() {
+    public int getzipcode() {
         return this.zipcode;
     }
 
-    public void setZipCode(int zipCode) { this.zipcode = zipCode;
+    public void setzipcode(int zipcode) { this.zipcode = zipcode;
     }
 
 
