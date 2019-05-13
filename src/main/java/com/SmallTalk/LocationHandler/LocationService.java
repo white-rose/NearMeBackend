@@ -20,7 +20,7 @@ public class LocationService {
 
     private Logger logger = LoggerFactory.getLogger(LocationService.class);
 
-    public void trackLocation(User user, Double longitude, Double latitude, int zipCode) {
+    public void trackLocation(User user, Double longitude, Double latitude, int zipcode) {
 
         LocationTag locationTag
                     = new LocationTag(user.getusername(),
@@ -28,7 +28,7 @@ public class LocationService {
                     longitude,
                     latitude,
                     Timestamp.from(Instant.now()),
-                    zipCode);
+                    zipcode);
 
         logger.info("Tracking Location for user: ", user);
 

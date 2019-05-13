@@ -20,17 +20,17 @@ private Double latitude;
 @Id
 private Timestamp timestamp;
 @Column
-private int zipCode;
+private int zipcode;
 
 public LocationTag() {}
 
-public LocationTag(String username, String locality, Double longitude, Double latitude, Timestamp timestamp, int zipCode) {
+public LocationTag(String username, String locality, Double longitude, Double latitude, Timestamp timestamp, int zipcode) {
     this.username = username;
     this.locality = locality;
     this.timestamp = timestamp;
     this.longitude = longitude;
     this.latitude = latitude;
-    this.zipCode = zipCode;
+    this.zipcode = zipcode;
 }
 
     public Double getLongitude() {
@@ -74,10 +74,10 @@ public LocationTag(String username, String locality, Double longitude, Double la
     }
 
     public int getZipCode() {
-        return this.zipCode;
+        return this.zipcode;
     }
 
-    public void setZipCode(int zipCode) { this.zipCode = zipCode;
+    public void setZipCode(int zipCode) { this.zipcode = zipCode;
     }
 
 
