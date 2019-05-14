@@ -1,8 +1,10 @@
 package com.SmallTalk.model.User;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 
 @Entity
 @Table(name = "users")
@@ -69,6 +71,25 @@ public class User {
         this.online = online;
 //        this.birthday = birthday;
 //        this.buildingOccupied = buildingOccupied;
+    }
+
+    @Override
+    public int hashCode() {
+        return firstname.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User otherUser = (User) obj;
+        if (otherUser.firstname == this.firstname)
+            return false;
+        return true;
     }
 
     public User(String facebookId, String firstname, String lastname) {
@@ -173,6 +194,7 @@ public class User {
     public void setLastLocation(String lastLocation) {
         this.lastLocation = lastLocation;
     }
+
 
     @Override
     public String toString() {

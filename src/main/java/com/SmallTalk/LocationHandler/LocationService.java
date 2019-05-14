@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+import java.sql.*;
 import java.time.Instant;
 import java.util.List;
 
@@ -33,6 +33,7 @@ public class LocationService {
         logger.info("Tracking Location for user: ", user);
 
         locationRepository.save(locationTag);
+
 
     }
 

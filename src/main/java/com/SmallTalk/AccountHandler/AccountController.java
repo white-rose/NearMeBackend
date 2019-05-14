@@ -106,25 +106,65 @@ public class AccountController {
     @RequestMapping(
             value = "/pullNearbyUsers",
             method = RequestMethod.POST)
-    private Set<User> pullNearbyUsers(@RequestParam String locality) {
-
+    private Set<User> pullNearbyUsers(@RequestParam String locality, @RequestParam int zipCode) {
         long beginningTime = System.currentTimeMillis();
 
         List<LocationTag> usersNearby = new ArrayList<>();
         final Set<User> nearbyUsers = new TreeSet<>((o1, o2) -> {
-            if (o1.getusername().equals(o2.getusername()))
-                return 0;
-            else
-                return 1;
+          if (o1.getusername().equals(o2.getusername()))
+              return 0;
+          else
+              return 1;
         });
-        
-        if (locality.equals(sanfrancisco))
-            usersNearby = locationService.pullNearbyUsers();
 
-        usersNearby.forEach(user -> nearbyUsers.addAll(accountService.findByUsername(user.getUsername())));
+        Set<User> users = new HashSet();
+
+        // Sort users by most interaction
+
+        try (Connection connection = dataSource.getConnection()) {
+            Statement createDummyData = connection.createStatement();
+            locality = locality.replaceAll(" ", "");
+            String selectQuery = "SELECT * from " + "sanfrancisco";
+            ResultSet rs = createDummyData.executeQuery(selectQuery);
+            while (rs.next()) {
+                String foundZipcode = rs.getString("zipcode");
+
+                // Pull users by
+                // same building
+                // zipCode
+                // locality
+
+                /*
+                    if (bld = bld)
+                    else if ()
+                    else if ()
+                 */
+
+                if (zipCode == Integer.valueOf(foundZipcode)) {
+                    User user = new User();
+                    String firstName = rs.getString("username");
+                    user.setFirstname(firstName);
+                    user.setusername(rs.getString("username"));
+                    users.add(user);
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+//        if (locality.equals(locality))
+//            usersNearby = locationService.pullNearbyUsers();
+
+        ArrayList<User> foundUsers = new ArrayList(users);
+
+        foundUsers.forEach(user -> {
+            List<User> usersFound = accountService.findByUsername(user.getusername());
+            nearbyUsers.addAll(usersFound);
+        });
 
 //        Building userBuilding = currentUser.getBuildingOccupied();
-
 //        if (users.size() > userBuilding.maxCapacity)
 //            System.out.println(userBuilding.name + " has exceeded maximum capacity");
 
