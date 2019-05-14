@@ -4,9 +4,6 @@ import java.util.List;
 
 public class Group {
 
-    private String group;
-    private List<User> users;
-
-
-
+  private String group;
+  private List<User> users;
 }

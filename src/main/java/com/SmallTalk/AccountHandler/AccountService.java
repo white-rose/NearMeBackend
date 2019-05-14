@@ -9,18 +9,14 @@ import java.util.List;
 @Service
 public class AccountService {
 
-    @Autowired
-    AccountRepository accountRepository;
+  @Autowired AccountRepository accountRepository;
 
+  public List<User> pullNearbyUsers() {
 
-    public List<User> pullNearbyUsers() {
+    return accountRepository.findAll();
+  }
 
-        return accountRepository.findAll();
-
-    }
-
-    public List<User> findByUsername(String username) {
-        return accountRepository.findByUsername(username);
-    }
-
+  public List<User> findByUsername(String username) {
+    return accountRepository.findByUsername(username);
+  }
 }

@@ -4,15 +4,13 @@ import java.util.List;
 
 public class Building extends Location {
 
-    public String name;
-    private List<Floor> floors;
-    public int maxCapacity;
-
+  public String name;
+  public int maxCapacity;
+  private List<Floor> floors;
 }
 
 class Floor {
 
-    private int maxCapacity;
-    private List sections;
-
+  private int maxCapacity;
+  private List sections;
 }

@@ -10,206 +10,206 @@ import javax.validation.constraints.Null;
 @Table(name = "users")
 public class User {
 
-    @JsonProperty
-    @Column
-    @Id
-    private String username;
+  @JsonProperty @Column @Id private String username;
 
-    @Column
-    @JsonProperty
-    private String facebookid;
+  @Column @JsonProperty private String facebookid;
 
-    @Column
-    @JsonProperty
-    private String firstname;
+  @Column @JsonProperty private String firstname;
 
-    @Column
-    @JsonProperty
-    private String lastname;
+  @Column @JsonProperty private String lastname;
 
-    @Column
-    private String lastLocation;
+  @Column private String lastLocation;
 
-    @Column
-    @JsonProperty
-    private String school;
+  @Column @JsonProperty private String school;
 
-    @Column
-    @JsonProperty
-    private String sex;
+  @Column @JsonProperty private String sex;
 
-    @Column
-    @JsonProperty
-    private String email;
+  @Column @JsonProperty private String email;
 
-    @Column
-    @JsonProperty
-    private Boolean online;
+  @Column @JsonProperty private Boolean online;
 
-    @Column
-    @JsonProperty
-    private String locality;
+  @Column @JsonProperty private String locality;
 
-    @Column
-    @JsonProperty
-    private String employer;
+  @Column @JsonProperty private String employer;
 
-//    private Date birthday;
-//    private Building buildingOccupied;
+  //    private Date birthday;
+  //    private Building buildingOccupied;
 
-    public User() {}
+  public User() {}
 
-    public User(String facebookId, String firstname, String lastname, String school, String username, String locality, String sex, String email, Boolean online) {
-        this.facebookid = facebookId;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.school = school;
-        this.username = username;
-        this.locality = locality;
-        this.sex = sex;
-        this.email = email;
-        this.online = online;
-//        this.birthday = birthday;
-//        this.buildingOccupied = buildingOccupied;
-    }
+  public User(
+      String facebookId,
+      String firstname,
+      String lastname,
+      String school,
+      String username,
+      String locality,
+      String sex,
+      String email,
+      Boolean online) {
+    this.facebookid = facebookId;
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.school = school;
+    this.username = username;
+    this.locality = locality;
+    this.sex = sex;
+    this.email = email;
+    this.online = online;
+    //        this.birthday = birthday;
+    //        this.buildingOccupied = buildingOccupied;
+  }
 
-    @Override
-    public int hashCode() {
-        return firstname.hashCode();
-    }
+  public User(String facebookId, String firstname, String lastname) {
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User otherUser = (User) obj;
-        if (otherUser.firstname == this.firstname)
-            return false;
-        return true;
-    }
+    this.facebookid = facebookId;
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
 
-    public User(String facebookId, String firstname, String lastname) {
+  @Override
+  public int hashCode() {
+    return firstname.hashCode();
+  }
 
-        this.facebookid = facebookId;
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null) return false;
+    if (getClass() != obj.getClass()) return false;
+    User otherUser = (User) obj;
+    if (otherUser.firstname == this.firstname) return false;
+    return true;
+  }
 
-    public String getusername() {
-        return username;
-    }
+  public String getusername() {
+    return username;
+  }
 
-    public void setusername(String username) {
-        this.username = username;
-    }
+  public void setusername(String username) {
+    this.username = username;
+  }
 
-    public String getFirstname() {
-        return firstname;
-    }
+  public String getFirstname() {
+    return firstname;
+  }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+  public void setFirstname(String firstname) {
+    this.firstname = firstname;
+  }
 
-    public String getLocality() {
-        return locality;
-    }
+  public String getLocality() {
+    return locality;
+  }
 
-    public void setLocality(String locality) {
-        this.locality = locality;
-    }
+  public void setLocality(String locality) {
+    this.locality = locality;
+  }
 
-    public String getSex() {
-        return sex;
-    }
+  public String getSex() {
+    return sex;
+  }
 
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
+  public void setSex(String sex) {
+    this.sex = sex;
+  }
 
-    public String getFacebookId() {
-        return facebookid;
-    }
+  public String getFacebookId() {
+    return facebookid;
+  }
 
-    public void setFacebookId(String facebookId) {
-        this.facebookid = facebookId;
-    }
+  public void setFacebookId(String facebookId) {
+    this.facebookid = facebookId;
+  }
 
-    public Boolean getOnline() {
-        return online;
-    }
+  public Boolean getOnline() {
+    return online;
+  }
 
-    public void setOnline(Boolean online) {
-        this.online = online;
-    }
+  public void setOnline(Boolean online) {
+    this.online = online;
+  }
 
-    public String getSchool() {
-        return school;
-    }
+  public String getSchool() {
+    return school;
+  }
 
-    public void setSchool(String school) {
-        this.school = school;
-    }
+  public void setSchool(String school) {
+    this.school = school;
+  }
 
-    public String getLastname() {
-        return lastname;
-    }
+  public String getLastname() {
+    return lastname;
+  }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+  public void setLastname(String lastname) {
+    this.lastname = lastname;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getEmployer() {
-        return employer;
-    }
+  public String getEmployer() {
+    return employer;
+  }
 
-    public void setEmployer(String employer) {
-        this.employer = employer;
-    }
+  public void setEmployer(String employer) {
+    this.employer = employer;
+  }
 
-    //    public Building getBuildingOccupied() {
-//        return buildingOccupied;
-//    }
-//
-//    public void setBuildingOccupied(Building buildingOccupied) {
-//        this.buildingOccupied = buildingOccupied;
-//    }
+  //    public Building getBuildingOccupied() {
+  //        return buildingOccupied;
+  //    }
+  //
+  //    public void setBuildingOccupied(Building buildingOccupied) {
+  //        this.buildingOccupied = buildingOccupied;
+  //    }
 
-    public String getLastLocation() {
-        return lastLocation;
-    }
+  public String getLastLocation() {
+    return lastLocation;
+  }
 
-    public void setLastLocation(String lastLocation) {
-        this.lastLocation = lastLocation;
-    }
+  public void setLastLocation(String lastLocation) {
+    this.lastLocation = lastLocation;
+  }
 
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "facebookId='" + facebookid + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", school='" + school + '\'' +
-                ", userName='" + username + '\'' +
-                ", locality='" + locality + '\'' +
-                ", sex='" + sex + '\'' +
-                ", email='" + email + '\'' +
-                ", online=" + online +
-//                ", birthday=" + birthday +
-//                ", buildingOccupied=" + buildingOccupied +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "User{"
+        + "facebookId='"
+        + facebookid
+        + '\''
+        + ", firstname='"
+        + firstname
+        + '\''
+        + ", lastname='"
+        + lastname
+        + '\''
+        + ", school='"
+        + school
+        + '\''
+        + ", userName='"
+        + username
+        + '\''
+        + ", locality='"
+        + locality
+        + '\''
+        + ", sex='"
+        + sex
+        + '\''
+        + ", email='"
+        + email
+        + '\''
+        + ", online="
+        + online
+        +
+        //                ", birthday=" + birthday +
+        //                ", buildingOccupied=" + buildingOccupied +
+        '}';
+  }
 }

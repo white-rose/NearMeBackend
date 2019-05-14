@@ -12,24 +12,22 @@ import java.sql.Statement;
 @Component
 public class PostgresUtil {
 
-    @Autowired
-    DataSource dataSource;
+  @Autowired DataSource dataSource;
 
-    Statement statement;
+  Statement statement;
 
-    @Autowired
-    public Statement openPostgresReference() {
-        if (statement == null) {
-            try {
-                return dataSource.getConnection().createStatement();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            return statement;
-        }
-
-        return null;
+  @Autowired
+  public Statement openPostgresReference() {
+    if (statement == null) {
+      try {
+        return dataSource.getConnection().createStatement();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    } else {
+      return statement;
     }
 
+    return null;
+  }
 }
