@@ -2,7 +2,6 @@ package com.SmallTalk.model;
 
 public class FriendRequest {
 
-    public String fromName;
-    public String toName;
-
+  public String fromName;
+  public String toName;
 }

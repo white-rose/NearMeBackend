@@ -15,31 +15,28 @@ import java.util.List;
 @Service
 public class LocationService {
 
-    @Autowired
-    private LocationRepository locationRepository;
+  @Autowired private LocationRepository locationRepository;
 
-    private Logger logger = LoggerFactory.getLogger(LocationService.class);
+  private Logger logger = LoggerFactory.getLogger(LocationService.class);
 
-    public void trackLocation(User user, Double longitude, Double latitude, int zipcode) {
+  public void trackLocation(User user, Double longitude, Double latitude, int zipcode) {
 
-        LocationTag locationTag
-                    = new LocationTag(user.getusername(),
-                    user.getLocality(),
-                    longitude,
-                    latitude,
-                    Timestamp.from(Instant.now()),
-                    zipcode);
+    LocationTag locationTag =
+        new LocationTag(
+            user.getusername(),
+            user.getLocality(),
+            longitude,
+            latitude,
+            Timestamp.from(Instant.now()),
+            zipcode);
 
-        logger.info("Tracking Location for user: ", user);
+    logger.info("Tracking Location for user: ", user);
 
-        locationRepository.save(locationTag);
+    locationRepository.save(locationTag);
+  }
 
-    }
+  public List pullNearbyUsers() {
 
-    public List pullNearbyUsers() {
-
-        return locationRepository.findAll();
-
-    }
-
+    return locationRepository.findAll();
+  }
 }

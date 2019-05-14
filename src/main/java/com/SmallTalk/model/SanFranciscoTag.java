@@ -6,7 +6,13 @@ import java.sql.Timestamp;
 
 public class SanFranciscoTag extends LocationTag {
 
-    public SanFranciscoTag(String username, String locality, Timestamp timestamp, Double longitude, Double latitude, int zipCode) {
-        super(username, locality, latitude, longitude, timestamp, zipCode);
-    }
+  public SanFranciscoTag(
+      String username,
+      String locality,
+      Timestamp timestamp,
+      Double longitude,
+      Double latitude,
+      int zipCode) {
+    super(username, locality, latitude, longitude, timestamp, zipCode);
+  }
 }

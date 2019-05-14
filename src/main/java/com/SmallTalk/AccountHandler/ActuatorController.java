@@ -15,7 +15,8 @@ public class ActuatorController {
   private final AtomicLong counter = new AtomicLong();
 
   /**
-   * <a href="https://cloud.google.com/appengine/docs/flexible/java/how-instances-are-managed#health_checking">
+   * <a
+   * href="https://cloud.google.com/appengine/docs/flexible/java/how-instances-are-managed#health_checking">
    * App Engine health checking</a> requires responding with 200 to {@code /_ah/health}.
    */
   @RequestMapping("/health")
@@ -24,24 +25,21 @@ public class ActuatorController {
     return "Still surviving baby.";
   }
 
-
-  //Send Push Notication to phone
+  // Send Push Notication to phone
   @RequestMapping("/samplePush")
-  public void notification(@RequestParam(value="token") String deviceToken) {
-    ApnsService service = APNS.newService()
-            .withCert("/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12", "Cabinboy23")
+  public void notification(@RequestParam(value = "token") String deviceToken) {
+    ApnsService service =
+        APNS.newService()
+            .withCert(
+                "/Users/nathannguyen/Documents/Code/NearMeBackend/src/main/resources/Certificates.p12",
+                "Cabinboy23")
             .withSandboxDestination()
             .build();
 
-    String payload = APNS.newPayload()
-            .alertBody("Simple!")
-            .alertTitle("Test 123")
-            .build();
+    String payload = APNS.newPayload().alertBody("Simple!").alertTitle("Test 123").build();
 
     deviceToken = "c8ad4e8b7a96943039b3ea89a6a5508bc6426953fdbadfeae06c970b28a495c0";
 
     service.push(deviceToken, payload);
-
   }
-
 }

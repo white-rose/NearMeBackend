@@ -4,7 +4,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 public interface LocationCleanser {
 
-    @Scheduled
-    void cleanse();
-
+  @Scheduled
+  void cleanse();
 }

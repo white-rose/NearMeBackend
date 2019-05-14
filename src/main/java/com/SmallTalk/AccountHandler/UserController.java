@@ -1,7 +1,3 @@
 package com.SmallTalk.AccountHandler;
 
-public interface UserController {
-
-
-
-}
+public interface UserController {}

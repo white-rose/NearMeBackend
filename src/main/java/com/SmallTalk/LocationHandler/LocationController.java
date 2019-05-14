@@ -6,41 +6,42 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class LocationController implements LocationControllerDefinition{
+public class LocationController implements LocationControllerDefinition {
 
-    @Autowired
-    private LocationService locationService;
+  @Autowired private LocationService locationService;
 
-    @RequestMapping(value = "/track",
-                    method = RequestMethod.POST,
-                    consumes = { MediaType.APPLICATION_JSON_UTF8_VALUE,
-                                 MediaType.APPLICATION_JSON_VALUE } )
-    public void trackLocation(@RequestParam Double longitude,
-                              @RequestParam Double latitude,
-                              @RequestParam int zipCode,
-                              @RequestBody User user) {
+  @RequestMapping(
+    value = "/track",
+    method = RequestMethod.POST,
+    consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_JSON_VALUE}
+  )
+  public void trackLocation(
+      @RequestParam Double longitude,
+      @RequestParam Double latitude,
+      @RequestParam int zipCode,
+      @RequestBody User user) {
 
-        locationService.trackLocation(user, longitude, latitude, zipCode);
+    locationService.trackLocation(user, longitude, latitude, zipCode);
+  }
 
-    }
+  // @Override
+  //    @Scheduled(fixedRate = 5000)
+  // public void cleanse() {
 
-    //@Override
-//    @Scheduled(fixedRate = 5000)
-    //public void cleanse() {
+  //        try {
+  //            Connection connection = dataSource.getConnection();
+  //            Statement locationStmt = connection.createStatement();
+  //            LocalDate today = LocalDate.now();
+  //            String yesterday = today.minusDays(1).toString();
+  //
+  //            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + yesterday +
+  // "'; ";
+  //            locationStmt.executeUpdate(updateLocationSQL);
+  //            connection.close();
+  //        } catch (SQLException e) {
+  //            e.printStackTrace();
+  //        }
 
-//        try {
-//            Connection connection = dataSource.getConnection();
-//            Statement locationStmt = connection.createStatement();
-//            LocalDate today = LocalDate.now();
-//            String yesterday = today.minusDays(1).toString();
-//
-//            String updateLocationSQL = "DELETE FROM sanfrancisco WHERE time < '" + yesterday + "'; ";
-//            locationStmt.executeUpdate(updateLocationSQL);
-//            connection.close();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-
-    //}
+  // }
 
 }
