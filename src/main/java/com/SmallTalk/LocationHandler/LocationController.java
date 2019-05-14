@@ -20,15 +20,7 @@ public class LocationController implements LocationControllerDefinition{
                               @RequestParam int zipCode,
                               @RequestBody User user) {
 
-        /*
-        User user = new User();
-        user.setLocality("random");
-        user.setUserName("username");
-        */
-
         locationService.trackLocation(user, longitude, latitude, zipCode);
-
-
 
     }
 

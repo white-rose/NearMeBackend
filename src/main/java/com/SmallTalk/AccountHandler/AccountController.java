@@ -118,6 +118,7 @@ public class AccountController {
         });
 
         Set<User> users = new HashSet();
+        List<LocationTag> previousCheckIns = new ArrayList<>();
 
         // Sort users by most interaction
 
@@ -127,26 +128,12 @@ public class AccountController {
             String selectQuery = "SELECT * from " + "sanfrancisco";
             ResultSet rs = createDummyData.executeQuery(selectQuery);
             while (rs.next()) {
-                String foundZipcode = rs.getString("zipcode");
 
-                // Pull users by
-                // same building
-                // zipCode
-                // locality
-
-                /*
-                    if (bld = bld)
-                    else if ()
-                    else if ()
-                 */
-
-                if (zipCode == Integer.valueOf(foundZipcode)) {
-                    User user = new User();
-                    String firstName = rs.getString("username");
-                    user.setFirstname(firstName);
-                    user.setusername(rs.getString("username"));
-                    users.add(user);
-                }
+                LocationTag locationTag = new LocationTag();
+                if (rs.getString("zipcode") != null)
+                    locationTag.setzipcode(Integer.valueOf(rs.getString("zipcode")));
+                locationTag.setUsername(rs.getString("username"));
+                previousCheckIns.add(locationTag);
 
             }
 
@@ -154,14 +141,11 @@ public class AccountController {
             System.out.println(ex.getMessage());
         }
 
-//        if (locality.equals(locality))
-//            usersNearby = locationService.pullNearbyUsers();
-
-        ArrayList<User> foundUsers = new ArrayList(users);
-
-        foundUsers.forEach(user -> {
-            List<User> usersFound = accountService.findByUsername(user.getusername());
-            nearbyUsers.addAll(usersFound);
+        previousCheckIns.forEach(locationTag -> {
+            List<User> usersFound = accountService.findByUsername(locationTag.getUsername());
+            if (locationTag.getzipcode() == zipCode) {
+                nearbyUsers.addAll(usersFound);
+            }
         });
 
 //        Building userBuilding = currentUser.getBuildingOccupied();
