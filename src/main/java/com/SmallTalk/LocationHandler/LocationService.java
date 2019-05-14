@@ -34,7 +34,6 @@ public class LocationService {
 
         locationRepository.save(locationTag);
 
-
     }
 
     public List pullNearbyUsers() {
