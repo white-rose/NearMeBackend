@@ -1,8 +1,9 @@
 package com.SmallTalk.model.Location;
 
-import com.SmallTalk.model.User.User;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Entity
@@ -79,8 +80,5 @@ public LocationTag(String username, String locality, Double longitude, Double la
 
     public void setzipcode(int zipcode) { this.zipcode = zipcode;
     }
-
-
-
 
 }

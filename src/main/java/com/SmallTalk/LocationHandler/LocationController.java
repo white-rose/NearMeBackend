@@ -28,6 +28,8 @@ public class LocationController implements LocationControllerDefinition{
 
         locationService.trackLocation(user, longitude, latitude, zipCode);
 
+
+
     }
 
     //@Override
