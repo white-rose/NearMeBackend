@@ -30,7 +30,7 @@ public class User {
 
   @Column @JsonProperty private String employer;
 
-  @Column private String lastLocation
+  @Column private String lastLocation;
 
   //    private Date birthday;
   //    private Building buildingOccupied;
