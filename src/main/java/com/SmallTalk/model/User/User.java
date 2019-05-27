@@ -18,8 +18,6 @@ public class User {
 
   @Column @JsonProperty private String lastname;
 
-  @Column private String lastLocation;
-
   @Column @JsonProperty private String school;
 
   @Column @JsonProperty private String sex;
@@ -31,6 +29,8 @@ public class User {
   @Column @JsonProperty private String locality;
 
   @Column @JsonProperty private String employer;
+
+  @Column private String lastLocation;
 
   //    private Date birthday;
   //    private Building buildingOccupied;

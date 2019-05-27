@@ -39,6 +39,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <appengine.maven.plugin>1.0.0</appengine.maven.plugin>
         <!--<kotlin.version>1.1.60</kotlin.version>-->
+        <kotlin.version>1.2.71</kotlin.version>
     </properties>
 
     <dependencies>
@@ -150,6 +151,17 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jre8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -190,6 +202,43 @@
                 </executions>
             </plugin>
 
+            <!-- START plugin -->
+            <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>gcloud-maven-plugin</artifactId>
+                <version>2.0.9.121.v20160815</version>
+                <configuration>
+                    <gcloud_directory>/Users/nathannguyen/Documents/Code/google-cloud-sdk</gcloud_directory>
+                    <!--<verbosity>debug</verbosity>-->
+                    <!--<version>specific_version</version>-->
+                    <!--<log_level>info</log_level>-->
+                    <!--<max_module_instances>2</max_module_instances>-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jvmTarget>1.8</jvmTarget>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -209,20 +258,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <!-- START plugin -->
-            <plugin>
-                <groupId>com.google.appengine</groupId>
-                <artifactId>gcloud-maven-plugin</artifactId>
-                <version>2.0.9.121.v20160815</version>
-                <configuration>
-                    <gcloud_directory>/Users/nathannguyen/Documents/Code/google-cloud-sdk</gcloud_directory>
-                    <!--<verbosity>debug</verbosity>-->
-                    <!--<version>specific_version</version>-->
-                    <!--<log_level>info</log_level>-->
-                    <!--<max_module_instances>2</max_module_instances>-->
-                </configuration>
             </plugin>
 
             <!--  <plugin>

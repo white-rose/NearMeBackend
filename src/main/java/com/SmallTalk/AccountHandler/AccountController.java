@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.sql.DataSource;
+import javax.websocket.server.PathParam;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Component
@@ -161,6 +158,27 @@ public class AccountController {
   }
 
   @RequestMapping(
+          value = "/sync",
+          method = {RequestMethod.POST}
+  )
+  public String pullDetails(@RequestBody User user) {
+    String username = "";
+    try (Connection connection = dataSource.getConnection()) {
+      Statement createDummyData = connection.createStatement();
+      String selectFBQuery =
+              "SELECT username FROM users where facebookId = '" + user.getFacebookId() + "';";
+      ResultSet rs = createDummyData.executeQuery(selectFBQuery);
+      while (rs.next()) {
+        username = rs.getString("username");
+      }
+      System.out.println(username);
+    } catch (SQLException ex) {
+      System.out.println(ex.getMessage());
+    }
+    return username;
+  }
+
+  @RequestMapping(
     value = "/updateOnlineStatus",
     method = {RequestMethod.POST}
   )
@@ -185,21 +203,29 @@ public class AccountController {
     value = "/updateLocation",
     method = {RequestMethod.POST}
   )
-  private void updateLocation(@RequestBody User user) throws SQLException {
+  private void updateLocation(@RequestParam Double longitude,
+                              @RequestParam Double latitude,
+                              @RequestBody User user) throws SQLException {
     try (Connection connection = dataSource.getConnection()) {
       Statement createDummyData = connection.createStatement();
 
       logger.info(user.toString());
 
+//      ﻿    INSERT into sanfrancisco (username, locality, longitude, latitude)
+//      VALUES('SFNATHAN', 'HOME', 12.1234, 45.4564);
+
       String insertQuery =
-          "INSERT INTO SANFRANCISCO (username, locality, timestamp) VALUES ("
+          "INSERT INTO SANFRANCISCO (username, locality, longitude, latitude, timestamp) VALUES ("
               + "'"
               + user.getusername()
               + "',"
               + "'"
               + user.getLocality()
               + "',"
-              + "'"
+              + latitude
+              + ","
+              + longitude
+              + ",'"
               + LocalDate.now().toString()
               + "');";
       createDummyData.executeUpdate(insertQuery);
@@ -233,27 +259,6 @@ public class AccountController {
           "UPDATE users set online = true where facebookId = '" + user.getFacebookId() + "'";
       updateOnlineStmt.executeUpdate(onlineUpdate);
     }
-  }
-
-  @RequestMapping(
-    value = "/sync",
-    method = {RequestMethod.POST}
-  )
-  public String pullDetails(@RequestBody User user) {
-    String username = "";
-    try (Connection connection = dataSource.getConnection()) {
-      Statement createDummyData = connection.createStatement();
-      String selectFBQuery =
-          "SELECT username FROM users where facebookId = '" + user.getFacebookId() + "';";
-      ResultSet rs = createDummyData.executeQuery(selectFBQuery);
-      while (rs.next()) {
-        username = rs.getString("username");
-      }
-      System.out.println(username);
-    } catch (SQLException ex) {
-      System.out.println(ex.getMessage());
-    }
-    return username;
   }
 
   @RequestMapping(
