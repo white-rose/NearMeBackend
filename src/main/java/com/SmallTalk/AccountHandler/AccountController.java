@@ -33,8 +33,8 @@ public class AccountController {
   static final String accounts = "accounts";
   static final String sanfrancisco = "SanFrancisco";
 
-  //  @Autowired
-  //  PostgresUtil postgresUtil;
+  // @Autowired
+  // PostgresUtil postgresUtil;
   // TODO: Do not expose API Keys
   // AWS Credentials
   private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
@@ -210,9 +210,6 @@ public class AccountController {
       Statement createDummyData = connection.createStatement();
 
       logger.info(user.toString());
-
-//      ﻿    INSERT into sanfrancisco (username, locality, longitude, latitude)
-//      VALUES('SFNATHAN', 'HOME', 12.1234, 45.4564);
 
       String insertQuery =
           "INSERT INTO SANFRANCISCO (username, locality, longitude, latitude, timestamp) VALUES ("
