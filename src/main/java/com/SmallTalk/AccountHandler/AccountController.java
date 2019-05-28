@@ -37,8 +37,6 @@ public class AccountController {
   // PostgresUtil postgresUtil;
   // TODO: Do not expose API Keys
   // AWS Credentials
-  private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
-  private static final String secretKey = "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";
   // Google API key
   private static final String apiKey = "AIzaSyDRY4sVjebmsBJsvu4fwXKTgVnOEBfIWnY";
   @Autowired LocationService locationService;
