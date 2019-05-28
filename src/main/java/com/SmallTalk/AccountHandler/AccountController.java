@@ -212,7 +212,7 @@ public class AccountController {
       logger.info(user.toString());
 
       String insertQuery =
-          "INSERT INTO SANFRANCISCO (username, locality, building, longitude, latitude, zipcode, timestamp) VALUES ("
+          "INSERT INTO SANFRANCISCO (username, locality, building, lattiude, longitude, zipcode, timestamp) VALUES ("
               + "'"
               + user.getusername()
               + "','"
