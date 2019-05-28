@@ -33,8 +33,8 @@ public class AccountController {
   static final String accounts = "accounts";
   static final String sanfrancisco = "SanFrancisco";
 
-  //  @Autowired
-  //  PostgresUtil postgresUtil;
+  // @Autowired
+  // PostgresUtil postgresUtil;
   // TODO: Do not expose API Keys
   // AWS Credentials
   private static final String accessKey = "AKIAIKMJOWW23COVBKAA";
@@ -205,26 +205,28 @@ public class AccountController {
   )
   private void updateLocation(@RequestParam Double longitude,
                               @RequestParam Double latitude,
+                              @RequestParam int zipCode,
+                              @RequestParam String building,
                               @RequestBody User user) throws SQLException {
     try (Connection connection = dataSource.getConnection()) {
       Statement createDummyData = connection.createStatement();
 
       logger.info(user.toString());
 
-//      ﻿    INSERT into sanfrancisco (username, locality, longitude, latitude)
-//      VALUES('SFNATHAN', 'HOME', 12.1234, 45.4564);
-
       String insertQuery =
-          "INSERT INTO SANFRANCISCO (username, locality, longitude, latitude, timestamp) VALUES ("
+          "INSERT INTO SANFRANCISCO (username, locality, building, longitude, latitude, zipcode, timestamp) VALUES ("
               + "'"
               + user.getusername()
-              + "',"
-              + "'"
+              + "','"
               + user.getLocality()
+              + "','"
+              + building
               + "',"
               + latitude
               + ","
               + longitude
+              + ","
+              + zipCode
               + ",'"
               + LocalDate.now().toString()
               + "');";
