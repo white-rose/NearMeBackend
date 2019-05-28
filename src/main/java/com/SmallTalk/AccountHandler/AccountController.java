@@ -205,6 +205,8 @@ public class AccountController {
   )
   private void updateLocation(@RequestParam Double longitude,
                               @RequestParam Double latitude,
+                              @RequestParam int zipCode,
+                              @RequestParam String building,
                               @RequestBody User user) throws SQLException {
     try (Connection connection = dataSource.getConnection()) {
       Statement createDummyData = connection.createStatement();
@@ -212,16 +214,19 @@ public class AccountController {
       logger.info(user.toString());
 
       String insertQuery =
-          "INSERT INTO SANFRANCISCO (username, locality, longitude, latitude, timestamp) VALUES ("
+          "INSERT INTO SANFRANCISCO (username, locality, building, longitude, latitude, zipcode, timestamp) VALUES ("
               + "'"
               + user.getusername()
-              + "',"
-              + "'"
+              + "','"
               + user.getLocality()
+              + "','"
+              + building
               + "',"
               + latitude
               + ","
               + longitude
+              + ","
+              + zipCode
               + ",'"
               + LocalDate.now().toString()
               + "');";
